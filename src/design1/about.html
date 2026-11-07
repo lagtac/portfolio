@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Dimitris Chrysomalis</title>
+  <meta name="description" content="Fullstack engineer in Greece. Laravel, Python, FastAPI, and the data pipelines between them.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About — Dimitris Chrysomalis">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:description" content="Fullstack engineer. I build the parts of AI products that users never see.">
+  <meta name="theme-color" content="#f1eee6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/literata-normal-200-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-normal-100-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var pref = localStorage.getItem("dc-theme") || "system";
+        var dark = pref === "dark" || (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.dataset.themePref = pref;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="fonts/fonts.css?v=1">
+  <link rel="stylesheet" href="css/tokens.css?v=1">
+  <link rel="stylesheet" href="css/base.css?v=1">
+  <link rel="stylesheet" href="css/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">DC</span>
+        <span class="brand__name">Dimitris Chrysomalis</span>
+        <span class="brand__role">Fullstack engineer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link" href="index.html#work">Work</a>
+        <a class="nav__link" href="about.html" aria-current="page">About</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="case-head">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>About</p>
+        <h1>Dimitris<br>Chrysomalis</h1>
+        <p class="case-head__lead lede">Fullstack engineer. I build the parts of AI products that users never see, and then the part they do.</p>
+      </div>
+    </header>
+
+    <section class="wrap">
+      <div class="about-grid">
+        <aside class="about-side">
+          <div class="record">
+            <p class="record__label">Record</p>
+            <dl>
+              <div>
+                <dt>Name</dt>
+                <dd>Dimitris Chrysomalis</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd>Fullstack engineer</dd>
+              </div>
+              <div>
+                <dt>Based</dt>
+                <dd>Greece · remote</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Clinical and data-heavy products</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Open to fullstack roles</dd>
+              </div>
+            </dl>
+          </div>
+        </aside>
+
+        <div class="about-body prose">
+          <p>Since July 2025 I have been the only developer on Diagoradisa, a medical imaging platform for oral pathology. I built the annotation tool, the dataset pipeline, the model service, and the clinician app. That meant owning the deploy script, the database migrations, the API contract, and the test that catches the regression six months later.</p>
+          <p>Most of my work sits where the interesting failures are: the boundary between an annotation tool and a training dataset, or between a model server and the app a clinician actually uses. I like systems that can be inspected. Run IDs, dated reports, explicit contracts. Not because process is virtuous, but because that is what makes a bug findable after the context is gone.</p>
+          <p>I work across PHP and Laravel, Python and FastAPI, and the frontend. I am comfortable being the person who reads the changelog, reproduces the bad result, and then deletes the feature that did not earn its place. The case study on this site is the long version of that sentence.</p>
+          <p>I live in Greece with my wife and son. I am looking for a fullstack role where the data is messy and the users are real.</p>
+
+          <h2 class="about-subhead">Tools I reach for</h2>
+          <div class="tools">
+            <div class="tool-group">
+              <h3>Backend</h3>
+              <ul>
+                <li>PHP 8.5, Laravel 12</li>
+                <li>Livewire 4, Blade</li>
+                <li>MariaDB, SQLite</li>
+                <li>REST, policies, queues</li>
+              </ul>
+            </div>
+            <div class="tool-group">
+              <h3>ML and data</h3>
+              <ul>
+                <li>Python, FastAPI</li>
+                <li>Ultralytics YOLO</li>
+                <li>pytest, evaluation reports</li>
+                <li>Dataset export and splits</li>
+              </ul>
+            </div>
+            <div class="tool-group">
+              <h3>Frontend and ops</h3>
+              <ul>
+                <li>Tailwind 4, DaisyUI 5</li>
+                <li>Vanilla JS, Alpine</li>
+                <li>Docker, Apache, Bash</li>
+                <li>Git, CI, deploy scripts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact__inner">
+        <h2>Tell me what you're building.</h2>
+        <div class="contact__right">
+          <p class="small muted">I answer every message from a real person. A short description of the problem is more useful than a job title.</p>
+          <a class="contact__link" href="mailto:dchrysomallis@bookscanner.gr">dchrysomallis@bookscanner.gr</a>
+          <p class="small subtle">Greece · remote</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomalis</p>
+      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <p><a href="design/index.html">Design system</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=2" defer></script>
+</body>
+</html>

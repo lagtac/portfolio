@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dimitris Chrysomalis — Fullstack engineer</title>
+  <meta name="description" content="Fullstack engineer. Annotation tools, dataset pipelines, model serving, and clinician-facing apps. Sole developer of Diagoradisa, a four-service oral pathology platform.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dimitris Chrysomalis — Fullstack engineer">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:description" content="AI products are mostly plumbing. I build the plumbing.">
+  <meta name="theme-color" content="#f1eee6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/literata-normal-200-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-normal-100-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var pref = localStorage.getItem("dc-theme") || "system";
+        var dark = pref === "dark" || (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.dataset.themePref = pref;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="fonts/fonts.css?v=1">
+  <link rel="stylesheet" href="css/tokens.css?v=1">
+  <link rel="stylesheet" href="css/base.css?v=1">
+  <link rel="stylesheet" href="css/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">DC</span>
+        <span class="brand__name">Dimitris Chrysomalis</span>
+        <span class="brand__role">Fullstack engineer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="about.html">About</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Dimitris Chrysomalis · Fullstack engineer</p>
+        <h1 class="hero__title">AI products are mostly <em>plumbing.</em><br>I build the plumbing.</h1>
+        <div class="hero__grid">
+          <div>
+            <p class="hero__lead lede">Annotation tools, dataset pipelines, model serving, and the clinician-facing app. Since July 2025 I have been the sole developer of Diagoradisa, a four-service oral pathology platform.</p>
+            <div class="hero__actions">
+              <a class="btn" href="work/diagoradisa.html">Read the case study <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="about.html">About me</a>
+            </div>
+          </div>
+          <figure class="hero__figure">
+            <img src="img/palmist-results.webp" width="1200" height="542" alt="Palmist prediction results screen showing a case-level diagnosis of leukoplakia, detected in four of four views." fetchpriority="high">
+            <figcaption><span>Fig. 01 — Palmist, case result</span><span>4 / 4 views agree</span></figcaption>
+          </figure>
+        </div>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt class="fact__label">Services</dt>
+            <dd class="fact__value">4</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Classes in production</dt>
+            <dd class="fact__value">18</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Commits, all authored</dt>
+            <dd class="fact__value">1,629</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Images in the corpus</dt>
+            <dd class="fact__value">10,575</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">§ 01 — Selected work</p>
+          <h2>One system, four services.</h2>
+          <p class="section-head__note">The only project on the site so far. It is enough to show the range.</p>
+        </header>
+
+        <a class="work-card" href="work/diagoradisa.html">
+          <figure class="figure">
+            <div class="figure__frame">
+              <img src="img/annotator-editor.webp" width="1600" height="819" alt="Diagoradisa annotator: a dental photograph with a polygon annotation, a tool rail on the left, and patient and disease panels on the right." loading="lazy">
+            </div>
+            <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>Annotator editor: deep zoom, polygon tool, ICD-10 labels, batch progress.</span></figcaption>
+          </figure>
+          <div class="work-card__body">
+            <span class="work-card__index">01 / CASE STUDY</span>
+            <h3 class="work-card__title">Diagoradisa</h3>
+            <p class="work-card__desc">A clinical image platform that takes a photograph from upload to a labelled diagnosis: annotate, export, train, serve, predict.</p>
+            <dl class="work-card__facts">
+              <div>
+                <dt>Role</dt>
+                <dd>Sole developer</dd>
+              </div>
+              <div>
+                <dt>Period</dt>
+                <dd>Jul 2025 — Oct 2026</dd>
+              </div>
+              <div>
+                <dt>Stack</dt>
+                <dd>Laravel, Python, FastAPI, YOLO</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>In production since Aug 2025</dd>
+              </div>
+            </dl>
+            <span class="work-card__cta">Open case study <span class="btn__arrow" aria-hidden="true">→</span></span>
+            <p class="work-card__note">Includes the three things that went wrong, and what they cost.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">§ 02 — Method</p>
+          <h2>How I work.</h2>
+          <p class="section-head__note">Three habits the case study can actually evidence.</p>
+        </header>
+
+        <div class="method">
+          <article class="method__item">
+            <span class="method__num">01</span>
+            <h3>Measure before you claim.</h3>
+            <p>Every number on this site comes from a run, a test split, or a dated report. Where the result was bad, it says so.</p>
+          </article>
+          <article class="method__item">
+            <span class="method__num">02</span>
+            <h3>Own the seams.</h3>
+            <p>Four services only work if the contracts between them are explicit. The dataset export and the API schema are the two places I watched hardest.</p>
+          </article>
+          <article class="method__item">
+            <span class="method__num">03</span>
+            <h3>Delete what doesn't earn its place.</h3>
+            <p>I shipped a clinical gate system, A/B tested it on 210 cases, found no benefit, and removed it — flag, API fields and all.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact__inner">
+        <h2>Let's talk about the unglamorous parts.</h2>
+        <div class="contact__right">
+          <p class="small muted">The fastest way to reach me is email. I answer every message from a real person.</p>
+          <a class="contact__link" href="mailto:dchrysomallis@bookscanner.gr">dchrysomallis@bookscanner.gr</a>
+          <p class="small subtle">Greece · remote</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomalis</p>
+      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <p><a href="design/index.html">Design system</a></p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=2" defer></script>
+</body>
+</html>

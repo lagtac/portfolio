@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design system — Dimitris Chrysomalis</title>
+  <meta name="description" content="Case Record: the tokens, type, and components behind this site.">
+  <meta name="theme-color" content="#f1eee6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../fonts/literata-normal-200-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/ibm-plex-sans-normal-100-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var pref = localStorage.getItem("dc-theme") || "system";
+        var dark = pref === "dark" || (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.dataset.themePref = pref;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="../fonts/fonts.css?v=1">
+  <link rel="stylesheet" href="../css/tokens.css?v=1">
+  <link rel="stylesheet" href="../css/base.css?v=1">
+  <link rel="stylesheet" href="../css/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__mark" aria-hidden="true">DC</span>
+        <span class="brand__name">Dimitris Chrysomalis</span>
+        <span class="brand__role">Fullstack engineer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../about.html">About</a>
+        <a class="nav__link" href="../index.html#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="design-head wrap">
+      <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Design system · v1</p>
+      <h1>Case Record</h1>
+      <p class="lede">A portfolio as a case file: paper, rules, measured claims, and one vermilion mark. This page is the reference for the tokens and components the site uses.</p>
+    </header>
+
+    <section class="section wrap">
+      <header class="section-head">
+        <p class="eyebrow">§ 01 — Colour</p>
+        <h2>Surfaces and marks.</h2>
+        <p class="section-head__note">Semantic tokens, not hex values in components. Switch the theme to see both sets.</p>
+      </header>
+
+      <div class="swatches">
+        <div class="swatch"><div class="swatch__chip" style="background: var(--paper)"></div><span class="swatch__name">--paper</span><span class="swatch__value">page</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--paper-2)"></div><span class="swatch__name">--paper-2</span><span class="swatch__value">raised</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--paper-3)"></div><span class="swatch__name">--paper-3</span><span class="swatch__value">sunken</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--ink)"></div><span class="swatch__name">--ink</span><span class="swatch__value">body</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--ink-2)"></div><span class="swatch__name">--ink-2</span><span class="swatch__value">secondary</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--ink-3)"></div><span class="swatch__name">--ink-3</span><span class="swatch__value">metadata</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--rule)"></div><span class="swatch__name">--rule</span><span class="swatch__value">hairline</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--rule-2)"></div><span class="swatch__name">--rule-2</span><span class="swatch__value">strong rule</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--mark)"></div><span class="swatch__name">--mark</span><span class="swatch__value">accent</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--good)"></div><span class="swatch__name">--good</span><span class="swatch__value">correct</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--warn)"></div><span class="swatch__name">--warn</span><span class="swatch__value">caution</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--bad)"></div><span class="swatch__name">--bad</span><span class="swatch__value">wrong</span></div>
+        <div class="swatch"><div class="swatch__chip" style="background: var(--info)"></div><span class="swatch__name">--info</span><span class="swatch__value">neutral data</span></div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <header class="section-head">
+        <p class="eyebrow">§ 02 — Type</p>
+        <h2>Three faces, three jobs.</h2>
+        <p class="section-head__note">Display serif for claims, sans for reading, mono for evidence. Both text faces carry Greek.</p>
+      </header>
+
+      <div class="specimen">
+        <p class="specimen__label">Display · Literata 500 · -0.03em</p>
+        <p class="specimen__display">Measure before you claim.</p>
+      </div>
+      <div class="specimen">
+        <p class="specimen__label">Heading 2 · Literata 500</p>
+        <h2>Three services in the request path.</h2>
+      </div>
+      <div class="specimen">
+        <p class="specimen__label">Body · Plex Sans 400 · 17 / 1.65</p>
+        <p class="prose">The model must be allowed to say nothing. A confident wrong answer is worse than no answer. That requirement shaped the aggregation rules and the UI.</p>
+      </div>
+      <div class="specimen">
+        <p class="specimen__label">Data · Plex Mono 400</p>
+        <p class="mono">box mAP@50 0.508 · recall 0.496 · run 20260614_181629</p>
+        <p class="small" lang="el">ΛΕΥΚΟΠΛΑΚΙΑ · ΟΜΑΛΟΣ ΛΕΙΧΗΝΑΣ · ΒΛΕΝΝΟΚΥΣΤΗ <span class="subtle">— Greek labels render in Plex Sans</span></p>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <header class="section-head">
+        <p class="eyebrow">§ 03 — Components</p>
+        <h2>The working parts.</h2>
+        <p class="section-head__note">Sharp corners, hairline rules, and a 44 px minimum target.</p>
+      </header>
+
+      <div class="component-row">
+        <a class="btn" href="../work/diagoradisa.html">Read the case study <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="../index.html">Ghost button</a>
+      </div>
+
+      <div class="component-row">
+        <span class="tag">Laravel</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">YOLO26</span>
+      </div>
+
+      <div class="component-row">
+        <span class="badge badge--good">Correct</span>
+        <span class="badge badge--warn">Medium</span>
+        <span class="badge badge--bad">Wrong</span>
+        <span class="badge">No diagnosis</span>
+      </div>
+
+      <p class="note"><strong>Notes carry the honest caveat.</strong> Ten cases is a product test, not a validation study. The left rule is the only decoration the system allows itself.</p>
+
+      <div class="table-wrap" style="margin-top: 2rem">
+        <table class="case-table">
+          <thead>
+            <tr>
+              <th scope="col">Case</th>
+              <th scope="col">Ground truth</th>
+              <th scope="col">Model output</th>
+              <th scope="col" class="conf">Best</th>
+              <th scope="col">Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Case"><span class="mono">01</span></td>
+              <td data-label="Ground truth" class="gt">Leukoplakia <span lang="el">ΛΕΥΚΟΠΛΑΚΙΑ</span></td>
+              <td data-label="Model output">Leukoplakia</td>
+              <td data-label="Best" class="num conf">94.1%</td>
+              <td data-label="Verdict"><span class="badge badge--good">Correct</span></td>
+            </tr>
+            <tr>
+              <td data-label="Case"><span class="mono">04</span></td>
+              <td data-label="Ground truth" class="gt">Stevens–Johnson syndrome <span lang="el">ΣΥΝΔΡΟΜΟ STEVENS–JOHNSON</span></td>
+              <td data-label="Model output">Oral lichen planus</td>
+              <td data-label="Best" class="num conf">89.1%</td>
+              <td data-label="Verdict"><span class="badge badge--bad">Wrong</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <header class="section-head">
+        <p class="eyebrow">§ 04 — Rules</p>
+        <h2>What the system refuses to do.</h2>
+      </header>
+      <div class="prose">
+        <ul>
+          <li>No colour without a word. Every status badge carries its label.</li>
+          <li>No motion on text being read. Reveals are 12 px and happen once.</li>
+          <li>No more than one accent. Vermilion means active, linked, or measured.</li>
+          <li>No number without a source. The case study cites the run or the report.</li>
+          <li>No body copy wider than 68 characters.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomalis</p>
+      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <p><a href="../index.html">Home</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/site.js?v=2" defer></script>
+</body>
+</html>
