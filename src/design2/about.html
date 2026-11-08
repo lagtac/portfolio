@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      window.setTimeout(function () {
+        if (!window.__siteReady) document.documentElement.classList.remove("js");
+      }, 2000);
+    })();
+  </script>
+  <title>About — Dimitris Chrysomallis</title>
+  <meta name="description" content="Dimitris Chrysomallis is a fullstack developer in Athens. Background in content, corporate web, and AI products. Currently building Waypoint and learning TypeScript and React.">
+  <meta name="author" content="Dimitris Chrysomallis">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About — Dimitris Chrysomallis">
+  <meta property="og:description" content="Generalist by history. Fullstack by practice. Athens, Greece.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090b0a">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/instrument-sans-normal-400_700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/instrument-serif-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css?v=15">
+  <link rel="stylesheet" href="css/tokens.css?v=15">
+  <link rel="stylesheet" href="css/base.css?v=15">
+  <link rel="stylesheet" href="css/site.css?v=15">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap site-head__inner">
+      <a class="brand" href="index.html" aria-label="Dimitris Chrysomallis, home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Dimitris Chrysomallis</span>
+          <span class="brand__role">Fullstack engineer</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link" href="index.html#work">Work</a>
+        <a class="nav__link" href="index.html#method">Method</a>
+        <a class="nav__link" href="index.html#evidence">Evidence</a>
+        <a class="nav__link" href="about.html" aria-current="page">About</a>
+        <a class="nav__link nav__cta" href="mailto:dxrysom@gmail.com">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <header class="about-hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>About / Dimitris Chrysomallis</p>
+        <h1>Generalist by history. <em>Fullstack</em> by practice.</h1>
+        <p class="lede about-hero__lead">I am a full-stack developer in Athens. I have spent most of my career making content and applications meet, and most recently building a clinical AI product end to end.</p>
+
+        <dl class="about-facts">
+          <div>
+            <dt>Based</dt>
+            <dd>Athens, Greece</dd>
+          </div>
+          <div>
+            <dt>Currently</dt>
+            <dd>Waypoint · TypeScript, React</dd>
+          </div>
+          <div>
+            <dt>Previously</dt>
+            <dd>KPMG Greece · EPIS</dd>
+          </div>
+          <div>
+            <dt>Education</dt>
+            <dd>MS Cognitive Science · BS Philosophy</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="history-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">01</span> / History</p>
+          <h2 id="history-title" data-split>How I got here.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__years">2026 —</p>
+            <div class="timeline__body">
+              <h3>Waypoint</h3>
+              <p>A shipment admin panel. I am building it to learn TypeScript and React in a real product, not in a tutorial.</p>
+            </div>
+          </article>
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__years">2025–2026</p>
+            <div class="timeline__body">
+              <h3>Bookscanner · Diagoradisa</h3>
+              <p>Sole developer of a four-service clinical AI platform: annotator, ML service, Palmist, and the deployment layer. In production since August 2025.</p>
+            </div>
+          </article>
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__years">2010–2018</p>
+            <div class="timeline__body">
+              <h3>KPMG Greece</h3>
+              <p>Content manager and developer. I owned the firm's online estate: public sites, intranet, and client-facing and internal web apps. AEM, the SharePoint 2013 migration, Umbraco, and ASP.NET MVC.</p>
+            </div>
+          </article>
+          <article class="timeline__item" data-reveal>
+            <p class="timeline__years">2004–2009</p>
+            <div class="timeline__body">
+              <h3>EPIS</h3>
+              <p>Client and organisational projects, including the digital archive of the Greek National Opera.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tools-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">02</span> / Tools</p>
+          <h2 id="tools-title" data-split>What I work with.</h2>
+        </div>
+        <div class="tools">
+          <div class="tools__group">
+            <h3>Backend</h3>
+            <p>PHP (Laravel 12, Livewire 4), C# / ASP.NET, Python (FastAPI).</p>
+          </div>
+          <div class="tools__group">
+            <h3>Frontend</h3>
+            <p>HTML5, CSS, TypeScript, JavaScript, React (learning), Tailwind, DaisyUI.</p>
+          </div>
+          <div class="tools__group">
+            <h3>Data</h3>
+            <p>MariaDB, MySQL, SQL Server. YOLO instance segmentation, Weights &amp; Biases.</p>
+          </div>
+          <div class="tools__group">
+            <h3>Delivery</h3>
+            <p>Docker, Git, Bash, GitLab CI, Apache, Linux.</p>
+          </div>
+          <div class="tools__group">
+            <h3>Content</h3>
+            <p>AEM, SharePoint, Umbraco. Information architecture, editorial standards, Greek and English.</p>
+          </div>
+          <div class="tools__group">
+            <h3>Practice</h3>
+            <p>UX research, technical writing, and the unglamorous work of keeping four services consistent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="learning-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">03</span> / Learning</p>
+          <h2 id="learning-title" data-split>What I'm learning.</h2>
+        </div>
+        <div class="prose">
+          <p>TypeScript and React, through Waypoint. Vitest next, once there is enough surface to test. I would rather say "learning" than pad a list with things I have read about.</p>
+          <p>The rest of the stack is production experience: Laravel, Livewire, Python, FastAPI, Docker, and the clinical product in the case study.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact__grid">
+        <h2 id="contact-title">Let's talk about the <em>unglamorous parts.</em></h2>
+        <div class="contact__body">
+          <a class="contact__mail" href="mailto:dxrysom@gmail.com">dxrysom@gmail.com <span aria-hidden="true">↗</span></a>
+          <p class="contact__note">Open to fullstack roles<br>Athens, Greece or remote</p>
+          <div class="contact__links">
+            <a class="link mono" href="https://www.linkedin.com/in/dimitris-chrysomallis/" rel="me">LinkedIn ↗</a>
+            <a class="link mono" href="work/diagoradisa.html">Case study ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap site-foot__inner">
+      <span>© 2026 Dimitris Chrysomallis</span>
+      <span>Athens, Greece</span>
+      <span>HTML, CSS, GSAP, Lenis. No trackers.</span>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+  <script defer src="js/site.js?v=15"></script>
+</body>
+</html>

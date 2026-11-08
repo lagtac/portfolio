@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      window.setTimeout(function () {
+        if (!window.__siteReady) document.documentElement.classList.remove("js");
+      }, 2000);
+    })();
+  </script>
+  <title>Diagoradisa — a four-service clinical AI platform | Dimitris Chrysomallis</title>
+  <meta name="description" content="Case study: Diagoradisa, an annotation tool, dataset pipeline, model server, and clinician app built as one system. Four services, one developer, three documented failures.">
+  <meta name="author" content="Dimitris Chrysomallis">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Diagoradisa — the system around the model">
+  <meta property="og:description" content="An annotation tool, a dataset pipeline, a model server, and a clinician app, built as one system. Four services, one developer.">
+  <meta property="og:image" content="../img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090b0a">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../fonts/instrument-sans-normal-400_700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/instrument-serif-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css?v=15">
+  <link rel="stylesheet" href="../css/tokens.css?v=15">
+  <link rel="stylesheet" href="../css/base.css?v=15">
+  <link rel="stylesheet" href="../css/site.css?v=15">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap site-head__inner">
+      <a class="brand" href="../index.html" aria-label="Dimitris Chrysomallis, home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Dimitris Chrysomallis</span>
+          <span class="brand__role">Fullstack engineer</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link nav__link--current" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#method">Method</a>
+        <a class="nav__link" href="../index.html#evidence">Evidence</a>
+        <a class="nav__link" href="../about.html">About</a>
+        <a class="nav__link nav__cta" href="mailto:dxrysom@gmail.com">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="case-hero">
+        <div class="wrap">
+          <div class="case-hero__top">
+            <div>
+              <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Case study 01 / Clinical AI platform</p>
+              <h1>The system around the <em>model.</em></h1>
+            </div>
+            <p class="lede case-hero__lead">Diagoradisa takes a clinical photograph from upload to a case-level suggestion. Four services, one developer, in production since August 2025.</p>
+          </div>
+
+          <dl class="case-meta">
+            <div>
+              <dt>Role</dt>
+              <dd>Sole developer</dd>
+            </div>
+            <div>
+              <dt>Period</dt>
+              <dd>Jul 2025 — Oct 2026</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>In production since Aug 2025</dd>
+            </div>
+            <div>
+              <dt>Services</dt>
+              <dd>Four, one repository each</dd>
+            </div>
+          </dl>
+          <p class="case-meta__stack">Laravel 12 · Livewire 4 · PHP 8.5 · Python · FastAPI · YOLO26l-seg · MariaDB · Docker · Apache</p>
+
+          <figure class="case-media">
+            <img src="../img/annotator-editor.webp" width="1338" height="819" alt="Annotator editor: a dental photograph with a polygon annotation on the lesion, and annotation tools on the left." fetchpriority="high">
+            <span class="ticks" aria-hidden="true">
+              <span class="tick tick--tl"></span>
+              <span class="tick tick--tr"></span>
+              <span class="tick tick--bl"></span>
+              <span class="tick tick--br"></span>
+            </span>
+            <figcaption>Fig. 01 — Annotator: polygon annotation, image controls, and the case queue.</figcaption>
+          </figure>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="context-title">
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">01</span> / Context</p>
+            <h2 id="context-title" data-split>What it is.</h2>
+          </div>
+          <div>
+            <div class="prose">
+              <p>Diagoradisa is a clinical AI platform for oral pathology. A clinician uploads one or more photographs of a lesion. The platform stores them, routes them through a Python model service, aggregates detections across views, and produces a case-level suggestion and a report.</p>
+              <p>The model is a tool, not an oracle. The interface shows the images, the views analysed, and the confidence. The clinician makes the call.</p>
+            </div>
+            <blockquote class="pullquote">An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="constraints-title">
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">02</span> / Constraints</p>
+            <h2 id="constraints-title" data-split>What made it hard.</h2>
+          </div>
+          <div class="constraints">
+            <article class="constraint" data-reveal>
+              <p class="constraint__num">01</p>
+              <div>
+                <h3>One developer.</h3>
+                <p>Four repositories, 1,629 commits, no handoff. The annotator, the ML service, the clinician app, and the deployment layer were all mine.</p>
+              </div>
+            </article>
+            <article class="constraint" data-reveal>
+              <p class="constraint__num">02</p>
+              <div>
+                <h3>Clinical safety.</h3>
+                <p>A wrong suggestion is worse than no suggestion. The system has to show its work: the image, the views, the confidence, and the misses.</p>
+              </div>
+            </article>
+            <article class="constraint" data-reveal>
+              <p class="constraint__num">03</p>
+              <div>
+                <h3>Small, imbalanced data.</h3>
+                <p>18 classes survived the 150-image minimum. The readiness preview lists 64 dropped classes. The tail is the hard part, and more architecture does not fix it.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="architecture-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">03</span> / Architecture</p>
+            <div class="section-head__body">
+              <h2 id="architecture-title" data-split>Four services, three contracts.</h2>
+              <p class="section-head__note">Every service owns one job. The seams are explicit, because that is where one-person systems usually fail.</p>
+            </div>
+          </header>
+
+          <ol class="arch">
+            <li class="arch__node">
+              <span class="arch__num">01</span>
+              <h3 class="arch__name">Annotator</h3>
+              <p class="arch__role">Dataset creation</p>
+              <p class="arch__stack">Laravel 12<br>OpenSeadragon · Annotorious<br>MariaDB</p>
+            </li>
+            <li class="arch__node">
+              <span class="arch__num">02</span>
+              <h3 class="arch__name">ML service</h3>
+              <p class="arch__role">Training and inference</p>
+              <p class="arch__stack">Python · FastAPI<br>Ultralytics YOLO<br>29 endpoints</p>
+            </li>
+            <li class="arch__node">
+              <span class="arch__num">03</span>
+              <h3 class="arch__name">Palmist</h3>
+              <p class="arch__role">Clinician surface</p>
+              <p class="arch__stack">Laravel 12 · Livewire 4<br>Tailwind 4 · DaisyUI 5<br>PDF · Excel</p>
+            </li>
+            <li class="arch__node">
+              <span class="arch__num">04</span>
+              <h3 class="arch__name">Meta</h3>
+              <p class="arch__role">Infrastructure</p>
+              <p class="arch__stack">Docker · Apache<br>Bash<br>Backups · headers</p>
+            </li>
+          </ol>
+          <p class="arch-note">Contracts: the annotator exports EXIF-normalised images and labels. The ML service returns checkpoints and predictions. Palmist sends images and receives detections. Meta wraps all four.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="surfaces-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">04</span> / Surfaces</p>
+            <div class="section-head__body">
+              <h2 id="surfaces-title" data-split>Four surfaces, one workflow.</h2>
+              <p class="section-head__note">The same case moves through annotation, training, inference, and reporting. These are the screens where that happens.</p>
+            </div>
+          </header>
+
+          <div class="surface">
+            <figure class="surface__media">
+              <img src="../img/annotator-detail.webp" width="1000" height="720" alt="Annotator crop showing the tissue and polygon tools beside a lesion marked with a polygon." loading="lazy">
+              <figcaption>Annotator · polygon tool and tissue label</figcaption>
+            </figure>
+            <div>
+              <h3>Annotator</h3>
+              <p class="surface__role">Dataset creation</p>
+              <p>A production tool for marking lesions at speed, with the guardrails a clinical dataset needs.</p>
+              <ul class="proof">
+                <li>Deep zoom on OpenSeadragon; polygon and rectangle annotation.</li>
+                <li>ICD-10 lookup with Greek and English labels.</li>
+                <li>Batches, role-based access, and per-image progress.</li>
+                <li>ML-readiness dashboard for class balance and export.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="surface surface--flip">
+            <figure class="surface__media">
+              <img src="../img/ml-readiness.webp" width="1400" height="980" alt="ML readiness dashboard showing images, annotations, class count, the export cascade, and the train/validation/test split." loading="lazy">
+              <figcaption>ML readiness preview · export cascade and 18 surviving classes</figcaption>
+            </figure>
+            <div>
+              <h3>ML service</h3>
+              <p class="surface__role">Training and inference</p>
+              <p>The model is served, not baked into the app. Runs and checkpoints are first-class objects, so a model can be compared, assessed, and swapped.</p>
+              <ul class="proof">
+                <li>29 API endpoints for upload, prediction, runs, and reports.</li>
+                <li>Run and experiment model with compare and assess reports.</li>
+                <li>Model hot-swap without a redeploy.</li>
+                <li>SAM 2 endpoint for assisted masks.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="surface">
+            <div class="surface__media surface__media--pair">
+              <figure>
+                <img src="../img/palmist-result.webp" width="1200" height="542" alt="Palmist case result with a primary diagnosis of leukoplakia and four of four views agreeing." loading="lazy">
+                <figcaption>Case result · four views agree</figcaption>
+              </figure>
+              <figure>
+                <img src="../img/palmist-upload.webp" width="442" height="720" alt="Palmist upload panel for dental images with take-photo, files, drag-and-drop, and analyse actions." loading="lazy">
+                <figcaption>Mobile capture</figcaption>
+              </figure>
+            </div>
+            <div>
+              <h3>Palmist</h3>
+              <p class="surface__role">Clinician surface</p>
+              <p>The part the clinician touches. Upload, review, decide, export. It has to work on a phone at the chair.</p>
+              <ul class="proof">
+                <li>Multi-image case upload, up to ten views.</li>
+                <li>Case-level aggregation across views.</li>
+                <li>PDF and Excel reports.</li>
+                <li>Greek and English labels, including <span lang="el" class="lang-el">ΛΕΥΚΟΠΛΑΚΙΑ</span>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="surface surface--flip">
+            <div class="surface__media surface__media--facts">
+              <dl>
+                <div><dt>Deploys</dt><dd>Container builds, Apache, migrations.</dd></div>
+                <div><dt>Proxy</dt><dd>Reverse proxy and security headers.</dd></div>
+                <div><dt>Backups</dt><dd>Scheduled database and file backups.</dd></div>
+                <div><dt>Scope</dt><dd>Four services, one deployment path.</dd></div>
+              </dl>
+            </div>
+            <div>
+              <h3>Meta</h3>
+              <p class="surface__role">Infrastructure</p>
+              <p>The unglamorous layer that keeps the other three honest. If a deploy needs a manual step, it is not finished.</p>
+              <ul class="proof">
+                <li>Container deploys and reverse proxy.</li>
+                <li>Backups, security headers, and migrations.</li>
+                <li>One path from commit to running service.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="failures-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">05</span> / Failures</p>
+            <div class="section-head__body">
+              <h2 id="failures-title" data-split>Three things that did not work.</h2>
+              <p class="section-head__note">The part most portfolios leave out. Each one changed the system.</p>
+            </div>
+          </header>
+
+          <div class="failures">
+            <article class="failure" data-reveal>
+              <p class="failure__num">01</p>
+              <div>
+                <p class="failure__evidence">754 / 10,575 images · 7.1% · +0.048 box mAP@50 · +0.073 recall</p>
+                <h3>EXIF orientation corrupted 7.1% of labels.</h3>
+                <p>A quarter-turn in the camera metadata moved the lesion but not the polygon. The compare report showed masks that no longer sat on the image. It was not a model bug; the labels were wrong before training.</p>
+                <p>I normalised every image to its EXIF-applied size, rebuilt the dataset, and retrained. The fix lifted box mAP@50 from 0.460 to 0.508 and recall from 0.423 to 0.496.</p>
+                <p class="failure__result"><b>Result:</b> clean labels, and a check that now runs before every export.</p>
+              </div>
+            </article>
+
+            <article class="failure" data-reveal>
+              <p class="failure__num">02</p>
+              <div>
+                <p class="failure__evidence">four lever sweeps · RF-DETR NO-GO · 51 vs 12 background false positives</p>
+                <h3>Detection recall plateaued at ~0.49.</h3>
+                <p>I swept four levers: label-space collapse, size diagnostics, a 1024 px retrain, and lichen reweighting. All four closed without a durable gain. The next hypothesis was architecture, so I A/B tested RF-DETR against YOLO on clean ground truth.</p>
+                <p>RF-DETR produced 51 background false positives against YOLO's 12. That was a NO-GO. The conclusion was to acquire data, not change architecture.</p>
+                <p class="failure__result"><b>Result:</b> the model stayed, the data plan changed.</p>
+              </div>
+            </article>
+
+            <article class="failure" data-reveal>
+              <p class="failure__num">03</p>
+              <div>
+                <p class="failure__evidence">ON/OFF A/B · 210 cases · ~0.6% of detections touched</p>
+                <h3>A clinical safety layer added no value.</h3>
+                <p>I shipped a gate engine that was meant to suppress risky detections. An on/off A/B on 210 cases showed it touched about 0.6% of detections and produced no net benefit. A safety feature that does not change outcomes is still a maintenance cost.</p>
+                <p>I removed the gate engine, the flag, the API fields, and the loader. It was gone on 16 June 2026.</p>
+                <p class="failure__result"><b>Result:</b> less code, and a clearer product.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="evidence" aria-labelledby="evidence-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">06</span> / Evidence</p>
+            <div class="section-head__body">
+              <h2 id="evidence-title" data-split>The clean test set.</h2>
+              <p class="section-head__note">876 images held out from training. The production operating point is confidence 0.25.</p>
+            </div>
+          </header>
+
+          <dl class="metrics" data-reveal>
+            <div class="metric">
+              <dt>Box mAP@50</dt>
+              <dd>0.508</dd>
+            </div>
+            <div class="metric">
+              <dt>Mask mAP@50</dt>
+              <dd>0.514</dd>
+            </div>
+            <div class="metric">
+              <dt>Precision</dt>
+              <dd>0.620</dd>
+            </div>
+            <div class="metric">
+              <dt>Recall</dt>
+              <dd>0.455</dd>
+            </div>
+          </dl>
+
+          <dl class="model-facts" data-reveal>
+            <div>
+              <dt>Model</dt>
+              <dd>yolo26l-seg</dd>
+            </div>
+            <div>
+              <dt>Input / epochs</dt>
+              <dd>640 px / 250</dd>
+            </div>
+            <div>
+              <dt>Split</dt>
+              <dd>8,774 images · 6,143 train / 1,755 val / 876 test</dd>
+            </div>
+            <div>
+              <dt>Dataset</dt>
+              <dd>10,575 images · 9,362 annotations · 18 classes</dd>
+            </div>
+            <div class="model-facts__wide">
+              <dt>Run</dt>
+              <dd class="mono">yolo26l-seg_640_b32_lr0.005_e250_20260614_181629</dd>
+            </div>
+          </dl>
+
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Ten-case clinical test results">
+            <table class="data">
+              <caption>Ten-case clinical test · product test, not a validation study</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Ground truth</th>
+                  <th scope="col">Model output</th>
+                  <th scope="col">Best conf</th>
+                  <th scope="col">Views</th>
+                  <th scope="col">Tier</th>
+                  <th scope="col">Verdict</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td data-label="#">1</td><td data-label="Ground truth">Leukoplakia</td><td data-label="Model output">Leukoplakia</td><td data-label="Best conf">94.1</td><td data-label="Views">4 / 4</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--good"><i></i>Correct</span></td></tr>
+                <tr><td data-label="#">2</td><td data-label="Ground truth">Oral lichen planus</td><td data-label="Model output">Oral lichen planus</td><td data-label="Best conf">71.5</td><td data-label="Views">2 / 6</td><td data-label="Tier">MEDIUM</td><td data-label="Verdict"><span class="badge badge--good"><i></i>Correct</span></td></tr>
+                <tr><td data-label="#">3</td><td data-label="Ground truth">Mucocele</td><td data-label="Model output">Mucocele</td><td data-label="Best conf">93.4</td><td data-label="Views">3 / 3</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--good"><i></i>Correct</span></td></tr>
+                <tr><td data-label="#">4</td><td data-label="Ground truth">Stevens–Johnson syndrome</td><td data-label="Model output">Oral lichen planus</td><td data-label="Best conf">89.1</td><td data-label="Views">2 / 3</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--bad"><i></i>Wrong</span></td></tr>
+                <tr><td data-label="#">5</td><td data-label="Ground truth">Fibroma</td><td data-label="Model output">Papilloma</td><td data-label="Best conf">87.9</td><td data-label="Views">3 / 3</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--bad"><i></i>Wrong</span></td></tr>
+                <tr><td data-label="#">6</td><td data-label="Ground truth">Chronic traumatic ulcer</td><td data-label="Model output">None</td><td data-label="Best conf">58.1</td><td data-label="Views">0 / 2</td><td data-label="Tier">LOW</td><td data-label="Verdict"><span class="badge badge--none"><i></i>No diagnosis</span></td></tr>
+                <tr><td data-label="#">7</td><td data-label="Ground truth">Aphthous ulcers</td><td data-label="Model output">None</td><td data-label="Best conf">77.3</td><td data-label="Views">0 / 4</td><td data-label="Tier">LOW</td><td data-label="Verdict"><span class="badge badge--none"><i></i>No diagnosis</span></td></tr>
+                <tr><td data-label="#">8</td><td data-label="Ground truth">Geographic tongue</td><td data-label="Model output">Oral lichen planus</td><td data-label="Best conf">93.1</td><td data-label="Views">3 / 4</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--bad"><i></i>Wrong</span></td></tr>
+                <tr><td data-label="#">9</td><td data-label="Ground truth">Leukoplakia</td><td data-label="Model output">None</td><td data-label="Best conf">0.0</td><td data-label="Views">0 / 2</td><td data-label="Tier">LOW</td><td data-label="Verdict"><span class="badge badge--none"><i></i>No diagnosis</span></td></tr>
+                <tr><td data-label="#">10</td><td data-label="Ground truth">Traumatic ulcer + leukoplakia</td><td data-label="Model output">Leukoplakia</td><td data-label="Best conf">93.2</td><td data-label="Views">4 / 4</td><td data-label="Tier">HIGH</td><td data-label="Verdict"><span class="badge badge--good"><i></i>Correct (partial)</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Ten cases is a product test, not a validation study. The model is bimodal: it fires above 85% or not at all. Verdicts follow the case result, not a re-scored threshold.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="next-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="section__label">07</span> / Next</p>
+            <div class="section-head__body">
+              <h2 id="next-title" data-split>What I would do next.</h2>
+              <p class="section-head__note">The architecture is not the bottleneck. These are the next three moves.</p>
+            </div>
+          </header>
+
+          <div class="next">
+            <article class="next__item" data-reveal>
+              <p class="next__num">01</p>
+              <h3>Acquire data in the tail.</h3>
+              <p>The plateau was not an architecture problem; the RF-DETR A/B confirmed it. The next gain is more images and better coverage of rare classes.</p>
+            </article>
+            <article class="next__item" data-reveal>
+              <p class="next__num">02</p>
+              <h3>Run a proper validation study.</h3>
+              <p>Ten cases is a product test. An independent, larger set would turn the numbers into a claim.</p>
+            </article>
+            <article class="next__item" data-reveal>
+              <p class="next__num">03</p>
+              <h3>Keep the clinician in the loop.</h3>
+              <p>Show the views, the confidence, and the misses. A suggestion the clinician can audit is more useful than a confident one.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap contact__grid">
+          <h2 id="contact-title">Let's talk about the <em>unglamorous parts.</em></h2>
+          <div class="contact__body">
+            <a class="contact__mail" href="mailto:dxrysom@gmail.com">dxrysom@gmail.com <span aria-hidden="true">↗</span></a>
+            <p class="contact__note">Open to fullstack roles<br>Athens, Greece or remote</p>
+            <div class="contact__links">
+              <a class="link mono" href="https://www.linkedin.com/in/dimitris-chrysomallis/" rel="me">LinkedIn ↗</a>
+              <a class="link mono" href="../about.html">About ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap site-foot__inner">
+      <span>© 2026 Dimitris Chrysomallis</span>
+      <span>Case study · Diagoradisa</span>
+      <span>Numbers trace to primary sources</span>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+  <script defer src="../js/site.js?v=15"></script>
+</body>
+</html>
