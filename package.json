@@ -1,0 +1,32 @@
+{
+	"name": "portfolio",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "playwright test",
+		"test:a11y": "playwright test --project=mobile --project=tablet --project=desktop",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"check": "biome check .",
+		"prepare": "husky"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.18.0",
+			"onFail": "download"
+		}
+	},
+	"packageManager": "pnpm@12.18.0",
+	"type": "module",
+	"devDependencies": {
+		"@axe-core/playwright": "4.14.0",
+		"@biomejs/biome": "2.6.6",
+		"@playwright/test": "1.65.0",
+		"husky": "^9.1.7"
+	}
+}
