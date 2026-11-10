@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dimitris Chrysomalis — Fullstack engineer</title>
+  <meta name="description" content="Fullstack engineer. An annotation tool, a dataset pipeline, a model server, and a clinician app, built as one system. Sole developer of Diagoradisa since July 2025.">
+  <meta name="theme-color" content="#e6eaed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070d12" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      document.documentElement.classList.add("js");
+      try {
+        const pref = localStorage.getItem("dc-theme") || "system";
+        const dark = pref === "dark" || (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.dataset.themePref = pref;
+      } catch (_e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/experiment.css?v=8">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">DC</span>
+        <span class="brand__text">
+          <span class="brand__name">Dimitris Chrysomalis</span>
+          <span class="brand__role">Fullstack engineer</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="nav-toggle__open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M20 7H4M20 12H4M20 17H4"/></svg>
+        <svg class="nav-toggle__close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22C7.286 22 4.929 22 3.464 20.536 2 19.071 2 16.714 2 12S2 4.929 3.464 3.464C4.929 2 7.286 2 12 2s7.071 0 8.536 1.464C22 4.929 22 7.286 22 12s0 7.071-1.464 8.536C19.071 22 16.714 22 12 22Z"/><path d="M14.5 9.5 12 12l-2.5 2.5M9.5 9.5 12 12l2.5 2.5"/></svg>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#method">Method</a>
+        <a class="nav__link" href="#evidence">Evidence</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22C17.523 22 22 17.523 22 12S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"/><path d="M12 22c-1.463 0-2.536-.26-3.464-1.187C7.6 19.884 7 18.416 7 15.5c0-2.916.6-4.384 1.536-5.313C9.464 9.26 10.537 9 12 9c1.463 0 2.536.26 3.464 1.187C16.4 11.116 17 12.584 17 15.5c0 2.916-.6 4.384-1.536 5.313C14.536 21.74 13.463 22 12 22Z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Dimitris Chrysomalis · Fullstack engineer</p>
+
+        <h1 class="hero__title" id="hero-title" data-split>AI products are mostly plumbing. I build the plumbing.</h1>
+
+        <div class="hero__grid">
+          <p class="hero__lead lede">An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system. That system is Diagoradisa. I have been its sole developer since July 2025, and it has been in production since August 2025.</p>
+          <div class="hero__actions">
+            <a class="btn" href="../../design1/work/diagoradisa.html">Read the case study
+              <svg class="btn__icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 18l6-6-6-6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#method">See how I work</a>
+          </div>
+        </div>
+
+        <figure class="schematic" aria-labelledby="sch-caption">
+          <section class="schematic__scroll" aria-label="System schematic, scrollable horizontally">
+            <svg class="schematic__svg" viewBox="0 0 1200 460" role="img" aria-labelledby="sch-title sch-desc">
+              <title id="sch-title">The four services of Diagoradisa and the contracts between them</title>
+              <desc id="sch-desc">Annotator creates the dataset, exports it to the ML service, which serves predictions to the Palmist clinician app. Meta runs underneath all three as infrastructure.</desc>
+
+              <g class="sch-reg" aria-hidden="true">
+                <path d="M40 40h28M40 40v28"/>
+                <path d="M1160 40h-28M1160 40v28"/>
+                <path d="M40 420h28M40 420v-28"/>
+                <path d="M1160 420h-28M1160 420v-28"/>
+              </g>
+
+              <!-- pipes -->
+              <g class="sch-pipe" aria-hidden="true">
+                <line class="sch-pipe__base" x1="340" y1="145" x2="450" y2="145"/>
+                <line class="sch-pipe__base" x1="750" y1="145" x2="860" y2="145"/>
+                <path class="sch-pipe__head" d="M444 139l6 6-6 6"/>
+                <path class="sch-pipe__head" d="M854 139l6 6-6 6"/>
+                <line class="sch-pipe__flow" x1="340" y1="145" x2="450" y2="145"/>
+                <line class="sch-pipe__flow" x1="750" y1="145" x2="860" y2="145"/>
+                <line class="sch-tick" x1="190" y1="220" x2="190" y2="330"/>
+                <line class="sch-tick" x1="600" y1="220" x2="600" y2="330"/>
+                <line class="sch-tick" x1="1010" y1="220" x2="1010" y2="330"/>
+                <circle class="sch-flow-dot" cx="190" cy="275" r="4"/>
+                <circle class="sch-flow-dot" cx="600" cy="275" r="4"/>
+                <circle class="sch-flow-dot" cx="1010" cy="275" r="4"/>
+              </g>
+
+              <text class="sch-pipe__label" x="395" y="132" text-anchor="middle" aria-hidden="true">export</text>
+              <text class="sch-pipe__label" x="805" y="132" text-anchor="middle" aria-hidden="true">prediction</text>
+
+              <!-- nodes -->
+              <g class="sch-node" transform="translate(40 70)" aria-hidden="true">
+                <rect class="sch-node__box" x="0" y="0" width="300" height="150"/>
+                <text class="sch-node__index" x="24" y="38">01</text>
+                <text class="sch-node__name" x="24" y="82">Annotator</text>
+                <text class="sch-node__role" x="24" y="110">Dataset creation</text>
+                <text class="sch-node__stack" x="24" y="136">Laravel · OpenSeadragon</text>
+              </g>
+              <g class="sch-node" transform="translate(450 70)" aria-hidden="true">
+                <rect class="sch-node__box" x="0" y="0" width="300" height="150"/>
+                <text class="sch-node__index" x="24" y="38">02</text>
+                <text class="sch-node__name" x="24" y="82">ML service</text>
+                <text class="sch-node__role" x="24" y="110">Training and inference</text>
+                <text class="sch-node__stack" x="24" y="136">Python · YOLO26l-seg · FastAPI</text>
+              </g>
+              <g class="sch-node" transform="translate(860 70)" aria-hidden="true">
+                <rect class="sch-node__box" x="0" y="0" width="300" height="150"/>
+                <text class="sch-node__index" x="24" y="38">03</text>
+                <text class="sch-node__name" x="24" y="82">Palmist</text>
+                <text class="sch-node__role" x="24" y="110">Clinician surface</text>
+                <text class="sch-node__stack" x="24" y="136">Laravel · Livewire 4</text>
+              </g>
+
+              <!-- infra rail -->
+              <g class="sch-rail" aria-hidden="true">
+                <rect class="sch-rail__box" x="40" y="330" width="1120" height="70"/>
+                <text class="sch-rail__index" x="64" y="373">04</text>
+                <text class="sch-rail__name" x="108" y="373">Meta</text>
+                <text class="sch-rail__role" x="188" y="373">Infrastructure · container deploys, reverse proxy, backups, migrations</text>
+              </g>
+            </svg>
+          </section>
+          <figcaption class="schematic__cap" id="sch-caption">
+            <span>Fig. 01 — The lines are contracts: a dataset export from Annotator, a prediction API from the ML service.</span>
+            <span class="schematic__hint" aria-hidden="true">Scroll the schematic sideways →</span>
+          </figcaption>
+        </figure>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt class="fact__label">Services</dt>
+            <dd class="fact__value" data-count="4">4</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Classes in production</dt>
+            <dd class="fact__value" data-count="18">18</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Commits, one author</dt>
+            <dd class="fact__value" data-count="1629">1,629</dd>
+          </div>
+          <div class="fact">
+            <dt class="fact__label">Images in the dataset</dt>
+            <dd class="fact__value" data-count="10575">10,575</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">§ 01 — Selected work</p>
+          <h2 id="work-title" data-split>One system, four services.</h2>
+          <p class="section-head__note">One project so far. The case study covers all four services, and the three things that went wrong.</p>
+        </header>
+
+        <a class="work-card" href="../../design1/work/diagoradisa.html" aria-labelledby="work-card-title work-card-cta">
+          <figure class="figure">
+            <div class="figure__frame">
+              <img src="../../design1/img/annotator-editor.webp" width="1600" height="819" alt="Diagoradisa annotator: an intraoral photograph with a drawn polygon annotation, a tool rail on the left, and patient and disease panels on the right." loading="lazy">
+            </div>
+            <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>Annotator editor: deep zoom, polygon tool, ICD-10 lookup, batches.</span></figcaption>
+          </figure>
+          <div class="work-card__body">
+            <span class="work-card__index">01 / Case study</span>
+            <h3 class="work-card__title" id="work-card-title">Diagoradisa</h3>
+            <p class="work-card__desc">A clinical AI platform that takes a case from upload to a diagnosis: annotate, export, train, serve, predict.</p>
+            <dl class="work-card__facts">
+              <div><dt>Role</dt><dd>Sole developer</dd></div>
+              <div><dt>Period</dt><dd>Jul 2025 — Oct 2026</dd></div>
+              <div><dt>Stack</dt><dd>Laravel, Python, FastAPI, YOLO26l-seg</dd></div>
+              <div><dt>Status</dt><dd>In production since Aug 2025</dd></div>
+            </dl>
+            <span class="work-card__cta" id="work-card-cta">Read the case study
+              <svg class="btn__icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M18 15V6H9"/></svg>
+            </span>
+            <p class="work-card__note">Includes the three things that went wrong, and how each was caught.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="method" aria-labelledby="method-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">§ 02 — Method</p>
+          <h2 id="method-title" data-split>How I work.</h2>
+          <p class="section-head__note">Three habits, each with evidence in the case study.</p>
+        </header>
+
+        <div class="method">
+          <article class="method__item">
+            <span class="method__num" aria-hidden="true">01</span>
+            <h3>Measure before you claim.</h3>
+            <p>Every number on this page comes from a run, a test split, or a dated report. Where a result was bad, I say so.</p>
+          </article>
+          <article class="method__item">
+            <span class="method__num" aria-hidden="true">02</span>
+            <h3>Own the seams.</h3>
+            <p>Four services work only if the contracts between them are explicit. The dataset export and the prediction API are the two seams I watch hardest.</p>
+          </article>
+          <article class="method__item">
+            <span class="method__num" aria-hidden="true">03</span>
+            <h3>Delete what doesn't earn its place.</h3>
+            <p>I shipped a clinical gate engine, A/B tested it on 210 cases, found it touched about 0.6% of detections with no net benefit, and removed it — flag, API fields and all.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">§ 03 — Evidence</p>
+          <h2 id="evidence-title" data-split>Ten cases, four right.</h2>
+          <p class="section-head__note">Ten cases is a product test, not a validation study.</p>
+        </header>
+
+        <div class="verdicts">
+          <div class="verdict">
+            <span class="verdict__value verdict__value--good" data-count="4">4</span>
+            <span class="verdict__label">correct</span>
+          </div>
+          <div class="verdict">
+            <span class="verdict__value verdict__value--bad" data-count="3">3</span>
+            <span class="verdict__label">wrong</span>
+          </div>
+          <div class="verdict">
+            <span class="verdict__value verdict__value--none" data-count="3">3</span>
+            <span class="verdict__label">no diagnosis</span>
+          </div>
+          <p class="verdicts__note">Tiers: 6 high, 1 medium, 3 low. The model is bimodal — it fires above 85% confidence or not at all.</p>
+        </div>
+
+        <dl class="metrics">
+          <div class="metric"><dt>Box mAP@50</dt><dd>0.508</dd></div>
+          <div class="metric"><dt>Mask mAP@50</dt><dd>0.514</dd></div>
+          <div class="metric"><dt>Precision at conf 0.25</dt><dd>0.620</dd></div>
+          <div class="metric"><dt>Recall at conf 0.25</dt><dd>0.455</dd></div>
+        </dl>
+        <p class="metrics__note">Clean test set, 876 images. Run <code>yolo26l-seg_640_b32_lr0.005_e250_20260614_181629</code>.</p>
+
+        <section class="table-scroll" aria-label="Clinical test results, scrollable">
+          <table class="cases">
+            <caption class="visually-hidden">Clinical test: ten cases with ground truth, model output, best confidence, tier, and verdict</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ground truth</th>
+                <th scope="col">Model output</th>
+                <th scope="col">Conf</th>
+                <th scope="col">Tier</th>
+                <th scope="col">Verdict</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Leukoplakia</td><td>Leukoplakia</td><td>94.1</td><td>HIGH</td><td><span class="chip chip--good">correct</span></td></tr>
+              <tr><td>2</td><td>Oral lichen planus</td><td>Oral lichen planus</td><td>71.5</td><td>MEDIUM</td><td><span class="chip chip--good">correct</span></td></tr>
+              <tr><td>3</td><td>Mucocele</td><td>Mucocele</td><td>93.4</td><td>HIGH</td><td><span class="chip chip--good">correct</span></td></tr>
+              <tr><td>4</td><td>Stevens–Johnson syndrome</td><td>Oral lichen planus</td><td>89.1</td><td>HIGH</td><td><span class="chip chip--bad">wrong</span></td></tr>
+              <tr><td>5</td><td>Fibroma</td><td>Papilloma</td><td>87.9</td><td>HIGH</td><td><span class="chip chip--bad">wrong</span></td></tr>
+              <tr><td>6</td><td>Chronic traumatic ulcer</td><td>none</td><td>58.1</td><td>LOW</td><td><span class="chip">no diagnosis</span></td></tr>
+              <tr><td>7</td><td>Aphthous ulcers</td><td>none</td><td>77.3</td><td>LOW</td><td><span class="chip">no diagnosis</span></td></tr>
+              <tr><td>8</td><td>Geographic tongue</td><td>Oral lichen planus</td><td>93.1</td><td>HIGH</td><td><span class="chip chip--bad">wrong</span></td></tr>
+              <tr><td>9</td><td>Leukoplakia</td><td>none</td><td>0.0</td><td>LOW</td><td><span class="chip">no diagnosis</span></td></tr>
+              <tr><td>10</td><td>Traumatic ulcer + leukoplakia</td><td>Leukoplakia</td><td>93.2</td><td>HIGH</td><td><span class="chip chip--good">correct (partial)</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <figure class="figure figure--wide">
+          <div class="figure__frame">
+            <img src="../../design1/img/palmist-results.webp" width="1200" height="542" alt="Palmist prediction results: a case-level diagnosis of leukoplakia, present in four of four views, with the model and run that produced it." loading="lazy">
+          </div>
+          <figcaption class="figure__cap"><span class="figure__num">Fig. 03</span><span>Palmist case result: one diagnosis from four views, and the model and run that produced it.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact__inner">
+        <div>
+          <p class="eyebrow">§ 04 — Contact</p>
+          <h2 id="contact-title" data-split>Let's talk about the unglamorous parts.</h2>
+        </div>
+        <div class="contact__right">
+          <p class="small muted">The fastest way to reach me is email. I answer every message myself.</p>
+          <a class="contact__link" href="mailto:dchrysomallis@bookscanner.gr">
+            dchrysomallis@bookscanner.gr
+            <svg class="btn__icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M18 15V6H9"/></svg>
+          </a>
+          <p class="small subtle">Greece · remote</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomalis</p>
+      <p>Built by hand: HTML and CSS. Motion by GSAP and Lenis.</p>
+      <p><a href="../../design1/design/index.html">Design system</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="js/experiment.js?v=8" defer></script>
+</body>
+</html>
