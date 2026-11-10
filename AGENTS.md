@@ -11,6 +11,7 @@ Static portfolio site for Dimitris Chrysomallis. Multiple design candidates.
 
 ## Directory map
 
+- `docs/plans/router.md` - skill routing guidance for agents.
 - `docs/plans/` — written plans.
 - `docs/CONTENT.md` — source of truth for copy and numbers. Never edit a verified number.
 - `assets/` and `assets/source/` — raw private material. Never publish.

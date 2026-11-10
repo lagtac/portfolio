@@ -12,6 +12,11 @@ Figure out what to build and which decisions matter.
 
 Outputs: ADRs, `GLOSSARY.md`, and (if used) the wayfinder map.
 
+Handoff to Stage 2: `impeccable init` reads the ADRs and `GLOSSARY.md` as its
+product evidence and re-asks only material gaps — it does not start the
+interview over. The visual energy/concept decision feeds `shape` → `new-work`
+(the concept roll), not `init`, which takes no visual direction.
+
 ## Stage 2 — Build
 
 Turn the decisions into a direction, a design system, and a built site.
