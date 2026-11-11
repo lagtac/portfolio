@@ -10,16 +10,17 @@ energy decision belongs to `shape` → `new-work` (the concept roll), not `init`
 
 ## design3
 
-- [ ] Decide `PRODUCT.md` location: repo root or `src/design3/`
-- [ ] `impeccable init` → `PRODUCT.md`, from the ADRs and `GLOSSARY.md`
-- [ ] `impeccable shape` → choose the design3 direction via the concept roll
-- [ ] `build-awwwards-quality-sites` → build `src/design3/`: home,
+- [x] Decide `PRODUCT.md` location: repo root
+- [x] `impeccable init` → `PRODUCT.md` at the repo root, from the ADRs and `GLOSSARY.md`
+- [x] `impeccable shape` → conventional developer portfolio, chosen via the standing exit
+- [x] `build-awwwards-quality-sites` → build `src/design3/`: home,
   `work/diagoradisa.html`, `about.html`
-- [ ] Write `src/design3/docs/DESIGN.md` and `src/design3/DEPLOY.md`
-- [ ] Add the dated "Now" block on home and about
+- [x] Write `src/design3/docs/DESIGN.md` and `src/design3/DEPLOY.md`
+- [x] Add the dated "Now" block on home and about
 - [ ] Stage `src/design3/` with `rsync` and publish via GitHub Pages
-- [ ] Run `pnpm test` (axe, 390/768/1440) and drive the pages with Playwright
-- [ ] Re-run axe and Playwright after any colour or layout change
+  (workflow and staging command prepared; no git remote in this checkout)
+- [x] Run `pnpm test` (axe, 390/768/1440) and drive the pages with Playwright
+- [x] Re-run axe and Playwright after any colour or layout change
 
 ## Deferred
 
