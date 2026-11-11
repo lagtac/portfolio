@@ -6,7 +6,15 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignoreUnknown": false
+		"ignoreUnknown": false,
+		"includes": [
+			"**",
+			"!src/design3/js/vendor",
+			"!src/design1",
+			"!src/design2",
+			"!src/experiments",
+			"!src/design3/docs"
+		]
 	},
 	"formatter": {
 		"enabled": true,

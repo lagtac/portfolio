@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from "node:fs";
+import { readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { AxeBuilder } from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
@@ -48,11 +48,11 @@ if (CANDIDATES.length === 0) {
 }
 
 for (const dir of CANDIDATES) {
-	for (const page of pages(dir)) {
-		test(`${dir}/${page} has no axe WCAG 2.1 A/AA violations`, async ({
+	for (const pagePath of pages(dir)) {
+		test(`${dir}/${pagePath} has no axe WCAG 2.1 A/AA violations`, async ({
 			page,
 		}) => {
-			const url = `http://127.0.0.1:${PORT}/${dir}/${page}`;
+			const url = `http://127.0.0.1:${PORT}/${dir}/${pagePath}`;
 			const response = await page.goto(url, { waitUntil: "load" });
 			expect(response?.status(), `HTTP status for ${url}`).toBe(200);
 
