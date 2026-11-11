@@ -51,11 +51,12 @@ Working document. Source of truth for copy and numbers used on the site.
 ```yaml
 id: diagoradisa
 title: Diagoradisa
+url: https://bookscanner.gr/en/oral-disease-diagnosis/
 kind: Clinical AI platform
 period: Jul 2025 — Oct 2026
 role: Sole developer
 status: In production since Aug 2025
-services: 4
+services: 3
 commits: 1629
 stack:
   [
@@ -70,6 +71,7 @@ stack:
     Apache,
   ]
 one_line: An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.
+description: Oral Disease Diagnosis using Artificial Intelligence
 ```
 
 #### 3.1.2 Service
@@ -112,8 +114,13 @@ one_line: An annotation tool, a dataset pipeline, a model server, and a clinicia
       mobile capture,
       Greek/English labels,
     ]
-- id: meta
-  name: Meta
+```
+
+**Infrastructure**
+
+```yaml
+- id: infra
+  name: Infra
   role: Infrastructure
   stack: Docker, Apache, Bash
   proof:
@@ -150,6 +157,7 @@ one_line: An annotation tool, a dataset pipeline, a model server, and a clinicia
 ```yaml
 id: kpmg
 title: KPMG Greece
+url: https://kpmg.com/gr/en.html
 kind: Digital content, web & marketing
 period: 2010 — 2018
 role: Content Manager
@@ -186,11 +194,18 @@ Each entry uses the schema `Project · Years · Role · What I did · Skills · 
 | 8   | Family Business Dynamics microsite      | 2017             | Content Manager; web content              | Shipped the Greek microsite from the global family-business campaign.                                                   |
 | 9   | "Content is King" landing page          | 2017             | Designer and builder (personal)           | Built a self-contained interactive content-marketing piece with image-map hotspots.                                     |
 
-### 3.3 Reusable copy blocks
+### 3.3 Confidential project (zitamu)
+
+Role statement only until the client clears the name:
+
+- **Role statement:** a Greek real-estate marketplace, Laravel 13 + Nuxt 3.
+- **Not publishable:** the name, screenshots, client details, and any metric.
+
+### 3.4 Reusable copy blocks
 
 **Diagoradisa**
 
-- **Positioning:** AI products are mostly plumbing. I build the plumbing.
+- **Positioning:** One layer above the plumbing.
 - **Project line:** An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.
 - **Method:** Measure before you claim. Own the seams. Delete what doesn't earn its place.
 - **Caveat:** Ten cases is a product test, not a validation study.
