@@ -19,6 +19,10 @@ Static portfolio site for Dimitris Chrysomallis. Multiple design candidates.
 - `src/designX/` — Candidate design. X out of N.
 - `src/experiments/` — disposable probes. Nothing in the final site may link to it.
 
+## Workflow
+
+If there is a TODO.md document in the project's root, read it at the start of each session.
+
 ## Never publish
 
 - `assets/` in any form, including `assets/source/`.
@@ -47,6 +51,6 @@ Single-context: `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents
 ### Skill division
 
 `impeccable` (designer) is the director: direction, design system, refinement,
-review. `build-awwwards-quality-sites` (build) is the specialist builder for the
-premium/motion-rich portfolio. Complementary, not interchangeable — see
-`docs/plans/2026-11-09-impeccable-awwwards-guide.md`.
+review. `build-awwwards-quality-sites` (build) is the specialist builder for a
+craft-led portfolio where motion serves evidence, not the reverse. Complementary,
+not interchangeable — see `docs/plans/2026-11-09-impeccable-awwwards-guide.md`.
