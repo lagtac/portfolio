@@ -51,6 +51,7 @@ Working document. Source of truth for copy and numbers used on the site.
 ```yaml
 id: diagoradisa
 title: Diagoradisa
+public_title: Oral pathology imaging platform
 url: https://bookscanner.gr/en/oral-disease-diagnosis/
 kind: Clinical AI platform
 period: Jul 2025 — Oct 2026
@@ -70,7 +71,7 @@ stack:
     Docker,
     Apache,
   ]
-one_line: An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.
+one_line: Annotation tool, dataset pipeline, model server, and clinician app, built and deployed by one developer.
 description: Oral Disease Diagnosis using Artificial Intelligence
 ```
 
@@ -150,6 +151,13 @@ description: Oral Disease Diagnosis using Artificial Intelligence
 | 9   | Leukoplakia                   | none               | 0.0       | 0/2   | LOW    | no diagnosis      |
 | 10  | Traumatic ulcer + leukoplakia | Leukoplakia        | 93.2      | 4/4   | HIGH   | correct (partial) |
 
+#### 3.1.5 Delivery method
+
+- **Solo, with agentic tooling.** The platform was built by one developer using Claude Code: parallel agents across the four repositories, and both vendor and custom skills.
+- **Commits:** 1,629, authored by Dimitris. The number measures volume.
+- **Review discipline:** one contract per boundary, a test per claim, and a diff read before it ships. The three documented failures in §05 are the evidence that the review worked.
+- **Do not use:** any percentage of agent-written code. No such measurement exists.
+
 ### 3.2 KPMG Greece
 
 #### 3.2.1 Project
@@ -194,21 +202,64 @@ Each entry uses the schema `Project · Years · Role · What I did · Skills · 
 | 8   | Family Business Dynamics microsite      | 2017             | Content Manager; web content              | Shipped the Greek microsite from the global family-business campaign.                                                   |
 | 9   | "Content is King" landing page          | 2017             | Designer and builder (personal)           | Built a self-contained interactive content-marketing piece with image-map hotspots.                                     |
 
-### 3.3 Confidential project (zitamu)
+### 3.3 Faltso (2019 — 2024)
+
+#### 3.3.1 Project
+
+```yaml
+id: faltso
+title: Faltso Art Group
+public_title: Faltso
+url: https://github.com/lagtac/faltso.org
+kind: Music and theatre education, founded and run
+period: 2019 — 2024
+role: Founder and music educator
+status: Closed 2024
+stack: [Jekyll 3.8, Tailwind, PostCSS, Ruby, Bash]
+one_line: A music and theatre group for children that I founded and ran, site included.
+```
+
+#### 3.3.2 Verified facts
+
+- **Founded 2019, ran to 2024.** Founder and music educator, Faltso Art Group.
+- **Scope:** music and theatre activities for children aged 7–15, with schools and parents' associations; centred on inclusion, democratic communication, and self-expression through performance.
+- **Site:** `github.com/lagtac/faltso.org`, public, 76 commits. Jekyll 3.8.6 with a Tailwind and PostCSS build; Greek-language.
+
+#### 3.3.3 Faltso do not use
+
+- The `faltso.org` domain. It no longer resolves.
+- Any enrolment, participant, revenue, or school count. None is recorded.
+- "Present" as tenure. The CV says `01/2019 - present` and is being corrected to 2019–2024.
+- Any photograph from `assets/faltso/`. `assets/` never publishes.
+
+### 3.4 Confidential project (zitamu)
 
 Role statement only until the client clears the name:
 
 - **Role statement:** a Greek real-estate marketplace, Laravel 13 + Nuxt 3.
 - **Not publishable:** the name, screenshots, client details, and any metric.
 
-### 3.4 Reusable copy blocks
+### 3.5 Reusable copy blocks
 
-**Diagoradisa**
+**Diagoradisa** (published as "Oral pathology imaging platform")
 
 - **Positioning:** One layer above the plumbing.
-- **Project line:** An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.
-- **Method:** Measure before you claim. Own the seams. Delete what doesn't earn its place.
+- **Project line:** Annotation tool, dataset pipeline, model server, and clinician app, built and deployed by one developer.
+- **Method:** Every metric traces to a run. The two contracts are tested on both sides. I deleted a feature that did nothing.
 - **Caveat:** Ten cases is a product test, not a validation study.
+
+**Home method** (career habits, not one project)
+
+- **Write the words and the code:** Content manager and developer were one job at KPMG.
+- **Take the whole path:** Annotation tool, pipeline, model server, and clinician app, all built.
+- **Learn the missing layer:** ASP at EPIS, Umbraco and C# at KPMG, Laravel and FastAPI at Bookscanner, React now.
+- **Build with agents:** volume from Claude Code and parallel agents; judgement and review stay with the developer.
+
+**Faltso**
+
+- **Positioning:** A music and theatre group for children that I founded and ran for five years, site included.
+- **Project line:** Founder and music educator, 2019–2024.
+- **Method:** Programmes, collaborators, schools, parents, and the site — one job.
 
 **KPMG Greece**
 
@@ -220,16 +271,36 @@ Role statement only until the client clears the name:
 
 ```
 /                       Home
-/work/diagoradisa.html  Case study (Diagoradisa)
+/work/oral-pathology-platform.html   Case study (oral pathology platform)
 /work/kpmg.html         Case study (KPMG Greece)
 /about.html             About + stack + contact
 /design/                Design system reference
 ```
 
 **Global nav:** Work · About · Contact · theme toggle.
-**Home order:** hero → selected work (Diagoradisa, KPMG) → method → contact.
-**Diagoradisa order:** header → context → constraints → architecture → four surfaces → three failures → evidence → next → footer.
+**Home order:** hero → selected work (oral pathology platform, KPMG) → method → contact.
+**Case study order:** header → context → constraints → architecture → four surfaces → three failures → evidence → next → footer.
 **KPMG order:** header → context → nine projects → what it proves → current direction → footer.
-**About order:** intro → how I got here → tools → contact.
+**About order:** intro → how I got here (education, EPIS, KPMG, Faltso, the platform) → tools → nine KPMG projects → now → contact.
 
 **Future work:** the work index is a list of two. Adding a third project means adding a card to `#work` and a page under `/work/`; no template changes.
+
+## 5. Copy rules
+
+The voice is plain, specific and dry. A heading states a fact; it does not perform one.
+
+**Banned words and moves**
+
+- "seam" / "seams". Use "contract", "boundary between services", or name the two services.
+- "carry the argument", "carry the system", "earn its place", "the through-line".
+- "actually", "honest summary", "the part nobody demos": filler that signals the writer's cleverness.
+- Aphorism headings: three parallel imperatives read as a slogan set. Write what was done.
+- The `X. Not Y.` antithesis, at most once per page and never as a heading.
+- Rule-of-three slogans repeated across pages ("Write it, build it, measure it").
+- "Senior" or "junior" as a self-label. The site says "Fullstack engineer"; dates, scope, and shipped work carry the level.
+
+**Naming**
+
+- The platform is published as "Oral pathology imaging platform". Never print its internal name, in copy, alt text, a title, or a URL.
+- Services are "annotation tool", "model server", "clinician app", "deployment". The `stoma` CLI stays as written: it is a real command.
+- "KPMG Greece" is the employer and may be named. No KPMG brand asset, screenshot or metric may be reproduced.

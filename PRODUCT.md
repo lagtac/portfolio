@@ -28,27 +28,30 @@ because the page is pretty.
 ## Positioning
 
 "One layer above the plumbing." The differentiator is a generalist who owns a
-whole system — the product calls, the architecture, and the seams between
-services — rather than one tool or one layer. He designed and operated a
-four-service clinical AI platform (annotation, dataset pipeline, model server,
-clinician app) end to end, and documents the failures alongside the wins. He
-moves down a layer when the detail matters, but plumbing is not his main trait.
-A neighbouring portfolio could not truthfully copy the measured numbers, the
-four-service architecture, or the documented dead ends.
+whole system — the product calls, the architecture, and the contracts between
+services — rather than one tool or one layer. The arc behind it is long and
+consistent: philosophy, then cognitive science, then software since 2004 — ASP
+and SQL Server at EPIS, nine years of KPMG's web estate, a music company he
+founded and ran, and a four-service clinical AI platform built alone with agentic
+tooling. He documents the failures alongside the wins, and moves down a layer
+when the detail matters, but plumbing is not his main trait. A neighbouring
+portfolio could not truthfully copy the measured numbers, the four-service
+architecture, the documented dead ends, or the span of the four jobs.
 
 ## Operating Context
 
 Dimitris is between roles and learning TypeScript, React, and Next.js. The site
 is his primary job-search surface: English only, public, deployed to GitHub
 Pages. Work is judged on shipped features and the diversity of tasks.
-The CV lives outside the repo at `~/src/cv/cv-en.html`.
+The CV lives outside the repo at `~/src/cv/cv-en.html`; it still lists Faltso as
+`01/2019 - present`, and the correct period is 2019–2024.
 
 ## Capabilities and Constraints
 
-- Three pages at launch: home, `work/diagoradisa.html`, `about.html`. The
+- Three pages at launch: home, `work/oral-pathology-platform.html`, `about.html`. The
   `docs/CONTENT.md` IA also lists `/work/kpmg.html` and `/design/`; neither is in
   the launch scope.
-- Two project cards at launch: Diagoradisa and KPMG. The KPMG card links to
+- Two project cards at launch: the oral pathology platform and KPMG. The KPMG card links to
   `about.html#kpmg`, where the nine projects live as a timeline, until
   `/work/kpmg.html` ships. Waypoint is incoming when deployed; zitamu is a
   confidential project shown by role statement only.
@@ -73,6 +76,11 @@ Name: Dimitris Chrysomallis (published spelling). Voice: plain, specific,
 evidence-led, dry. No hype and no adjectives standing in for facts. English only;
 Greek disease names appear as data and must render in the correct face.
 
+The platform name is withheld from the site. Its public title is "Oral pathology
+imaging platform", and the services are named descriptively: annotation tool,
+model server, clinician app, deployment. The name stays in this document and in
+`docs/CONTENT.md` for traceability, never in published copy or a URL.
+
 Visual direction: the conventional developer portfolio, played straight. No
 governing metaphor, no costume, no smuggled quirk. The craft bar is the strongest
 personal dev portfolios (brittanychiang.com, leerob.io, joshwcomeau.com) plus the
@@ -89,6 +97,18 @@ Chosen 2026-11-10 when the concept roll's standing exit was taken.
   is never published; cropped derivatives only.
 - KPMG Greece 2010–2018: nine selected projects with qualitative outcomes,
   inventory at `docs/kpmg-2010-2018-inventory.md`.
+- Faltso 2019–2024: a music and theatre group for children aged 7–15 that he
+  founded and ran, with schools and parents' associations. Site at
+  `github.com/lagtac/faltso.org` (public, 76 commits, Jekyll 3.8.6, Tailwind).
+  The `faltso.org` domain no longer resolves. No enrolment or revenue figures
+  exist; do not invent them.
+- Delivery method: the platform was built solo with Claude Code — parallel
+  agents across the four repositories, plus vendor and custom skills. The
+  1,629 commits are authored by Dimitris. No percentage of agent-written code
+  has been measured; do not claim one.
+- Education: BS Philosophy, Aristotle University of Thessaloniki, 1994–1999;
+  MS Cognitive Science, National and Kapodistrian University of Athens,
+  2001–2003, thesis _Methods in Cognitive Musicology_.
 - Absent and must not be fabricated: testimonials, client logos, customer counts,
   revenue, benchmarks beyond CONTENT.md, or any KPMG brand asset.
 
@@ -98,8 +118,8 @@ Chosen 2026-11-10 when the concept roll's standing exit was taken.
    shipped artifact.
 2. Show the failure. Dead ends and removed features are part of the argument, not
    a footnote.
-3. Own the whole seam. The story is one developer across four services, not a list
-   of tools.
+3. Own the whole system. The story is one developer across four services, not a
+   list of tools.
 4. Say only what is built. The TypeScript/React transition is dated
    work-in-progress, never delivered experience.
 5. Publish nothing private. `assets/` and `docs/` never ship; confidentiality is
