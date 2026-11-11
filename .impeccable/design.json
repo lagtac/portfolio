@@ -1,0 +1,715 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-11-10T17:42:25.012193Z",
+	"title": "Design System: Dimitris Chrysomallis — portfolio",
+	"extensions": {
+		"colorMeta": {
+			"signal-blue": {
+				"role": "primary",
+				"displayName": "Signal Blue",
+				"canonical": "#1d46d6",
+				"tonalRamp": [
+					"#101a3d",
+					"#182b6d",
+					"#1e3a9f",
+					"#2149d4",
+					"#496be4",
+					"#7d95e8",
+					"#afbdee",
+					"#e2e7f8"
+				]
+			},
+			"signal-blue-dark": {
+				"role": "primary",
+				"displayName": "Signal Blue (Night)",
+				"canonical": "#93a8ff",
+				"tonalRamp": [
+					"#081444",
+					"#0b207a",
+					"#092ab3",
+					"#0532f0",
+					"#3058fd",
+					"#6c88f9",
+					"#a5b5f8",
+					"#dfe5fb"
+				]
+			},
+			"accent-contrast": {
+				"role": "primary",
+				"displayName": "Accent Contrast",
+				"canonical": "#ffffff",
+				"tonalRamp": [
+					"#262626",
+					"#424242",
+					"#5e5e5e",
+					"#7a7a7a",
+					"#969696",
+					"#b2b2b2",
+					"#cfcfcf",
+					"#ededed"
+				]
+			},
+			"accent-contrast-dark": {
+				"role": "primary",
+				"displayName": "Accent Contrast (Night)",
+				"canonical": "#0c0d10",
+				"tonalRamp": [
+					"#22242b",
+					"#3a3e4a",
+					"#52586a",
+					"#6a728b",
+					"#888fa5",
+					"#a8adbd",
+					"#c9ccd4",
+					"#ebecef"
+				]
+			},
+			"paper": {
+				"role": "neutral",
+				"displayName": "Paper",
+				"canonical": "#fafaf7",
+				"tonalRamp": [
+					"#2d2d1f",
+					"#4f4f35",
+					"#72724b",
+					"#96965f",
+					"#aeae7f",
+					"#c3c3a2",
+					"#d8d8c5",
+					"#f0f0ea"
+				]
+			},
+			"paper-dark": {
+				"role": "neutral",
+				"displayName": "Paper (Night)",
+				"canonical": "#0c0d10",
+				"tonalRamp": [
+					"#22242b",
+					"#3a3e4a",
+					"#52586a",
+					"#6a728b",
+					"#888fa5",
+					"#a8adbd",
+					"#c9ccd4",
+					"#ebecef"
+				]
+			},
+			"surface": {
+				"role": "neutral",
+				"displayName": "Surface",
+				"canonical": "#f1f1ec",
+				"tonalRamp": [
+					"#2b2b22",
+					"#4b4b3a",
+					"#6b6b51",
+					"#8c8c69",
+					"#a6a687",
+					"#bdbda8",
+					"#d5d5c8",
+					"#efefeb"
+				]
+			},
+			"surface-dark": {
+				"role": "neutral",
+				"displayName": "Surface (Night)",
+				"canonical": "#14161b",
+				"tonalRamp": [
+					"#22242b",
+					"#3a3f4b",
+					"#52596b",
+					"#69738c",
+					"#8790a6",
+					"#a8aebd",
+					"#c8ccd5",
+					"#ebecef"
+				]
+			},
+			"sunken": {
+				"role": "neutral",
+				"displayName": "Sunken",
+				"canonical": "#e7e7e0",
+				"tonalRamp": [
+					"#2a2a22",
+					"#49493b",
+					"#696954",
+					"#89896b",
+					"#a3a389",
+					"#bbbbaa",
+					"#d4d4c9",
+					"#efefeb"
+				]
+			},
+			"sunken-dark": {
+				"role": "neutral",
+				"displayName": "Sunken (Night)",
+				"canonical": "#1b1e24",
+				"tonalRamp": [
+					"#22252b",
+					"#3a404a",
+					"#525a6a",
+					"#6a758b",
+					"#8892a5",
+					"#a8afbd",
+					"#c9cdd4",
+					"#ebecef"
+				]
+			},
+			"ink": {
+				"role": "neutral",
+				"displayName": "Graphite Ink",
+				"canonical": "#16181d",
+				"tonalRamp": [
+					"#22242a",
+					"#3b3f4a",
+					"#53596a",
+					"#6a738b",
+					"#8890a4",
+					"#a9aebc",
+					"#c9ccd4",
+					"#ebecef"
+				]
+			},
+			"ink-dark": {
+				"role": "neutral",
+				"displayName": "Graphite Ink (Night)",
+				"canonical": "#f0efe9",
+				"tonalRamp": [
+					"#2c2a21",
+					"#4d4a38",
+					"#6e6a4e",
+					"#918a64",
+					"#aaa483",
+					"#c0bca5",
+					"#d6d4c7",
+					"#f0efea"
+				]
+			},
+			"ink-secondary": {
+				"role": "neutral",
+				"displayName": "Ink Secondary",
+				"canonical": "#4f545c",
+				"tonalRamp": [
+					"#242629",
+					"#3e4147",
+					"#585d65",
+					"#717883",
+					"#8f959e",
+					"#adb1b8",
+					"#cbced2",
+					"#ecedee"
+				]
+			},
+			"ink-secondary-dark": {
+				"role": "neutral",
+				"displayName": "Ink Secondary (Night)",
+				"canonical": "#b7bac1",
+				"tonalRamp": [
+					"#242528",
+					"#3e4146",
+					"#585c65",
+					"#727783",
+					"#8f939e",
+					"#adb0b8",
+					"#cbcdd2",
+					"#ecedee"
+				]
+			},
+			"ink-muted": {
+				"role": "neutral",
+				"displayName": "Ink Muted",
+				"canonical": "#676d76",
+				"tonalRamp": [
+					"#242628",
+					"#3f4246",
+					"#595d64",
+					"#727982",
+					"#90959d",
+					"#aeb2b7",
+					"#ccced1",
+					"#ecedee"
+				]
+			},
+			"ink-muted-dark": {
+				"role": "neutral",
+				"displayName": "Ink Muted (Night)",
+				"canonical": "#969ba4",
+				"tonalRamp": [
+					"#242628",
+					"#3e4146",
+					"#585d64",
+					"#727883",
+					"#8f949e",
+					"#adb1b8",
+					"#ccced2",
+					"#ecedee"
+				]
+			},
+			"rule": {
+				"role": "neutral",
+				"displayName": "Rule Grey",
+				"canonical": "#dedfd8",
+				"tonalRamp": [
+					"#282923",
+					"#46483d",
+					"#646756",
+					"#83866f",
+					"#9ea18c",
+					"#b7b9ac",
+					"#d1d3ca",
+					"#eeefec"
+				]
+			},
+			"rule-dark": {
+				"role": "neutral",
+				"displayName": "Rule Grey (Night)",
+				"canonical": "#282b32",
+				"tonalRamp": [
+					"#23252a",
+					"#3c4048",
+					"#555b68",
+					"#6d7587",
+					"#8b92a2",
+					"#abafba",
+					"#cacdd3",
+					"#ecedef"
+				]
+			},
+			"rule-strong": {
+				"role": "neutral",
+				"displayName": "Rule Strong",
+				"canonical": "#c5c7bf",
+				"tonalRamp": [
+					"#272824",
+					"#44463f",
+					"#616459",
+					"#7e8273",
+					"#9a9d90",
+					"#b5b7ae",
+					"#d0d1cc",
+					"#eeeeec"
+				]
+			},
+			"rule-strong-dark": {
+				"role": "neutral",
+				"displayName": "Rule Strong (Night)",
+				"canonical": "#3b3f48",
+				"tonalRamp": [
+					"#232529",
+					"#3d4048",
+					"#565b67",
+					"#6f7686",
+					"#8c93a1",
+					"#acb0b9",
+					"#cacdd3",
+					"#ecedef"
+				]
+			},
+			"field-green": {
+				"role": "tertiary",
+				"displayName": "Field Green",
+				"canonical": "#0f6b43",
+				"tonalRamp": [
+					"#103d29",
+					"#186c48",
+					"#1e9e67",
+					"#22d386",
+					"#49e4a1",
+					"#7ee7b9",
+					"#afeed3",
+					"#e3f8ef"
+				]
+			},
+			"field-green-dark": {
+				"role": "tertiary",
+				"displayName": "Field Green (Night)",
+				"canonical": "#62d7a1",
+				"tonalRamp": [
+					"#153828",
+					"#216345",
+					"#2c9162",
+					"#35c080",
+					"#5ad39b",
+					"#89dcb6",
+					"#b6e7d0",
+					"#e5f6ee"
+				]
+			},
+			"caution-ochre": {
+				"role": "tertiary",
+				"displayName": "Caution Ochre",
+				"canonical": "#85560f",
+				"tonalRamp": [
+					"#3e2b0e",
+					"#6f4b16",
+					"#a26c1b",
+					"#d88d1d",
+					"#e8a745",
+					"#eabe7b",
+					"#f0d5ad",
+					"#f8efe2"
+				]
+			},
+			"caution-ochre-dark": {
+				"role": "tertiary",
+				"displayName": "Caution Ochre (Night)",
+				"canonical": "#f0b45f",
+				"tonalRamp": [
+					"#3f2b0e",
+					"#704a14",
+					"#a56a18",
+					"#dc8b19",
+					"#eba542",
+					"#edbd78",
+					"#f1d4ac",
+					"#f9efe1"
+				]
+			},
+			"fault-red": {
+				"role": "tertiary",
+				"displayName": "Fault Red",
+				"canonical": "#9f211c",
+				"tonalRamp": [
+					"#3b1311",
+					"#691e1b",
+					"#9a2723",
+					"#cd2e28",
+					"#de544f",
+					"#e48581",
+					"#ecb4b1",
+					"#f7e4e3"
+				]
+			},
+			"fault-red-dark": {
+				"role": "tertiary",
+				"displayName": "Fault Red (Night)",
+				"canonical": "#ff9086",
+				"tonalRamp": [
+					"#440d08",
+					"#7a140b",
+					"#b31709",
+					"#f01805",
+					"#fd4130",
+					"#f9786c",
+					"#f8aca5",
+					"#fbe1df"
+				]
+			},
+			"good-soft": {
+				"role": "secondary",
+				"displayName": "Good Soft",
+				"canonical": "#e2f1e8",
+				"tonalRamp": [
+					"#1c3124",
+					"#2f563e",
+					"#417c58",
+					"#51a372",
+					"#73ba8f",
+					"#9acbae",
+					"#c0ddcc",
+					"#e8f2ec"
+				]
+			},
+			"good-soft-dark": {
+				"role": "secondary",
+				"displayName": "Good Soft (Night)",
+				"canonical": "#0f241a",
+				"tonalRamp": [
+					"#1a3327",
+					"#2b5943",
+					"#3b8160",
+					"#4aab7d",
+					"#6cc198",
+					"#96cfb4",
+					"#bde0cf",
+					"#e7f3ed"
+				]
+			},
+			"warn-soft": {
+				"role": "secondary",
+				"displayName": "Warn Soft",
+				"canonical": "#f7eeda",
+				"tonalRamp": [
+					"#392e13",
+					"#66501e",
+					"#957328",
+					"#c6972f",
+					"#d8af55",
+					"#e0c485",
+					"#e9d9b4",
+					"#f6f1e4"
+				]
+			},
+			"warn-soft-dark": {
+				"role": "secondary",
+				"displayName": "Warn Soft (Night)",
+				"canonical": "#2a1f0d",
+				"tonalRamp": [
+					"#362a17",
+					"#604925",
+					"#8b6932",
+					"#b8893c",
+					"#cca361",
+					"#d8bb8d",
+					"#e4d4b9",
+					"#f5efe6"
+				]
+			},
+			"bad-soft": {
+				"role": "secondary",
+				"displayName": "Bad Soft",
+				"canonical": "#fae5e3",
+				"tonalRamp": [
+					"#3b1511",
+					"#69221b",
+					"#9a2d23",
+					"#cc3728",
+					"#de5c4f",
+					"#e38a82",
+					"#ebb7b2",
+					"#f7e5e3"
+				]
+			},
+			"bad-soft-dark": {
+				"role": "secondary",
+				"displayName": "Bad Soft (Night)",
+				"canonical": "#2b1412",
+				"tonalRamp": [
+					"#321c1a",
+					"#592f2b",
+					"#81413c",
+					"#ab524a",
+					"#c0736d",
+					"#cf9a96",
+					"#e0c0be",
+					"#f3e8e7"
+				]
+			},
+			"neutral-soft": {
+				"role": "secondary",
+				"displayName": "Neutral Soft",
+				"canonical": "#ecece6",
+				"tonalRamp": [
+					"#2a2a22",
+					"#4a4a3b",
+					"#6a6a53",
+					"#8a8a6a",
+					"#a4a489",
+					"#bcbca9",
+					"#d4d4c9",
+					"#efefeb"
+				]
+			},
+			"neutral-soft-dark": {
+				"role": "secondary",
+				"displayName": "Neutral Soft (Night)",
+				"canonical": "#1d2027",
+				"tonalRamp": [
+					"#22242b",
+					"#3a3f4a",
+					"#52596b",
+					"#69738c",
+					"#8790a5",
+					"#a8aebd",
+					"#c8ccd5",
+					"#ebecef"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Home hero only. Archivo 600, tight tracking."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Section and case-study titles."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Work items, card titles, service names."
+			},
+			"lead": {
+				"displayName": "Lead",
+				"purpose": "Standfirst under a page title."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Prose, capped at 68ch."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Mono evidence: labels, table heads, figures, tags."
+			},
+			"greek": {
+				"displayName": "Greek",
+				"purpose": "Noto Sans under lang=\"el\" for disease data."
+			},
+			"page-title": {
+				"displayName": "Page Title",
+				"purpose": "Case-study, About, and Design system page titles. Archivo 600, tighter than a section head."
+			}
+		},
+		"shadows": [],
+		"motion": [
+			{
+				"name": "ease-standard",
+				"value": "cubic-bezier(0.22, 0.61, 0.36, 1)",
+				"purpose": "Default easing for state transitions and reveals."
+			},
+			{
+				"name": "hero-intro",
+				"value": "0.6s power2.out, 0.08s stagger",
+				"purpose": "One composed hero entrance; nav and CTA remain usable before it completes."
+			},
+			{
+				"name": "section-reveal",
+				"value": "0.55s power2.out, 14px rise, 0.07s stagger, once",
+				"purpose": "Section reveals triggered once by ScrollTrigger.batch."
+			},
+			{
+				"name": "reduced-motion",
+				"value": "no Lenis, no GSAP, no transforms",
+				"purpose": "Final states render immediately under prefers-reduced-motion: reduce."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "mobile",
+				"value": "560px"
+			},
+			{
+				"name": "tablet",
+				"value": "720px"
+			},
+			{
+				"name": "small-desktop",
+				"value": "960px"
+			},
+			{
+				"name": "page",
+				"value": "1200px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "The case-study action. Ink fill, paper text; hover turns Signal Blue.",
+			"html": "<button class=\"ds-btn ds-btn-primary\">Read the case study <span aria-hidden=\"true\">→</span></button>",
+			"css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.55rem;min-height:2.75rem;padding:0.7rem 1.1rem;border-radius:2px;font:500 0.95rem/1 Archivo,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background 140ms cubic-bezier(0.22,0.61,0.36,1),color 140ms cubic-bezier(0.22,0.61,0.36,1),border-color 140ms cubic-bezier(0.22,0.61,0.36,1);border:1px solid #16181d;background:#16181d;color:#fafaf7;}.ds-btn:hover{background:#1d46d6;border-color:#1d46d6;color:#fff;}.ds-btn:focus-visible{outline:2px solid #1d46d6;outline-offset:3px;}"
+		},
+		{
+			"name": "Default Button",
+			"kind": "button",
+			"refersTo": "button-default",
+			"description": "Secondary action. Transparent with an ink border; hover inverts to ink.",
+			"html": "<button class=\"ds-btn ds-btn-default\">About</button>",
+			"css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.55rem;min-height:2.75rem;padding:0.7rem 1.1rem;border-radius:2px;font:500 0.95rem/1 Archivo,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background 140ms cubic-bezier(0.22,0.61,0.36,1),color 140ms cubic-bezier(0.22,0.61,0.36,1),border-color 140ms cubic-bezier(0.22,0.61,0.36,1);border:1px solid #16181d;background:transparent;color:#16181d;}.ds-btn:hover{background:#16181d;color:#fafaf7;}.ds-btn:focus-visible{outline:2px solid #1d46d6;outline-offset:3px;}"
+		},
+		{
+			"name": "Ghost Button",
+			"kind": "button",
+			"refersTo": "button-ghost",
+			"description": "Low-emphasis action. Rule Strong border; hover fills with ink.",
+			"html": "<button class=\"ds-btn ds-btn-ghost\">Ghost</button>",
+			"css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.55rem;min-height:2.75rem;padding:0.7rem 1.1rem;border-radius:2px;font:500 0.95rem/1 Archivo,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background 140ms cubic-bezier(0.22,0.61,0.36,1),color 140ms cubic-bezier(0.22,0.61,0.36,1),border-color 140ms cubic-bezier(0.22,0.61,0.36,1);border:1px solid #c5c7bf;background:transparent;color:#16181d;}.ds-btn:hover{background:#16181d;border-color:#16181d;color:#fafaf7;}.ds-btn:focus-visible{outline:2px solid #1d46d6;outline-offset:3px;}"
+		},
+		{
+			"name": "Tag",
+			"kind": "chip",
+			"refersTo": "tag",
+			"description": "Stack name. Mono, 1px Rule Strong, transparent ground.",
+			"html": "<span class=\"ds-tag\">Laravel 12</span>",
+			"css": ".ds-tag{display:inline-flex;align-items:center;gap:0.35rem;padding:0.25rem 0.45rem;border:1px solid #c5c7bf;border-radius:2px;font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.06em;text-transform:uppercase;color:#4f545c;white-space:nowrap;}"
+		},
+		{
+			"name": "Good Badge",
+			"kind": "chip",
+			"refersTo": "badge-good",
+			"description": "Correct verdict or high tier. Soft green ground, field-green ink, always with a word.",
+			"html": "<span class=\"ds-badge ds-badge-good\">Correct</span>",
+			"css": ".ds-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.2rem 0.45rem;border-radius:2px;font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;}.ds-badge-good{background:#e2f1e8;color:#0f6b43;}"
+		},
+		{
+			"name": "Fault Badge",
+			"kind": "chip",
+			"refersTo": "badge-bad",
+			"description": "Wrong verdict. Soft red ground, fault-red ink, always with a word.",
+			"html": "<span class=\"ds-badge ds-badge-bad\">Wrong</span>",
+			"css": ".ds-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.2rem 0.45rem;border-radius:2px;font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;}.ds-badge-bad{background:#fae5e3;color:#9f211c;}"
+		},
+		{
+			"name": "Nav Link",
+			"kind": "nav",
+			"refersTo": "nav-link",
+			"description": "Header navigation. Ink-secondary at rest; ink on hover and current.",
+			"html": "<a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Work</a>",
+			"css": ".ds-nav-link{display:inline-block;padding:0.45rem 0.6rem;border-radius:2px;font:500 0.9rem/1 Archivo,system-ui,sans-serif;color:#4f545c;text-decoration:none;}.ds-nav-link:hover,.ds-nav-link[aria-current=\"page\"]{color:#16181d;background:#f1f1ec;}.ds-nav-link:focus-visible{outline:2px solid #1d46d6;outline-offset:3px;}"
+		},
+		{
+			"name": "Work Row",
+			"kind": "custom",
+			"refersTo": null,
+			"description": "The selected-work list row: meta column, claim, tags, and an evidence panel.",
+			"html": "<a class=\"ds-work\" href=\"#\"><span class=\"ds-work-meta\">2025 — 2026<br><span>Sole developer</span></span><span class=\"ds-work-body\"><strong>Diagoradisa</strong><span>An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.</span><span class=\"ds-work-tags\"><i>Laravel 12</i><i>FastAPI</i><i>YOLO26l-seg</i></span></span><span class=\"ds-work-arrow\" aria-hidden=\"true\">→</span></a>",
+			"css": ".ds-work{display:grid;grid-template-columns:8rem 1fr 2rem;gap:1.5rem;align-items:start;padding:1.4rem 0;border-top:1px solid #16181d;border-bottom:1px solid #dedfd8;color:#16181d;text-decoration:none;font-family:Archivo,system-ui,sans-serif;}.ds-work:hover .ds-work-body strong{color:#1d46d6;}.ds-work-meta{font:500 0.6875rem/1.5 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.06em;text-transform:uppercase;color:#676d76;}.ds-work-meta span{color:#4f545c;}.ds-work-body{display:flex;flex-direction:column;gap:0.45rem;}.ds-work-body strong{font-size:1.6rem;letter-spacing:-0.03em;line-height:1.1;}.ds-work-body>span:nth-child(2){font-size:0.95rem;line-height:1.5;color:#4f545c;max-width:38rem;}.ds-work-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}.ds-work-tags i{font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.06em;text-transform:uppercase;font-style:normal;border:1px solid #c5c7bf;border-radius:2px;padding:0.25rem 0.45rem;color:#4f545c;}.ds-work-arrow{font-size:1.2rem;color:#1d46d6;}"
+		}
+	],
+	"narrative": {
+		"northStar": "The Plain Record",
+		"overview": "The portfolio is a working record, read in under a minute by someone filling a fullstack role. It is type-led, evidence-forward, and deliberately unremarkable in its genre: a name, a claim, two projects, the numbers, the failures, and a way to make contact. The craft is in the hierarchy and the facts, not in a governing metaphor. The page behaves like a well-set document that happens to be a website. A real product screenshot is evidence, not decoration. A metric sits next to its run ID and its date. A failure is written at the same weight as a win. The single accent marks the active and the linked; everything else is ink, paper, and a hairline.",
+		"keyCharacteristics": [
+			"A strong grotesque hierarchy, with mono reserved for evidence.",
+			"Two themes, one signal. Light is the default; dark mirrors every role.",
+			"Flat surfaces, 1px rules, 2px corners. No shadows, no glass, no gradients.",
+			"Real product screenshots, cropped to remove identifiers.",
+			"Copy that carries a number, a date, or a named failure."
+		],
+		"rules": [
+			{
+				"name": "The One Signal Rule",
+				"body": "Signal Blue marks the active, the linked, and the measured. It never fills a decorative block, and it never becomes a second brand colour. Data states are the only other hue, and they always pair with a word.",
+				"section": "colors"
+			},
+			{
+				"name": "The Named State Rule",
+				"body": "A badge is never colour-only. “Correct”, “Wrong”, “No diagnosis”, “High”, “Medium”, and “Low” are part of the component, not an accessible-name afterthought.",
+				"section": "colors"
+			},
+			{
+				"name": "The Evidence Is Monospaced Rule",
+				"body": "A number, date, run ID, commit count, file name, or verdict label is set in Azeret Mono. Prose is set in Archivo. Mixing the two is a hierarchy decision, not a decoration.",
+				"section": "typography"
+			},
+			{
+				"name": "The Greek Is Data Rule",
+				"body": "Every Greek disease name carries lang=\"el\" and the Noto Sans face. It is not a stylistic accent, and it never falls back silently.",
+				"section": "typography"
+			},
+			{
+				"name": "The Flat-By-Default Rule",
+				"body": "A surface is flat at rest. If a state needs emphasis, change the rule, the ink, or the background; do not add a shadow.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do keep one accent and make it earn its place: links, active states, measured marks.",
+			"Do set every number, date, run ID, and verdict label in Azeret Mono.",
+			"Do label the ten-case test as a product test, not a validation study, wherever the numbers appear.",
+			"Do check both themes at 390, 768, and 1440px with axe-core.",
+			"Do use real product screenshots and crop them to remove identifiers.",
+			"Do keep the prose measure at or below 68 characters."
+		],
+		"donts": [
+			"Don't add a shadow, blur, glass panel, or decorative gradient.",
+			"Don't put a tracked uppercase eyebrow chip above an oversized hero headline; the name is in the header and the claim is the headline.",
+			"Don't number sections as decorative scaffolding. Case-study section numbers are navigation; home sections are not.",
+			"Don't use colour as the only signal for a verdict or a state.",
+			"Don't publish assets/, docs/, README.md, DEPLOY.md, or ASSETS.md.",
+			"Don't reproduce a KPMG or client brand, screenshot, credential, or metric.",
+			"Don't invent a metric, a testimonial, a logo, or a claim above what is built."
+		]
+	}
+}

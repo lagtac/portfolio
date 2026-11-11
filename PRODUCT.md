@@ -1,0 +1,116 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Stack
+
+Plain static HTML, CSS, and vanilla JavaScript. No build step, no framework.
+Decided in `docs/adr/0001-design3-plain-html-not-react.md`.
+
+## Users
+
+Hiring managers and recruiters filling fullstack web roles, plus technical leads
+screening candidates. They arrive from a CV, a referral, or a search, skim for
+evidence in under a minute, and want to know whether Dimitris can own a real
+system end to end.
+
+## Product Purpose
+
+A public, three-page portfolio that gets Dimitris a fullstack job by showing
+delivered work with verified evidence. Success: a visitor opens the Diagoradisa
+case study or reaches the contact block, because the evidence is credible — not
+because the page is pretty.
+
+## Positioning
+
+"One layer above the plumbing." The differentiator is a generalist who owns a
+whole system — the product calls, the architecture, and the seams between
+services — rather than one tool or one layer. He designed and operated a
+four-service clinical AI platform (annotation, dataset pipeline, model server,
+clinician app) end to end, and documents the failures alongside the wins. He
+moves down a layer when the detail matters, but plumbing is not his main trait.
+A neighbouring portfolio could not truthfully copy the measured numbers, the
+four-service architecture, or the documented dead ends.
+
+## Operating Context
+
+Dimitris is between roles and learning TypeScript, React, and Next.js. The site
+is his primary job-search surface: English only, public, deployed to GitHub
+Pages. Work is judged on shipped features and the diversity of tasks.
+The CV lives outside the repo at `~/src/cv/cv-en.html`.
+
+## Capabilities and Constraints
+
+- Three pages at launch: home, `work/diagoradisa.html`, `about.html`. The
+  `docs/CONTENT.md` IA also lists `/work/kpmg.html` and `/design/`; neither is in
+  the launch scope.
+- Two project cards at launch: Diagoradisa and KPMG. The KPMG card links to
+  `about.html#kpmg`, where the nine projects live as a timeline, until
+  `/work/kpmg.html` ships. Waypoint is incoming when deployed; zitamu is a
+  confidential project shown by role statement only.
+- One dated "Now" block for the TypeScript/React transition on home and about. No
+  claim beyond what is built.
+- Diagoradisa numbers, dates, and names come only from `docs/CONTENT.md`. The
+  ten-case clinical test is a product test, not a validation study, and must be
+  labelled as such wherever the numbers appear.
+- KPMG: no metric not backed by the inventory; no KPMG or client brand,
+  screenshot, credential, or PII.
+- zitamu: name, screenshots, and client details stay off the site until the
+  client clears them.
+- Public contact email: `dchrysomallis@bookscanner.gr` (already exposed in
+  `src/design1/DEPLOY.md`); confirm before launch. Location line: omitted until
+  decided.
+- Go-to-market: public this month on GitHub Pages; custom domain versus
+  `github.io` is undecided.
+
+## Brand Commitments
+
+Name: Dimitris Chrysomallis (published spelling). Voice: plain, specific,
+evidence-led, dry. No hype and no adjectives standing in for facts. English only;
+Greek disease names appear as data and must render in the correct face.
+
+Visual direction: the conventional developer portfolio, played straight. No
+governing metaphor, no costume, no smuggled quirk. The craft bar is the strongest
+personal dev portfolios (brittanychiang.com, leerob.io, joshwcomeau.com) plus the
+plain category canon: type-led, evidence-forward, one accent, real product proof.
+Chosen 2026-11-10 when the concept roll's standing exit was taken.
+
+## Evidence on Hand
+
+- Diagoradisa: four-service clinical AI platform, Jul 2025 – Oct 2026, sole
+  developer, 1,629 commits. Verified metrics, architecture, three documented
+  failures, and a ten-case clinical test in `docs/CONTENT.md`.
+- Product screenshots: annotator editor, image browser, ML-readiness dashboard,
+  Palmist upload and results, and ten case/PDF pairs under `assets/`. Raw material
+  is never published; cropped derivatives only.
+- KPMG Greece 2010–2018: nine selected projects with qualitative outcomes,
+  inventory at `docs/kpmg-2010-2018-inventory.md`.
+- Absent and must not be fabricated: testimonials, client logos, customer counts,
+  revenue, benchmarks beyond CONTENT.md, or any KPMG brand asset.
+
+## Product Principles
+
+1. Evidence over adjectives. Every claim carries a number, a date, a commit, or a
+   shipped artifact.
+2. Show the failure. Dead ends and removed features are part of the argument, not
+   a footnote.
+3. Own the whole seam. The story is one developer across four services, not a list
+   of tools.
+4. Say only what is built. The TypeScript/React transition is dated
+   work-in-progress, never delivered experience.
+5. Publish nothing private. `assets/` and `docs/` never ship; confidentiality is
+   structural, not a setting.
+6. Craft serves evidence. Motion and detail are allowed, but never at the cost of
+   legibility, speed, or a claim. The page earns trust by being readable, not by
+   being animated.
+
+## Accessibility & Inclusion
+
+WCAG 2.1 AA is a hard floor at 390, 768, and 1440 px in both themes (light and
+dark, defaulting to the OS preference), checked with axe-core. Keyboard
+operability, visible focus, reduced-motion paths, and correct Greek language
+tagging are required.
