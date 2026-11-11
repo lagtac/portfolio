@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strip-Chart Recorder — design3 prototype</title>
+<style>
+  :root{
+    --paper:#f7f3e8; --grid:#e6dfce; --ink:#23241f; --ink-2:#5f5c50;
+    --red:#c0392b; --teal:#1f6f6b; --amber:#a86a12; --metal:#b9b3a3;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 20px,
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/20px 100%,
+      var(--paper);
+    color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);text-underline-offset:3px}
+  .wrap{max-width:1400px;margin:0 auto;padding:22px clamp(18px,3vw,44px) 48px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;
+         border-bottom:2px solid var(--ink);padding-bottom:14px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .dial{width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;position:relative;background:var(--paper)}
+  .brand .dial::after{content:"";position:absolute;left:50%;top:5px;width:2px;height:14px;background:var(--red);transform-origin:bottom;transform:rotate(38deg)}
+  .brand b{display:block;font-size:14px;letter-spacing:.02em}
+  .brand span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+  nav{display:flex;gap:18px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none}
+  nav a:hover,nav a:focus-visible{color:var(--red)}
+  nav .cta{background:var(--ink);color:var(--paper);padding:8px 12px;}
+  nav .cta:hover,nav .cta:focus-visible{background:var(--red);color:var(--paper)}
+  .top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,56px);padding:clamp(30px,5vw,64px) 0 30px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 16px}
+  h1{font-size:clamp(2.5rem,5.6vw,5rem);line-height:.92;letter-spacing:-.035em;font-weight:800;margin:0 0 18px;text-wrap:balance}
+  .lede{font-size:clamp(1rem,1.3vw,1.2rem);color:var(--ink-2);max-width:40ch;margin:0}
+  .readout{border:2px solid var(--ink);background:var(--paper);padding:16px 18px;align-self:end}
+  .readout .row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed var(--metal);padding:7px 0;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .readout .row:last-child{border-bottom:0}
+  .readout .row b{color:var(--ink)}
+  .readout .row span{color:var(--ink-2)}
+  .readout .live{color:var(--teal);display:inline-flex;align-items:center;gap:6px}
+  .readout .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  .strip{position:relative;border:2px solid var(--ink);background:var(--paper);padding:16px 18px 8px;margin-bottom:34px}
+  .strip .head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
+  .strip svg{display:block;width:100%;height:auto}
+  .ann{font-family:var(--mono);font-size:10px;letter-spacing:.02em;fill:var(--red);text-transform:uppercase}
+  .ann-b{fill:var(--ink-2)}
+  .axis{font-family:var(--mono);font-size:9px;letter-spacing:.04em;fill:var(--ink-2);text-transform:uppercase}
+  .lower{display:grid;grid-template-columns:1.1fr 1fr;gap:1px;background:var(--ink);border:2px solid var(--ink)}
+  .card{background:var(--paper);padding:24px 20px}
+  .card .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 8px}
+  .card h2{font-size:clamp(1.5rem,2.4vw,2.1rem);margin:0 0 6px;letter-spacing:-.02em}
+  .card p{margin:0 0 16px;color:var(--ink-2);font-size:14px;max-width:44ch}
+  .card a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .method{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--ink);margin-top:0}
+  .method div{padding:16px 18px;border-right:1px solid var(--metal);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+  .method div:last-child{border-right:0}
+  .method span{display:block;color:var(--red);text-transform:uppercase;letter-spacing:.12em;font-size:9px;margin-bottom:5px}
+  .now{border:2px dashed var(--teal);padding:14px 18px;margin-top:22px;display:flex;gap:14px;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-2)}
+  .now b{color:var(--teal);text-transform:uppercase;letter-spacing:.14em}
+  @media(max-width:900px){
+    .top{grid-template-columns:1fr}.lower{grid-template-columns:1fr}
+    .method{grid-template-columns:1fr}.method div{border-right:0;border-bottom:1px solid var(--metal)}
+    nav a.hide{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="dial"></span><div><b>Dimitris Chrysomallis</b><span>strip-chart recorder · ch 01–04</span></div></div>
+    <nav><a class="hide" href="#work">Work</a><a class="hide" href="#about">About</a><a href="#contact">Contact</a><a class="cta" href="#work">Read the trace</a></nav>
+  </header>
+
+  <section class="top">
+    <div>
+      <p class="eyebrow">Continuous record · Jul 2025 → Oct 2026</p>
+      <h1>Evidence,<br>traced.</h1>
+      <p class="lede">Four services, one developer, 1,629 commits. The peaks are what shipped; the dips are what I measured, learned, and removed.</p>
+    </div>
+    <div class="readout">
+      <div class="row"><span>Channel 01</span><b>Annotator</b></div>
+      <div class="row"><span>Channel 02</span><b>ML service</b></div>
+      <div class="row"><span>Channel 03</span><b>Palmist</b></div>
+      <div class="row"><span>Channel 04</span><b>Meta</b></div>
+      <div class="row"><span>Status</span><b class="live">Running</b></div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Four-channel trace of the Diagoradisa build">
+    <div class="head"><span>Recorder · thermal paper · 25 mm/s</span><span>Now →</span></div>
+    <svg viewBox="0 0 1000 460" role="img" aria-label="Four traces from July 2025 to October 2026 with peaks and annotated dips">
+      <g stroke="#e6dfce" stroke-width="1">
+        <line x1="60" y1="60" x2="980" y2="60"/><line x1="60" y1="150" x2="980" y2="150"/>
+        <line x1="60" y1="240" x2="980" y2="240"/><line x1="60" y1="330" x2="980" y2="330"/>
+      </g>
+      <!-- channel 1 annotator -->
+      <path d="M60 300 L120 292 L180 260 L240 210 L300 196 L360 200 L420 186 L480 190 L540 182 L620 186 L700 180 L780 184 L860 178 L940 182 L980 180"
+            fill="none" stroke="#1f6f6b" stroke-width="2.2"/>
+      <!-- channel 2 ML -->
+      <path d="M300 330 L340 330 L380 300 L420 250 L460 232 L500 214 L540 220 L580 236 L620 206 L660 198 L700 202 L740 190 L780 186 L860 190 L940 184 L980 186"
+            fill="none" stroke="#a86a12" stroke-width="2.2"/>
+      <!-- channel 3 palmist -->
+      <path d="M420 360 L460 356 L500 330 L540 300 L580 288 L620 292 L660 280 L700 286 L740 274 L780 270 L860 264 L940 268 L980 266"
+            fill="none" stroke="#c0392b" stroke-width="2.2"/>
+      <!-- channel 4 meta -->
+      <path d="M60 400 L140 398 L220 396 L300 398 L380 396 L460 394 L540 396 L620 394 L700 396 L780 394 L860 396 L940 394 L980 396"
+            fill="none" stroke="#5f5c50" stroke-width="1.6" stroke-dasharray="1 0"/>
+      <!-- annotations -->
+      <text class="ann-b" x="64" y="322">annotator</text>
+      <text class="ann-b" x="306" y="326">ml</text>
+      <text class="ann-b" x="426" y="356">palmist</text>
+      <text class="ann-b" x="66" y="394">meta</text>
+      <circle cx="240" cy="210" r="4" fill="#1f6f6b"/>
+      <text class="ann" x="200" y="198">dataset in prod</text>
+      <circle cx="580" cy="236" r="4" fill="#c0392b"/>
+      <text class="ann" x="500" y="256">recall plateau → data, not architecture</text>
+      <circle cx="740" cy="190" r="4" fill="#c0392b"/>
+      <text class="ann" x="672" y="178">gate removed</text>
+      <circle cx="860" cy="264" r="4" fill="#c0392b"/>
+      <text class="ann" x="676" y="300">10-case test · not validation</text>
+      <!-- now marker -->
+      <line x1="960" y1="40" x2="960" y2="420" stroke="#1f6f6b" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <text class="axis" x="912" y="34">now</text>
+      <!-- axis -->
+      <g class="axis">
+        <text x="58" y="438">jul 25</text><text x="220" y="438">nov 25</text><text x="380" y="438">feb 26</text>
+        <text x="540" y="438">jun 26</text><text x="700" y="438">aug 26</text><text x="900" y="438">oct 26</text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="lower" id="work">
+    <article class="card">
+      <p class="k">Channel 01–04 · selected work</p>
+      <h2>Diagoradisa</h2>
+      <p>Clinical AI platform, Jul 2025 – Oct 2026. Four services, one developer. Box mAP@50 0.508 on the clean test set; three failures documented at the same scale as the wins.</p>
+      <a href="#">Read the case study →</a>
+    </article>
+    <article class="card">
+      <p class="k">Earlier chapter · 2010–2018</p>
+      <h2>KPMG Greece</h2>
+      <p>Nine years as content and web lead inside a Big Four firm — I wrote the content, built the pages, and measured them.</p>
+      <a href="#about">Open the record →</a>
+    </article>
+  </section>
+
+  <div class="method">
+    <div><span>Method 01</span>Measure before you claim.</div>
+    <div><span>Method 02</span>Own the seams.</div>
+    <div><span>Method 03</span>Delete what doesn't earn its place.</div>
+  </div>
+
+  <div class="now" id="about"><b>Now</b><span>TypeScript · React · Next.js — dated work in progress, not delivered experience. Updated Nov 2026.</span></div>
+</div>
+</body>
+</html>

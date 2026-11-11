@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seven-Segment Board — design3 prototype</title>
+<style>
+  :root{
+    --field:#07121f; --panel:#0b1a2b; --line:#17304a; --amber:#ffb000; --green:#38d17a;
+    --red:#ff5a4e; --bone:#e8eef2; --muted:#8aa0b4; --ghost:#16293d;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--field);color:var(--bone);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--amber);text-underline-offset:3px}
+  .wrap{max-width:1360px;margin:0 auto;padding:22px clamp(18px,3.2vw,48px) 56px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:14px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .lamp{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+  .brand b{display:block;font-size:14px;letter-spacing:.02em}
+  .brand span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  nav{display:flex;gap:20px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  nav a{color:var(--bone);text-decoration:none}
+  nav a:hover,nav a:focus-visible{color:var(--amber)}
+  nav .cta{border:1px solid var(--amber);color:var(--amber);padding:8px 12px}
+  nav .cta:hover,nav .cta:focus-visible{background:var(--amber);color:var(--field)}
+  .top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,56px);padding:clamp(30px,5vw,58px) 0 28px;align-items:end}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 16px}
+  h1{font-size:clamp(2.4rem,5.2vw,4.8rem);line-height:.94;letter-spacing:-.03em;font-weight:800;margin:0;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--amber)}
+  .lede{color:var(--muted);font-size:clamp(1rem,1.25vw,1.15rem);max-width:42ch;margin:16px 0 0}
+  .clock{border:1px solid var(--line);background:var(--panel);padding:16px 18px}
+  .clock .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .clock .digits{display:flex;align-items:flex-end;gap:6px}
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:26px}
+  .tile{background:var(--panel);padding:20px 18px 16px}
+  .tile .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .tile .digits{display:flex;align-items:flex-end;gap:4px}
+  .tile .sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px}
+  /* seven segment */
+  .dig{position:relative;width:44px;height:80px;flex:0 0 auto}
+  .dig .s{position:absolute;background:var(--ghost);border-radius:2px}
+  .dig .s.on{background:var(--amber);box-shadow:0 0 12px rgba(255,176,0,.45)}
+  .dig .s.on.green{background:var(--green);box-shadow:0 0 12px rgba(56,209,122,.45)}
+  .dig .a{top:0;left:8px;right:8px;height:8px}
+  .dig .b{top:6px;right:0;bottom:calc(50% + 2px);width:8px}
+  .dig .c{bottom:6px;right:0;top:calc(50% + 2px);width:8px}
+  .dig .d{bottom:0;left:8px;right:8px;height:8px}
+  .dig .e{bottom:6px;left:0;top:calc(50% + 2px);width:8px}
+  .dig .f{top:6px;left:0;bottom:calc(50% + 2px);width:8px}
+  .dig .g{top:calc(50% - 4px);left:8px;right:8px;height:8px}
+  .dig .dp{position:absolute;bottom:0;right:-7px;width:7px;height:7px;background:var(--amber);border-radius:1px}
+  .dig .dp.off{background:var(--ghost)}
+  .status{border:1px solid var(--line);background:var(--panel);margin-bottom:0}
+  .srow{display:grid;grid-template-columns:1.4fr 1fr .7fr;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+  .srow:last-child{border-bottom:0}
+  .srow .n{color:var(--bone)}
+  .srow .m{color:var(--muted)}
+  .srow .ok{color:var(--green);text-align:right}
+  .srow .warn{color:var(--amber);text-align:right}
+  .lower{display:grid;grid-template-columns:1.15fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+  .card{background:var(--panel);padding:24px 20px}
+  .card .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .card h2{font-size:clamp(1.5rem,2.4vw,2.1rem);margin:0 0 6px;letter-spacing:-.02em}
+  .card p{margin:0 0 16px;color:var(--muted);font-size:14px;max-width:46ch}
+  .card a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--amber)}
+  .method{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);border-top:0}
+  .method div{padding:16px 18px;border-right:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .method div:last-child{border-right:0}
+  .method span{display:block;color:var(--amber);text-transform:uppercase;letter-spacing:.12em;font-size:9px;margin-bottom:5px}
+  .now{border:1px dashed var(--line);padding:14px 18px;margin-top:22px;display:flex;gap:14px;align-items:baseline;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .now b{color:var(--amber);text-transform:uppercase;letter-spacing:.14em}
+  @media(max-width:900px){.top{grid-template-columns:1fr}.board{grid-template-columns:1fr 1fr}
+    .lower{grid-template-columns:1fr}.method{grid-template-columns:1fr}.method div{border-right:0;border-bottom:1px solid var(--line)}
+    nav a.hide{display:none}
+    .srow{grid-template-columns:1fr;gap:2px}
+    .srow .ok,.srow .warn{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="lamp"></span><div><b>Dimitris Chrysomallis</b><span>evidence board · all channels</span></div></div>
+    <nav><a class="hide" href="#work">Work</a><a class="hide" href="#about">About</a><a href="#contact">Contact</a><a class="cta" href="#work">Open the board</a></nav>
+  </header>
+
+  <section class="top">
+    <div>
+      <p class="eyebrow">Readout · Jul 2025 → Oct 2026</p>
+      <h1>Numbers that<br><em>stay lit</em>.</h1>
+      <p class="lede">Four services, one developer, 1,629 commits. Every figure below is measured and dated; absence is drawn as a ghost cell, never hidden.</p>
+    </div>
+    <div class="clock" aria-label="Unset clock as the error state">
+      <div class="lbl">Canonical error state</div>
+      <div class="digits" id="clock"></div>
+    </div>
+  </section>
+
+  <section class="board" aria-label="Metric board">
+    <div class="tile"><p class="lbl">Commits</p><div class="digits" id="m1"></div><p class="sub">four repositories · by one developer</p></div>
+    <div class="tile"><p class="lbl">Box mAP@50</p><div class="digits" id="m2"></div><p class="sub">clean test set · 876 images</p></div>
+    <div class="tile"><p class="lbl">Precision</p><div class="digits" id="m3"></div><p class="sub">production operating point · conf 0.25</p></div>
+    <div class="tile"><p class="lbl">Clinical test</p><div class="digits" id="m4"></div><p class="sub">4 correct · 3 wrong · 3 no diagnosis</p></div>
+  </section>
+
+  <section class="status" aria-label="Service status">
+    <div class="srow"><span class="n">Annotator</span><span class="m">dataset creation · in production</span><span class="ok">● OPERATIONAL</span></div>
+    <div class="srow"><span class="n">ML service</span><span class="m">train / infer · 29 endpoints</span><span class="ok">● OPERATIONAL</span></div>
+    <div class="srow"><span class="n">Palmist</span><span class="m">clinician surface · reports</span><span class="ok">● OPERATIONAL</span></div>
+    <div class="srow"><span class="n">Meta</span><span class="m">infrastructure · deploys, backups</span><span class="warn">● HELD</span></div>
+  </section>
+
+  <section class="lower" id="work">
+    <article class="card">
+      <p class="k">Board 01 · selected work</p>
+      <h2>Diagoradisa</h2>
+      <p>Clinical AI platform, Jul 2025 – Oct 2026. Four services, one developer. Three documented failures at the same scale as the wins.</p>
+      <a href="#">Read the case study →</a>
+    </article>
+    <article class="card">
+      <p class="k">Board 02 · selected work</p>
+      <h2>KPMG Greece</h2>
+      <p>Nine years as content and web lead inside a Big Four firm — I wrote the content, built the pages, and measured them.</p>
+      <a href="#about">Open the record →</a>
+    </article>
+  </section>
+
+  <div class="method">
+    <div><span>Method 01</span>Measure before you claim.</div>
+    <div><span>Method 02</span>Own the seams.</div>
+    <div><span>Method 03</span>Delete what doesn't earn its place.</div>
+  </div>
+
+  <div class="now" id="about"><b>Now</b><span>TypeScript · React · Next.js — dated work in progress, not delivered experience. Updated Nov 2026.</span></div>
+</div>
+
+<script>
+  const MAP = {
+    "0":"abcdef","1":"bc","2":"abged","3":"abgcd","4":"fgbc",
+    "5":"afgcd","6":"afgedc","7":"abc","8":"abcdefg","9":"abcdfg"
+  };
+  function digit(ch, cls){
+    const on = MAP[ch] || "";
+    return `<span class="dig ${cls||""}">` +
+      ["a","b","c","d","e","f","g"].map(s => `<i class="s ${s} ${on.includes(s)?"on":""}"></i>`).join("") +
+      `</span>`;
+  }
+  function render(text, el, cls){
+    el.innerHTML = text.split("").map(ch => {
+      if(ch === ".") return `<span class="dig"><i class="dp"></i></span>`;
+      if(ch === ",") return `<span class="dig"><i class="dp" style="right:2px"></i></span>`;
+      if(ch === ":") return `<span class="dig"><i class="dp" style="top:24px;bottom:auto;right:16px"></i><i class="dp" style="bottom:24px;right:16px"></i></span>`;
+      if(ch === " ") return `<span style="width:14px"></span>`;
+      return digit(ch, cls);
+    }).join("");
+  }
+  render("12:00", document.getElementById("clock"), "green");
+  render("1629", document.getElementById("m1"), "green");
+  render("0.508", document.getElementById("m2"), "green");
+  render("0.620", document.getElementById("m3"), "green");
+  // 4 correct (lit), 3 wrong, 3 no diagnosis (ghost cells: absence drawn deliberately)
+  document.getElementById("m4").innerHTML = render3("4","3","3");
+  function render3(a,b,c){
+    return digit(a,"green") + `<span style="width:6px"></span>` + digit(b,"") + `<span style="width:6px"></span>` + digit(c,"");
+  }
+</script>
+</body>
+</html>

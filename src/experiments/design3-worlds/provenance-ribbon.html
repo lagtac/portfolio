@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance Ribbon — design3 prototype</title>
+<style>
+  :root{
+    --buff:#efe6d2; --buff-2:#e6dabf; --paper:#f7f0dd; --ink:#2a2118; --ink-2:#6b5f4b;
+    --red:#a33327; --grey:#9a9182; --gold:#8a6a2f;
+    --serif:Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--buff);color:var(--ink);font-family:var(--serif);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--red);text-underline-offset:3px}
+  .wrap{max-width:1360px;margin:0 auto;padding:22px clamp(18px,3.2vw,48px) 56px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+  .brand{font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+  .brand b{display:block;font-size:15px;letter-spacing:.06em}
+  nav{display:flex;gap:20px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none}
+  nav a:hover,nav a:focus-visible{color:var(--red)}
+  nav .cta{border:1px solid var(--ink);padding:8px 12px}
+  nav .cta:hover,nav .cta:focus-visible{background:var(--red);border-color:var(--red);color:var(--paper)}
+  .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px);padding:clamp(34px,5vw,64px) 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 18px}
+  h1{font-size:clamp(2.6rem,5.4vw,5rem);line-height:.95;letter-spacing:-.03em;font-weight:400;margin:0 0 18px;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--red)}
+  .lede{font-size:clamp(1.05rem,1.35vw,1.28rem);color:var(--ink-2);max-width:34ch;margin:0 0 24px}
+  .lede b{color:var(--ink);font-weight:400;border-bottom:1px solid var(--red)}
+  .cite{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+  /* custody ribbon */
+  .custody{position:relative;padding-left:34px}
+  .custody::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:9px;
+     background:linear-gradient(90deg,#8f2b20,#c0483a 45%,#8f2b20);border-radius:2px;
+     box-shadow:0 0 0 1px rgba(42,33,24,.15)}
+  .entry{position:relative;padding:0 0 22px}
+  .entry::before{content:"";position:absolute;left:-27px;top:6px;width:13px;height:13px;border-radius:50%;
+     background:var(--paper);border:2px solid var(--red)}
+  .entry.gap::before{border-color:var(--grey);background:var(--buff)}
+  .entry .date{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 2px}
+  .entry .what{font-size:17px;margin:0 0 2px}
+  .entry .note{font-family:var(--mono);font-size:11px;color:var(--ink-2);margin:0}
+  .entry.gap .what{color:var(--ink-2)}
+  .entry.gap .note{font-style:italic}
+  .entry a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--red)}
+  .hair{height:1px;background:var(--ink);opacity:.25;margin:26px 0}
+  .lower{display:grid;grid-template-columns:1.15fr 1fr;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+  .fold{background:var(--paper);padding:26px 22px}
+  .fold .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 8px}
+  .fold h2{font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:400;margin:0 0 6px;letter-spacing:-.01em}
+  .fold p{margin:0 0 16px;color:var(--ink-2);font-size:14px;max-width:46ch}
+  .fold a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--red)}
+  .method{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--ink);margin-top:0}
+  .method div{padding:16px 18px;border-right:1px solid var(--grey);font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+  .method div:last-child{border-right:0}
+  .method b{display:block;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);font-weight:400}
+  .now{border-top:1px dashed var(--gold);padding:16px 2px;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-2)}
+  .now b{color:var(--gold);text-transform:uppercase;letter-spacing:.14em}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}.lower{grid-template-columns:1fr}
+    .method{grid-template-columns:1fr}.method div{border-right:0;border-bottom:1px solid var(--grey)}nav a.hide{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Dimitris Chrysomallis<b>Record of custody · 2010–2026</b></div>
+    <nav><a class="hide" href="#work">Work</a><a class="hide" href="#about">About</a><a href="#contact">Contact</a><a class="cta" href="#work">Follow the ribbon</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Provenance · every claim with a date</p>
+      <h1>Nothing here<br>is <em>unaccounted</em> for.</h1>
+      <p class="lede">A record of what was built, when, and by whom. <b>One developer</b>, four services, 1,629 commits — with the gaps shown as gaps.</p>
+      <p class="cite">Known passages in solid type · uncertain ones in hairline</p>
+    </div>
+
+    <div class="custody" aria-label="Dated record of the work">
+      <div class="entry">
+        <p class="date">2010–2018</p>
+        <p class="what">KPMG Greece · Content Manager</p>
+        <p class="note">Web build, email, SEO, brand content. Nine selected projects.</p>
+      </div>
+      <div class="entry gap">
+        <p class="date">2018–2025</p>
+        <p class="what">Gap in the record</p>
+        <p class="note">Private period. Not claimed as engineering experience.</p>
+      </div>
+      <div class="entry">
+        <p class="date">Jul 2025</p>
+        <p class="what">Diagoradisa · Annotator</p>
+        <p class="note">Deep-zoom annotation, ICD-10 lookup, RBAC.</p>
+      </div>
+      <div class="entry">
+        <p class="date">Feb 2026</p>
+        <p class="what">ML service</p>
+        <p class="note">YOLO26l-seg training and inference · 29 endpoints.</p>
+      </div>
+      <div class="entry">
+        <p class="date">Mar 2026</p>
+        <p class="what">Palmist · clinician surface</p>
+        <p class="note">Case upload, aggregation, PDF + Excel reports.</p>
+      </div>
+      <div class="entry">
+        <p class="date">Oct 2026</p>
+        <p class="what">10-case clinical test</p>
+        <p class="note">4 correct · 3 wrong · 3 no diagnosis. A product test, not validation.</p>
+      </div>
+      <div class="entry gap">
+        <p class="date">Now</p>
+        <p class="what">TypeScript · React · Next.js</p>
+        <p class="note">Dated work in progress. Not delivered experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="hair"></div>
+
+  <section class="lower" id="work">
+    <article class="fold">
+      <p class="k">Fold 01 · selected work</p>
+      <h2>Diagoradisa</h2>
+      <p>Clinical AI platform, Jul 2025 – Oct 2026. Four services built as one system. Box mAP@50 0.508 on the clean test set; three documented failures sit beside the wins.</p>
+      <a href="#">Read the case study →</a>
+    </article>
+    <article class="fold">
+      <p class="k">Fold 02 · selected work</p>
+      <h2>KPMG Greece</h2>
+      <p>Nine years as content and web lead inside a Big Four firm — I wrote the content, built the pages, and measured them.</p>
+      <a href="#about">Open the record →</a>
+    </article>
+  </section>
+
+  <div class="method">
+    <div><b>Measure before you claim.</b>Numbers with dates, or nothing.</div>
+    <div><b>Own the seams.</b>One developer across four services.</div>
+    <div><b>Delete what doesn't earn its place.</b>Failures stay in the record.</div>
+  </div>
+
+  <div class="now" id="about"><b>Now</b> — TypeScript, React, Next.js. Dated work in progress; links to Waypoint when it ships. Updated Nov 2026.</div>
+</div>
+</body>
+</html>

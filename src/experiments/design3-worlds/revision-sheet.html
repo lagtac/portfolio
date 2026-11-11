@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revision Sheet — design3 prototype</title>
+<style>
+  :root{
+    --vellum:#eef1ea; --grid:#cfd8cb; --ink:#1b2320; --ink-2:#4a5751;
+    --red:#c23b22; --blue:#2a4b7c; --paper:#f8faf4; --rule:#9aa79a;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 24px,
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 100%,
+      var(--vellum);
+    background-blend-mode:multiply;
+    color:var(--ink); font-family:var(--sans); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue);text-underline-offset:3px}
+  .sheet{max-width:1440px;margin:0 auto;padding:26px clamp(18px,3.4vw,48px) 40px}
+  .frame{border:1.5px solid var(--ink);background:rgba(248,250,244,.55);position:relative}
+  .frame::before,.frame::after{content:"";position:absolute;width:14px;height:14px;border:1.5px solid var(--ink)}
+  .frame::before{top:-1.5px;left:-1.5px;border-right:0;border-bottom:0}
+  .frame::after{bottom:-1.5px;right:-1.5px;border-left:0;border-top:0}
+  .ticks{position:absolute;inset:8px;pointer-events:none;border:1px solid transparent}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:18px;
+       padding:14px 18px;border-bottom:1px solid var(--ink);
+       font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.08em;color:var(--ink)}
+  .bubble{display:inline-grid;place-items:center;width:26px;height:26px;border:1.5px solid var(--ink);
+          border-radius:50%;font-size:10px;letter-spacing:.04em;background:var(--paper)}
+  .nav{display:flex;gap:18px;align-items:center}
+  .nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+  .nav a:hover,.nav a:focus-visible{border-color:var(--red);color:var(--red)}
+  .nav .cta{color:var(--paper);background:var(--ink);padding:7px 11px;border:1.5px solid var(--ink)}
+  .nav .cta:hover,.nav .cta:focus-visible{background:var(--red);border-color:var(--red);color:var(--paper)}
+  .meta{padding:8px 18px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;
+        font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,3vw,48px);padding:clamp(26px,4vw,48px) 18px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);
+           display:flex;align-items:center;gap:10px;margin:0 0 18px}
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--red)}
+  h1{font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:.94;letter-spacing:-.03em;font-weight:800;
+     text-transform:uppercase;margin:0 0 18px;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--red)}
+  .lede{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ink-2);max-width:34ch;margin:0 0 26px}
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink);margin:0 0 26px}
+  .fact{background:var(--paper);padding:12px 14px}
+  .fact b{display:block;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1;letter-spacing:-.02em}
+  .fact span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+  .lead-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
+             letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;
+             border-bottom:1.5px solid var(--red);padding-bottom:6px}
+  .lead-link:hover,.lead-link:focus-visible{color:var(--red)}
+  /* schematic */
+  .draft{position:relative;min-height:430px;border:1px solid var(--rule);background:
+     linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 24px,
+     linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 100%,var(--paper);
+     padding:22px}
+  .draft .cap{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .node{position:absolute;border:1.5px solid var(--ink);background:var(--paper);padding:10px 12px;min-width:132px}
+  .node b{display:block;font-size:13px;letter-spacing:.02em}
+  .node span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+  .n1{top:52px;left:24px}.n2{top:52px;right:24px}.n3{top:168px;left:24px}.n4{top:168px;right:24px}
+  .wire{position:absolute;background:var(--ink);opacity:.55}
+  .w-h{height:1.5px;left:156px;right:156px;top:86px}
+  .w-h2{height:1.5px;left:156px;right:156px;top:202px}
+  .w-v{width:1.5px;top:86px;bottom:auto;height:116px;left:50%}
+  .dot{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--red);top:83px;left:calc(50% - 3.5px)}
+  .dim{position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue);
+       background:var(--paper);padding:0 6px;border:1px solid var(--blue)}
+  .dim.d1{top:52px;left:50%;transform:translateX(-50%)}
+  .dim.d2{bottom:70px;left:50%;transform:translateX(-50%)}
+  .cloud{position:absolute;right:18px;bottom:118px;border:1.5px dashed var(--red);border-radius:42% 58% 55% 45%/55% 45% 55% 45%;
+         padding:8px 12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);
+         background:rgba(194,59,34,.06);max-width:150px;line-height:1.4}
+  .detail{position:absolute;left:24px;bottom:24px;width:196px;border:1.5px solid var(--ink);background:var(--paper);
+          box-shadow:5px 5px 0 rgba(27,35,32,.14);transform:rotate(-1.1deg)}
+  .detail img{display:block;width:100%;height:84px;object-fit:cover;filter:saturate(.8) contrast(1.02)}
+  .detail figcaption{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;border-top:1px solid var(--ink)}
+  .scale{position:absolute;right:22px;bottom:24px;display:flex;align-items:flex-end;gap:2px;font-family:var(--mono);font-size:9px;color:var(--ink-2)}
+  .scale i{display:block;height:7px;border:1px solid var(--ink);border-top:0}
+  /* lower */
+  .lower{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);border-top:1.5px solid var(--ink)}
+  .view{background:var(--paper);padding:22px 18px}
+  .view h2{font-size:clamp(1.3rem,2vw,1.7rem);margin:0 0 4px;letter-spacing:-.01em}
+  .view .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px}
+  .view p{margin:0 0 14px;color:var(--ink-2);font-size:14px;max-width:42ch}
+  .view a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .now{border-top:1.5px dashed var(--blue);background:var(--paper);padding:16px 18px;display:flex;gap:16px;align-items:baseline;
+       font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+  .now b{color:var(--blue)}
+  .titleblock{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;border-top:1.5px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .titleblock div{padding:10px 12px;border-right:1px solid var(--ink)}
+  .titleblock div:last-child{border-right:0}
+  .titleblock span{display:block;color:var(--ink-2);font-size:8.5px;margin-bottom:3px}
+  .stamp{color:var(--red)!important;font-weight:700}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .draft{min-height:0;display:grid;gap:10px;padding:16px}
+    .node,.detail,.cloud,.scale{position:static;transform:none}
+    .node{min-width:0}
+    .wire,.dot,.dim{display:none}
+    .detail{width:auto}
+    .cloud{max-width:none}
+    .lower{grid-template-columns:1fr}
+    .titleblock{grid-template-columns:1fr 1fr}
+    .titleblock div:nth-child(2n){border-right:0}
+    .nav .hide{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+ <div class="frame">
+  <div class="bar">
+    <div class="brand"><span class="bubble">01</span> Dimitris Chrysomallis</div>
+    <nav class="nav">
+      <a class="hide" href="#work">Work</a>
+      <a class="hide" href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#work">Open the case study</a>
+    </nav>
+  </div>
+  <div class="meta"><span>Fullstack developer · Greece / remote</span><span>Sheet 03 · Rev C · 2026-11-10</span></div>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Issued for construction</p>
+      <h1>Four services.<br>One <em>system</em>.</h1>
+      <p class="lede">An annotation tool, a dataset pipeline, a model server, and a clinician app — built and operated as one system, by one developer.</p>
+      <div class="facts">
+        <div class="fact"><b>1,629</b><span>commits</span></div>
+        <div class="fact"><b>4</b><span>services</span></div>
+        <div class="fact"><b>0.508</b><span>mAP@50</span></div>
+        <div class="fact"><b>10,575</b><span>images</span></div>
+      </div>
+      <a class="lead-link" href="#work">View the dimensioned case study →</a>
+    </div>
+
+    <div class="draft" aria-label="System plan of the four Diagoradisa services">
+      <span class="cap">System plan · scale 1:1 · all seams owned</span>
+      <div class="node n1"><b>Annotator</b><span>dataset creation</span></div>
+      <div class="node n2"><b>ML service</b><span>train / infer</span></div>
+      <div class="node n3"><b>Palmist</b><span>clinician surface</span></div>
+      <div class="node n4"><b>Meta</b><span>infrastructure</span></div>
+      <div class="wire w-h"></div><div class="wire w-h2"></div><div class="wire w-v"></div>
+      <div class="dot"></div>
+      <div class="dim d1">↔ 1,629 commits</div>
+      <div class="dim d2">↔ 14 Jul 2025 – 26 Oct 2026</div>
+      <div class="cloud">Revision cloud: gate engine removed, no net benefit</div>
+      <figure class="detail">
+        <img src="img/annotator-editor.webp" alt="Annotator editor screenshot">
+        <figcaption>Detail A · annotator</figcaption>
+      </figure>
+      <div class="scale"><span>0</span><i style="width:26px"></i><i style="width:13px;background:var(--ink)"></i><span>10 m</span></div>
+    </div>
+  </section>
+
+  <section class="lower" id="work">
+    <article class="view">
+      <p class="k">Drawing 01 · selected work</p>
+      <h2>Diagoradisa</h2>
+      <p>Clinical AI platform, Jul 2025 – Oct 2026. Four services, one developer. Three documented failures, shown at full scale.</p>
+      <a href="#">Read the case study →</a>
+    </article>
+    <article class="view">
+      <p class="k">Drawing 02 · selected work</p>
+      <h2>KPMG Greece</h2>
+      <p>Nine years as content and web lead inside a Big Four firm — I wrote the content, built the pages, and measured them.</p>
+      <a href="#about">Open the record →</a>
+    </article>
+  </section>
+
+  <div class="now" id="about">
+    <b>Now</b>
+    <span>TypeScript · React · Next.js — dated work in progress, not delivered experience. Updated Nov 2026.</span>
+  </div>
+
+  <div class="titleblock">
+    <div><span>Project</span>Portfolio · design3</div>
+    <div><span>Name</span>D. Chrysomallis</div>
+    <div><span>Scale</span>1:1 @ 1440</div>
+    <div><span>Sheet</span>03 of 03</div>
+    <div><span>Status</span><span class="stamp">Issued</span></div>
+  </div>
+ </div>
+</div>
+</body>
+</html>
