@@ -1,0 +1,57 @@
+name: Deploy design3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/design3/**"
+      - ".github/workflows/deploy-design3.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Stage the publish list
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/site"
+          rsync -a --delete \
+            src/design3/index.html \
+            src/design3/about.html \
+            src/design3/work \
+            src/design3/design \
+            src/design3/css \
+            src/design3/js \
+            src/design3/img \
+            src/design3/fonts \
+            "$RUNNER_TEMP/site/"
+          touch "$RUNNER_TEMP/site/.nojekyll"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
