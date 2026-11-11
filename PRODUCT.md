@@ -48,13 +48,13 @@ The CV lives outside the repo at `~/src/cv/cv-en.html`; it still lists Faltso as
 
 ## Capabilities and Constraints
 
-- Three pages at launch: home, `work/oral-pathology-platform.html`, `about.html`. The
-  `docs/CONTENT.md` IA also lists `/work/kpmg.html` and `/design/`; neither is in
-  the launch scope.
-- Two project cards at launch: the oral pathology platform and KPMG. The KPMG card links to
-  `about.html#kpmg`, where the nine projects live as a timeline, until
-  `/work/kpmg.html` ships. Waypoint is incoming when deployed; zitamu is a
-  confidential project shown by role statement only.
+- Four pages at launch: home, `work/oral-pathology-platform.html`,
+  `work/kpmg.html`, `about.html`. The `docs/CONTENT.md` IA also lists `/design/`;
+  it is not in the launch scope.
+- Two project cards at launch: the oral pathology platform and KPMG, each linking
+  to its own case study. `about.html#kpmg` stays as an anchor to the KPMG pointer.
+  Waypoint is incoming when deployed; zitamu is a confidential project shown by
+  role statement only.
 - One dated "Now" block for the TypeScript/React transition on home and about. No
   claim beyond what is built.
 - Diagoradisa numbers, dates, and names come only from `docs/CONTENT.md`. The

@@ -106,7 +106,7 @@ A partial bump is the failure mode.
 | all pages                                                       | Add the canonical URL once the domain is known.                                                                   |
 | `index.html`                                                    | The “Now” block is dated 10 Nov 2026. Update the date and the sentence when the TypeScript/React work ships.      |
 | `about.html`                                                    | The confidential role statement names no client. Keep the name off until the client clears it.                    |
-| `index.html`                                                    | The KPMG card links to `about.html#kpmg`; when `/work/kpmg.html` ships, point the card there.                     |
+| `work/kpmg.html`                                                | Text-only by design. No KPMG brand, screenshot, credential, or metric may be added; the inventory stays private.  |
 
 ## Facts
 

@@ -9,7 +9,8 @@ candidate for `dchris`'s job search; `design1` and `design2` remain as reference
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `index.html`                        | Home: hero, proof strip, selected work, method, Now, contact                                               |
 | `work/oral-pathology-platform.html` | The platform case study: context, constraints, architecture, four surfaces, three failures, evidence, next |
-| `about.html`                        | About, how I got here, tools, KPMG Greece (2010–2018), Now, contact                                        |
+| `work/kpmg.html`                    | The KPMG Greece case study, 2010–2018: context, nine projects, what it shows, direction                    |
+| `about.html`                        | About, how I got here, tools, KPMG pointer, Now, contact                                                   |
 | `design/index.html`                 | The design system reference: tokens, type, spacing, components, motion, accessibility                      |
 
 ## Preview
