@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About — Dimitris Chrysomallis</title>
-  <meta name="description" content="Fullstack engineer in Greece. Sole developer of Diagoradisa, and nine years of content, web, and marketing at KPMG Greece before that.">
+  <meta name="description" content="Fullstack engineer in Greece. Software since 2004: KPMG's web estate, a music company I founded, and a four-service clinical platform built alone with agentic coding.">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="About — Dimitris Chrysomallis">
-  <meta property="og:description" content="Fullstack engineer. I build the parts of the system that carry the evidence.">
+  <meta property="og:description" content="Fullstack engineer. Software since 2004, most recently four services built alone with agentic coding.">
   <meta property="og:image" content="img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
@@ -27,9 +27,9 @@
     })();
   </script>
   <link rel="stylesheet" href="fonts/fonts.css?v=2">
-  <link rel="stylesheet" href="css/tokens.css?v=2">
+  <link rel="stylesheet" href="css/tokens.css?v=3">
   <link rel="stylesheet" href="css/base.css?v=2">
-  <link rel="stylesheet" href="css/site.css?v=2">
+  <link rel="stylesheet" href="css/site.css?v=3">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -69,7 +69,7 @@
           <span aria-current="page">About</span>
         </nav>
         <h1>Dimitris Chrysomallis</h1>
-        <p class="case-head__lead lede">Fullstack engineer. I build the parts of an AI product that users never see, and then the part they do.</p>
+        <p class="case-head__lead lede">Fullstack engineer. I have built software since 2004, from ASP against SQL Server to a four-service platform built alone with agentic coding. The constant is owning the whole job, not one layer of it.</p>
       </div>
     </header>
 
@@ -79,37 +79,39 @@
           <p class="record__label">Record</p>
           <dl>
             <div>
-              <dt>Name</dt>
-              <dd>Dimitris Chrysomallis</dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd>Fullstack engineer</dd>
-            </div>
-            <div>
               <dt>Focus</dt>
-              <dd>Clinical and data-heavy products</dd>
+              <dd>Full systems; the contracts between services</dd>
+            </div>
+            <div>
+              <dt>Education</dt>
+              <dd>Philosophy; MSc Cognitive Science</dd>
+            </div>
+            <div>
+              <dt>Founded</dt>
+              <dd>Faltso, 2019 — 2024</dd>
+            </div>
+            <div>
+              <dt>Most recent</dt>
+              <dd>Oral pathology imaging platform, Jul 2025 — Oct 2026</dd>
             </div>
             <div>
               <dt>Status</dt>
               <dd>Open to fullstack roles</dd>
             </div>
-            <div>
-              <dt>Most recent</dt>
-              <dd>Diagoradisa, Jul 2025 — Oct 2026</dd>
-            </div>
           </dl>
         </aside>
 
         <div class="about-body prose">
-          <p>Since July 2025 I have been the only developer on Diagoradisa, a medical imaging platform for oral pathology. I built the annotation tool, the dataset pipeline, the model service, and the clinician app. That meant owning the deploy script, the database migrations, the API contract, and the test that catches the regression six months later.</p>
-          <p>Most of my work sits where the interesting failures are: the boundary between an annotation tool and a training dataset, or between a model server and the app a clinician actually uses. I like systems that can be inspected. Run IDs, dated reports, explicit contracts. Not because process is virtuous, but because that is what makes a bug findable after the context is gone.</p>
-          <p>I work across PHP and Laravel, Python and FastAPI, and the frontend. I am comfortable being the person who reads the changelog, reproduces the bad result, and then deletes the feature that did not earn its place. <a href="work/diagoradisa.html">The case study</a> is the long version of that sentence.</p>
-          <p>I live in Greece with my wife and son. I am looking for a fullstack role where the data is messy and the users are real.</p>
+          <p>I have built software since 2004. The work has always had the same shape: decide what the system should say, then build every part of it — the schema, the server, the interface, and the deploy that puts it in front of someone.</p>
 
           <h2 class="about-subhead" id="how">How I got here</h2>
-          <p>From 2010 to 2018 I was a content and web lead at KPMG Greece. I wrote the content, built the pages, and measured them: an intranet migration, a job board, campaign microsites, and an email suite. The tools were Umbraco, SharePoint, HTML, CSS, JavaScript, and a lot of coordination.</p>
-          <p>Since 2025 the work has moved a layer down: Laravel services, Python model serving, dataset contracts, and the deploy scripts behind them. The through-line is the same. Write it, build it, measure it.</p>
+          <p>I studied philosophy in Thessaloniki, then a cross-discipline master's in cognitive science in Athens. The thesis was on methods in cognitive musicology: how you study the way people make sense of music, and what a method can show. The habit survived: a claim is only as good as the method behind it.</p>
+          <p>My first job was EPIS, in 2004: ASP and PHP against SQL Server 2000, including the digital archive of the Greek National Opera. Five years, every layer of the delivery.</p>
+          <p>Then nine years at KPMG Greece. The title said Content Manager. The job was the firm's web estate — the intranet migration, the client sites, the email suite, and the pages inside them. What a page said and how it worked were one job there.</p>
+          <p>In 2019 I founded Faltso, a music and theatre group for children, and ran it until 2024: the programmes, the collaborators, the schools and parents' associations, and the site. A small organisation is also a system, and most of its failures are communication failures. The site survives as <a href="https://github.com/lagtac/faltso.org">its repository</a>, 76 commits of it.</p>
+          <p>Since 2025 I have been the only developer on a four-service clinical imaging platform: annotation tool, dataset pipeline, model server, clinician app. I built it with agentic coding — Claude Code, parallel agents across the repositories, vendor and custom skills — and with the discipline that makes that safe: one contract per boundary, a test for every claim, and a diff I read myself. <a href="work/oral-pathology-platform.html">The case study</a> has the numbers and the three things that did not work.</p>
+          <p>All four jobs put the value in the same place: between the parts. The annotation tool and the training set; the page and what it does. Systems that can be inspected — run IDs, dated reports, explicit contracts — keep that boundary honest after the context is gone.</p>
+          <p>I live in Greece with my wife and son. I am looking for a fullstack role where the problem spans more than one layer and the evidence is expected to be real.</p>
 
           <h2 class="about-subhead" id="tools">Tools I reach for</h2>
           <div class="tools">
@@ -132,18 +134,19 @@
               </ul>
             </div>
             <div class="tool-group">
-              <h3>Frontend and ops</h3>
+              <h3>Frontend and delivery</h3>
               <ul>
                 <li>Tailwind 4, DaisyUI 5</li>
                 <li>Vanilla JS, Alpine</li>
                 <li>Docker, Apache, Bash</li>
                 <li>Git, CI, deploy scripts</li>
+                <li>Claude Code, parallel agents, custom skills</li>
               </ul>
             </div>
           </div>
 
           <h2 class="about-subhead" id="kpmg">KPMG Greece, 2010 — 2018</h2>
-          <p>Nine projects chosen for evidence, not volume. The outcomes are qualitative; no client brand, screenshot, or metric is reproduced here, and the inventory behind this list stays private.</p>
+          <p>Nine projects I chose for what they show, not for volume.</p>
 
           <div class="kpmg">
             <div class="kpmg__row">
@@ -219,7 +222,7 @@
               <p class="kpmg__outcome">Built a self-contained interactive content-marketing piece with image-map hotspots.</p>
             </div>
           </div>
-          <p class="note" style="max-width:none"><strong>What it proves:</strong> content, web, and marketing were one job. The same through-line runs through the Diagoradisa work: write it, build it, measure it.</p>
+          <p class="note" style="max-width:none"><strong>What it shows:</strong> content, web, and marketing were one job. The outcomes are qualitative: no client brand, screenshot, or metric is reproduced here, and the inventory behind this list stays private.</p>
 
           <h2 class="about-subhead" id="now">Now</h2>
           <div class="now">
@@ -230,7 +233,7 @@
             <div class="now__body">
               <p><strong>Between roles.</strong> I am working through TypeScript, React, and Next.js. The first public app will be linked here when it ships.</p>
               <p class="small">Current client work: a Greek real-estate marketplace, Laravel 13 + Nuxt 3. Name and details withheld until cleared.</p>
-              <p class="small">Most recent: Diagoradisa, Jul 2025 – Oct 2026. No claim above what is built.</p>
+              <p class="small">Most recent: the oral pathology platform, Jul 2025 – Oct 2026.</p>
             </div>
           </div>
         </div>

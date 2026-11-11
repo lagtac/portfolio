@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Diagoradisa — case study · Dimitris Chrysomallis</title>
-  <meta name="description" content="Sole developer of Diagoradisa, a four-service clinical AI platform: annotation tool, dataset pipeline, model server, and clinician app. The architecture, the three failures, and the measured evidence.">
+  <title>Oral pathology imaging platform — case study · Dimitris Chrysomallis</title>
+  <meta name="description" content="Sole developer of an oral-pathology imaging platform: annotation tool, dataset pipeline, model server, and clinician app. The architecture, three failures, and the measured evidence.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Diagoradisa — case study">
-  <meta property="og:description" content="Four services, one developer, and the numbers. A four-service clinical AI platform built from annotation to diagnosis.">
+  <meta property="og:title" content="Oral pathology imaging platform — case study">
+  <meta property="og:description" content="Sole developer of a four-service clinical imaging platform, with the measured numbers and the documented failures.">
   <meta property="og:image" content="../img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
@@ -27,9 +27,9 @@
     })();
   </script>
   <link rel="stylesheet" href="../fonts/fonts.css?v=2">
-  <link rel="stylesheet" href="../css/tokens.css?v=2">
+  <link rel="stylesheet" href="../css/tokens.css?v=3">
   <link rel="stylesheet" href="../css/base.css?v=2">
-  <link rel="stylesheet" href="../css/site.css?v=2">
+  <link rel="stylesheet" href="../css/site.css?v=3">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -67,10 +67,10 @@
           <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../index.html#work">Work</a>
             <span class="breadcrumb__sep" aria-hidden="true">/</span>
-            <span aria-current="page">Diagoradisa</span>
+            <span aria-current="page">Oral pathology platform</span>
           </nav>
-          <h1>Diagoradisa</h1>
-          <p class="case-head__lead lede">A four-service platform for oral pathology: annotate clinical images against a controlled taxonomy, train a segmentation model, and return a case-level result to a clinician.</p>
+          <h1>Oral pathology<br>imaging platform</h1>
+          <p class="case-head__lead lede">Four services for one job: annotate clinical images against a controlled taxonomy, train a segmentation model, and return a case-level result to a clinician.</p>
           <dl class="case-meta">
             <div>
               <dt>Role</dt>
@@ -91,7 +91,7 @@
           </dl>
           <figure class="figure case-hero">
             <span class="figure__frame">
-              <img src="../img/annotator-editor.webp" width="1338" height="819" alt="The Diagoradisa annotation editor: a dental photograph with a polygon drawn around a lesion, with the tool panel and batch progress.">
+              <img src="../img/annotator-editor.webp" width="1338" height="819" alt="The annotation editor: a dental photograph with a polygon drawn around a lesion, with the tool panel and batch progress.">
             </span>
             <figcaption class="figure__cap"><span class="figure__num">Fig. 01</span><span>The annotation editor is where the dataset comes from: deep zoom, polygon tool, ICD-10 lookup, and batch progress.</span></figcaption>
           </figure>
@@ -116,12 +116,12 @@
           <section class="case-section" id="context">
             <header class="section-head">
               <p class="eyebrow">§ 01 — Context</p>
-              <h2>The problem was not the model.</h2>
+              <h2>Clinicians classify lesions by eye.</h2>
             </header>
             <div class="prose">
-              <p class="lede">Stomatologists photograph lesions in the mouth and classify them by eye. The classification is slow, inconsistent between clinicians, and hard to audit.</p>
-              <p>Diagoradisa was built to make that process measurable: a tool to annotate images against a controlled disease taxonomy, a pipeline that turns those annotations into a training set, a model that segments lesions, and an app that returns a case-level result.</p>
-              <p>The taxonomy started at 95 ICD-10 classes. The production model uses 18. That reduction is the most important design decision in the project. A class with too few examples teaches a model to be confidently wrong. The 18 surviving classes are the ones with enough evidence to support a claim.</p>
+              <p class="lede">Stomatologists photograph lesions in the mouth and label them from memory. That label is slow to produce, inconsistent between clinicians, and hard to audit.</p>
+              <p>The platform was built to make that process measurable: a tool to annotate images against a controlled disease taxonomy, a pipeline that turns those annotations into a training set, a model that segments lesions, and an app that returns a case-level result.</p>
+              <p>The taxonomy started at 95 ICD-10 classes. The production model uses 18. A class with too few examples teaches a model to be confidently wrong, so the 18 that survived are the ones with enough evidence to support a claim.</p>
             </div>
 
             <figure class="figure case-figure">
@@ -144,13 +144,13 @@
               </div>
               <div class="timeline__phase">
                 <p class="timeline__date">Feb — Jun 2026</p>
-                <h3>Model service</h3>
+                <h3>Model server</h3>
                 <p>Training and evaluation CLI, FastAPI, the EXIF fix, the recall ceiling.</p>
               </div>
               <div class="timeline__phase">
                 <p class="timeline__date">Mar — Oct 2026</p>
                 <h3>Clinician app</h3>
-                <p>Palmist, the design system, the mobile capture flow, exports.</p>
+                <p>The clinician app, the design system, the mobile capture flow, exports.</p>
               </div>
             </div>
           </section>
@@ -162,7 +162,7 @@
             </header>
             <div class="prose">
               <ul>
-                <li><strong>One developer, four services.</strong> No handoff to an ML engineer, a designer, or an ops team. The seams were mine to keep.</li>
+                <li><strong>One developer, four services.</strong> No handoff to an ML engineer, a designer, or an ops team. Nobody else owned the boundaries between them.</li>
                 <li><strong>Clinical data.</strong> Real patient photographs, authentication on every surface, and no identifiers in the exported dataset.</li>
                 <li><strong>One GPU.</strong> A training run is an appointment, not a loop. Experiments had to be chosen carefully.</li>
                 <li><strong>Variable capture.</strong> Different cameras, lighting, and EXIF orientations. The data is not a benchmark set.</li>
@@ -174,53 +174,54 @@
           <section class="case-section" id="architecture">
             <header class="section-head">
               <p class="eyebrow">§ 03 — Architecture</p>
-              <h2>Three services in the request path. One in the basement.</h2>
+              <h2>Three services take requests. A fourth runs the deploy.</h2>
             </header>
             <div class="prose">
-              <p>The annotator owns the data. The ML service owns the weights. Palmist owns the clinician's session and nothing else — it has no domain database, only a user table and a proxy. Meta owns the machine they run on.</p>
+              <p>The annotation tool owns the data. The model server owns the weights. The clinician app owns the session and nothing else — no domain database, only a user table and a proxy. The deployment layer owns the machine they run on.</p>
             </div>
 
             <div class="arch" data-diagram>
               <section class="arch__flow" aria-label="Service flow">
                 <div class="arch__node">
                   <span class="arch__node-num">01</span>
-                  <span class="arch__node-name">Annotator</span>
+                  <span class="arch__node-name">Annotation tool</span>
                   <span class="arch__node-role">Dataset creation · Laravel 12, OpenSeadragon, Annotorious, MariaDB</span>
                 </div>
                 <div class="arch__link" aria-hidden="true"><span>YOLO</span></div>
                 <div class="arch__node">
                   <span class="arch__node-num">02</span>
-                  <span class="arch__node-name">ML service</span>
+                  <span class="arch__node-name">Model server</span>
                   <span class="arch__node-role">Train · evaluate · serve · Python, Ultralytics YOLO, FastAPI</span>
                 </div>
                 <div class="arch__link" aria-hidden="true"><span>JSON</span></div>
                 <div class="arch__node">
                   <span class="arch__node-num">03</span>
-                  <span class="arch__node-name">Palmist</span>
+                  <span class="arch__node-name">Clinician app</span>
                   <span class="arch__node-role">Clinician surface · Laravel 12, Livewire 4, Tailwind 4, DaisyUI 5</span>
                 </div>
               </section>
               <div class="arch__infra">
-                <strong>04 — Meta</strong>
+                <strong>04 — Deployment</strong>
                 <span>Docker · Apache reverse proxy · backups · security headers · opt-in migrations</span>
               </div>
               <div class="arch__legend">
-                <span><i></i> Two contracts carry the system, each tested on both sides.</span>
+                <span><i></i> Two contracts connect the services, each tested on both sides.</span>
               </div>
             </div>
 
-            <p class="note"><strong>Two contracts carry the system.</strong> The dataset export (annotator → ML) is logged under a versioned dataset contract. The prediction schema (ML → Palmist) is mirrored between Pydantic models and PHP DTOs, with tests on both sides. Most of the expensive bugs lived at these seams.</p>
+            <p class="note"><strong>Two contracts connect the services.</strong> The dataset export (annotation tool → model server) is logged under a versioned dataset contract. The prediction schema (model server → clinician app) is mirrored between Pydantic models and PHP DTOs, with tests on both sides. Most of the expensive bugs were in the data those contracts pass.</p>
+            <p class="note"><strong>How it was built.</strong> One developer and a lot of agentic tooling: Claude Code, parallel agents across the four repositories, vendor and custom skills. 1,629 commits. The number measures volume; the contracts and the tests are what show whether the agents helped, and <a href="#failures">§05</a> keeps the three things that did not work.</p>
           </section>
 
           <section class="case-section" id="surfaces">
             <header class="section-head">
               <p class="eyebrow">§ 04 — Surfaces</p>
-              <h2>Four tools, one workflow.</h2>
+              <h2>What each service does</h2>
             </header>
 
             <div class="surface">
               <div class="surface__body">
-                <h3>Annotator</h3>
+                <h3>Annotation tool</h3>
                 <p class="surface__role">The dataset comes from here</p>
                 <p>Clinicians work through assigned batches, draw polygons or boxes, and label each finding against the ICD-10 taxonomy. The ML-readiness screen shows the export cascade before anyone trains: how many images survive the minimum-sample filter, and which classes are about to disappear.</p>
                 <ul>
@@ -240,7 +241,7 @@
 
             <div class="surface surface--flip">
               <div class="surface__body">
-                <h3>ML service</h3>
+                <h3>Model server</h3>
                 <p class="surface__role">Training, evaluation, serving</p>
                 <p>The <code>stoma</code> package runs the lifecycle: check the dataset, train, evaluate, compare predictions to ground truth, assess a run, export weights, and serve. Every model is a run with an ID, so a metric can always be traced back to the weights that produced it.</p>
                 <ul>
@@ -262,8 +263,8 @@
 
             <div class="surface">
               <div class="surface__body">
-                <h3>Palmist</h3>
-                <p class="surface__role">The clinician's surface</p>
+                <h3>Clinician app</h3>
+                <p class="surface__role">Case upload, aggregation, exports</p>
                 <p>Upload up to ten images as one case. The app forwards them to the ML service, aggregates detections across views, and only calls a condition present when it appears in two or more views. Results export to PDF and Excel.</p>
                 <ul>
                   <li>Case-level aggregation instead of per-image noise.</li>
@@ -275,13 +276,13 @@
               <div class="surface__media">
                 <figure class="figure">
                   <span class="figure__frame">
-                    <img src="../img/palmist-results.webp" width="1200" height="542" alt="Palmist prediction results: model best.pt, 18 classes, 640 px input, the case-level diagnosis leukoplakia present in four of four views." loading="lazy">
+                    <img src="../img/palmist-results.webp" width="1200" height="542" alt="Case result screen: model best.pt, 18 classes, 640 px input, the case-level diagnosis leukoplakia present in four of four views." loading="lazy">
                   </span>
                   <figcaption class="figure__cap"><span class="figure__num">Fig. 05</span><span>Case-level result: a condition is present only when it appears in two or more views.</span></figcaption>
                 </figure>
                 <figure class="figure" style="margin-top:1.25rem">
                   <span class="figure__frame" style="max-width:16rem">
-                    <img src="../img/palmist-upload.webp" width="442" height="720" alt="The Palmist mobile upload screen with Take Photo, Files, drag-and-drop, and an Analyze Images action." loading="lazy">
+                    <img src="../img/palmist-upload.webp" width="442" height="720" alt="The mobile upload screen: Take Photo, Files, drag-and-drop, and an Analyze Images action." loading="lazy">
                   </span>
                   <figcaption class="figure__cap"><span class="figure__num">Fig. 06</span><span>Mobile capture: up to ten images, 10 MB each.</span></figcaption>
                 </figure>
@@ -290,9 +291,9 @@
 
             <div class="surface surface--flip">
               <div class="surface__body">
-                <h3>Meta</h3>
-                <p class="surface__role">The part nobody demos</p>
-                <p>Containerised deploys from an operator workstation, an Apache reverse proxy, database backups, security headers, and migrations that are opt-in. The annotator has run in production since August 2025.</p>
+                <h3>Deployment</h3>
+                <p class="surface__role">Proxy, backups, migrations</p>
+                <p>Containerised deploys from an operator workstation, an Apache reverse proxy, database backups, security headers, and migrations that are opt-in. The annotation tool has run in production since August 2025.</p>
                 <ul>
                   <li>Multi-stage images and a pinned compose project.</li>
                   <li>Reverse proxy with rate limiting and hardened headers.</li>
@@ -314,7 +315,7 @@
               <h2>Three things that went wrong.</h2>
             </header>
             <div class="prose">
-              <p>These are the parts I would put in a hiring conversation. Each one changed how I work.</p>
+              <p>Each one changed how I build.</p>
             </div>
 
             <article class="failure">
@@ -325,7 +326,7 @@
                   <dt>Symptom</dt>
                   <dd>Masks landed beside the lesion on portrait photographs. The model was learning from noise.</dd>
                   <dt>Cause</dt>
-                  <dd>The annotator exported label coordinates against the raw image size. The browser draws annotations in the EXIF-applied frame. On iPhone portrait shots, the two frames are 90° apart.</dd>
+                  <dd>The annotation tool exported label coordinates against the raw image size. The browser draws annotations in the EXIF-applied frame. On iPhone portrait shots, the two frames are 90° apart.</dd>
                   <dt>Fix</dt>
                   <dd>Export against the transposed size, rebuild the dataset, re-run the baseline. Box mAP@50 went from <strong>0.460 to 0.508</strong>; recall from <strong>0.423 to 0.496</strong>.</dd>
                 </dl>
@@ -343,7 +344,7 @@
                   <dt>Attempts</dt>
                   <dd>Class reweighting, a 1024 px retrain, label-space collapse, calibration, a frozen DINOv2 probe, and an RF-DETR A/B.</dd>
                   <dt>Result</dt>
-                  <dd>All closed. RF-DETR produced <strong>51 background false positives against YOLO's 12</strong> on clean ground truth. The failure is the data, not the architecture.</dd>
+                  <dd>All closed. RF-DETR produced <strong>51 background false positives against YOLO's 12</strong> on clean ground truth. The limit is the data, not the architecture.</dd>
                 </dl>
                 <p class="note">The next lever is acquisition: more annotated images, especially for the weak classes.</p>
               </div>
@@ -361,7 +362,7 @@
                   <dt>Result</dt>
                   <dd>No net benefit. I removed the engine, the environment flag, the API fields, and the calibration loader.</dd>
                 </dl>
-                <p class="note">Shipping it was the mistake. Testing it was the fix.</p>
+                <p class="note">I should have tested it before shipping it.</p>
               </div>
             </article>
           </section>
@@ -369,7 +370,7 @@
           <section class="case-section" id="evidence">
             <header class="section-head">
               <p class="eyebrow">§ 06 — Evidence</p>
-              <h2>What the model actually does.</h2>
+              <h2>What the model does</h2>
             </header>
             <div class="prose">
               <p>The current production model is a YOLO26l segmentation model at 640 px, trained for 250 epochs on 8,774 images across 18 classes. The numbers below are from the clean test split, after the EXIF fix.</p>
@@ -532,17 +533,17 @@
               </table>
             </div>
 
-            <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes — a confident wrong class, a refusal to choose, a missed lesion — not the error rate. The honest summary: four correct, three wrong, three abstentions.</p>
+            <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes — a confident wrong class, a refusal to choose, a missed lesion — not the error rate. Four correct, three wrong, three abstentions.</p>
           </section>
 
           <section class="case-section" id="next">
             <header class="section-head">
               <p class="eyebrow">§ 07 — Next</p>
-              <h2>What I would do with another quarter.</h2>
+              <h2>What I would do next</h2>
             </header>
             <ol class="next-list">
-              <li><span><strong>Acquire data, not architecture.</strong> The recall ceiling is a data problem. More annotated images for the weak classes, and a class-set drift guard so the taxonomy cannot grow silently.</span></li>
-              <li><span><strong>Make annotation cheaper.</strong> SAM 2 already segments from a click. Feeding model proposals back into the annotator would close the loop between prediction and dataset growth.</span></li>
+              <li><span><strong>Get more annotated data.</strong> The recall ceiling is a data problem. More images for the weak classes, and a class-set drift guard so the taxonomy cannot grow silently.</span></li>
+              <li><span><strong>Make annotation cheaper.</strong> SAM 2 already segments from a click. Feeding model proposals back into the annotation tool would close the loop between prediction and dataset growth.</span></li>
               <li><span><strong>Turn the ten-case test into a habit.</strong> A dated, repeatable product test per model version — the same ten folders, the same UI, the same table — so regressions are visible before a clinician finds them.</span></li>
             </ol>
           </section>
