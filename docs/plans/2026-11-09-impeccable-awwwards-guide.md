@@ -13,8 +13,11 @@ Run impeccable before and after, and awwwards in the middle.
 1. **`impeccable init`** — write `PRODUCT.md`. Product truth only: audience,
    job, positioning, evidence, constraints. No visuals yet.
 2. **`impeccable shape`** — discovery plus `new-work`. The visual world is
-   chosen here (the concept-seed roll), and it returns a direction contract
-   and surface brief.
+   chosen here (the concept-seed roll). It returns a **brief** naming the
+   selected direction (world, first viewport, visitor path, signature
+   interaction) and stops; it does not write a direction contract or
+   `DESIGN.md`. On a machine without image generation the roll's cards are
+   HTML sketches, so the run is code-first.
 3. **`impeccable document --seed`** — write the seed `DESIGN.md`, the
    style-guide. Optional, and a deliberate choice: see the caveat below.
 4. **`build-awwwards-quality-sites`** — build the site to that direction.
@@ -22,14 +25,14 @@ Run impeccable before and after, and awwwards in the middle.
    validation. Its "Set the art direction" step reads the direction impeccable
    already chose; it does not invent a rival.
 5. **`impeccable critique` / `audit` / `polish`** — review the built site
-   against the direction contract.
+   against shape's chosen direction and the `DESIGN.md` (seed or scanned).
 6. **`impeccable document`** (scan mode) — carbonize the real tokens into
    `DESIGN.md` and `.impeccable/design.json`, replacing the seed.
 
 ### The one place they fight
 
-Art direction. Resolve it by making impeccable's chosen world and `DESIGN.md`
-the authority, and awwwards' step 1 a consumer of it, not a rival.
+Art direction. Resolve it by making impeccable's chosen world (and `DESIGN.md`
+when seeded) the authority, and awwwards' step 1 a consumer of it, not a rival.
 
 ### If you skip the ceremony
 
@@ -76,7 +79,8 @@ recommendation becomes `impeccable init`.
 
 ### Starting point for this project
 
-The portfolio is greenfield with no `PRODUCT.md` yet. The lead is
-`impeccable init` (product truth), then `shape` (discover the direction).
+`PRODUCT.md` already exists at the repo root, so the lead is `shape` (discover
+the direction). The route is `src/design3/`; design1 and design2 are reference,
+not templates.
 
 Full workflow guide: <https://impeccable.style/docs/>

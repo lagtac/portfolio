@@ -52,14 +52,20 @@ delegate, Q10 restrained, Q11 hidden, Q12 GitHub Pages.
 2. `impeccable shape` — discovery plus `new-work`. The direction is chosen here.
    The concept and visual energy decision belongs to this step, not `init`.
    design1 (Case Record) and design2 (Annotated) are reference, not templates;
-   the third world must not repeat either.
+   the third world must not repeat either. Shape returns a **brief** naming the
+   selected direction — world, first viewport, visitor path, signature
+   interaction — and stops; it does not write a persisted direction contract or
+   `DESIGN.md`. With no image generation on this machine, the concept roll's
+   cards are HTML sketches/wireframes, not rendered comps; the run is code-first.
 3. `build-awwwards-quality-sites` — build to that direction in
    `src/design3/`. Restrained motion, honest asset system from `./assets`,
    keyboard and reduced-motion fallbacks.
 4. `impeccable document` (scan) — carbonise the real tokens into
-   `src/design3/docs/DESIGN.md`.
+   `src/design3/docs/DESIGN.md` **and** the `.impeccable/design.json` sidecar,
+   with the token-bearing frontmatter. Prose alone is not the artifact.
 
-Do not invent a rival direction in step 3. `DESIGN.md` is the authority.
+Do not invent a rival direction in step 3. Shape's chosen direction is the
+authority; step 4 records it in `DESIGN.md`.
 
 ## Deploy — GitHub Pages
 
@@ -81,8 +87,11 @@ staged before upload:
 - `pnpm test` — the axe suite discovers `design3` automatically; `design1` and
   `design2` are excluded as reference. Run at mobile, tablet, and desktop.
 - `pnpm check` — Biome.
+- Run the Impeccable detector once on the built pages, since no design hook is
+  active: `/home/dchris/.agents/skills/impeccable/scripts/impeccable detect
+  --json <changed targets>`.
 - Drive the built pages with Playwright before calling it done.
-- Re-run both after any colour or layout change.
+- Re-run axe, Biome, and the detector after any colour or layout change.
 
 ## Open items
 
