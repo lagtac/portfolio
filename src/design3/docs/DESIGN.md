@@ -39,7 +39,7 @@ colors:
 typography:
   display:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(2.85rem, 5.9vw, 5.2rem)
+    fontSize: clamp(2.85rem, 5.9vw, 4.2rem)
     fontWeight: 600
     lineHeight: 0.94
     letterSpacing: -0.048em
@@ -243,7 +243,7 @@ heads, not for prose. Greek disease names are data and switch to Noto Sans under
 
 ### Hierarchy
 
-- **Display** (600, clamp(2.85rem, 5.9vw, 5.2rem), 0.94): The home hero only.
+- **Display** (600, clamp(2.85rem, 5.9vw, 4.2rem), 0.94): The home hero only.
 - **Page Title** (600, clamp(2.8rem, 6.4vw, 5.4rem), 1.06): Case-study, About,
   and Design system page titles.
 - **Headline** (600, clamp(1.85rem, 3.5vw, 2.75rem), 1.06): Section titles,
@@ -376,8 +376,8 @@ clipped corners, no decorative geometry.
 
 ### Do:
 
-- **Do** keep one accent and make it earn its place: links, active states,
-  measured marks.
+- **Do** keep one accent and reserve it for links, active states, and measured
+  marks.
 - **Do** set every number, date, run ID, and verdict label in Azeret Mono.
 - **Do** label the ten-case test as a product test, not a validation study,
   wherever the numbers appear.
