@@ -322,6 +322,20 @@ clipped corners, no decorative geometry.
 - **Caption:** mono figure number in Signal Blue plus a sans caption in
   ink-secondary.
 - **Screenshots:** real product surfaces only, cropped to remove identifiers.
+- **Hero figure:** a detail crop at least 2:1, sized so the interface text is
+  legible at 462px wide. It shows one surface at a readable scale, not the whole
+  window.
+
+### Work Item
+
+- **Row:** three columns at desktop (meta, body, evidence) and one column below
+  720px.
+- **Thumb:** a 16:9 crop of a second surface from the same project, never a
+  repeat of the hero figure.
+- **Facts:** mono value and sans label on hairlines, one per inventory-backed
+  claim. A value that restates the row's title or meta is not a fact.
+- **Link:** a 44px target, with `sr-only` text naming the destination after the
+  short label.
 
 ### Tables
 

@@ -457,34 +457,32 @@
 	object-position: 50% 42%;
 }
 
-.work-item__stats {
+.work-item__facts {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1px;
-	background: var(--rule);
-	border: 1px solid var(--rule);
-	border-radius: var(--radius);
-	overflow: hidden;
+	gap: 0.55rem;
 }
 
-.work-item__stat {
-	padding: 0.6rem 0.7rem;
-	background: var(--paper-2);
+.work-item__facts div {
+	display: grid;
+	grid-template-columns: 5.2rem minmax(0, 1fr);
+	gap: 0.6rem;
+	align-items: baseline;
+	padding-top: 0.55rem;
+	border-top: 1px solid var(--rule);
 }
 
-.work-item__stat b {
-	display: block;
+.work-item__facts b {
 	font-family: var(--mono);
-	font-size: 0.95rem;
+	font-size: 0.8125rem;
 	font-weight: 500;
-	letter-spacing: -0.03em;
+	letter-spacing: -0.02em;
+	color: var(--ink);
 }
 
-.work-item__stat span {
-	display: block;
-	margin-top: 0.1rem;
-	font-size: 0.6875rem;
-	color: var(--ink-3);
+.work-item__facts span {
+	font-size: var(--t-small);
+	line-height: 1.45;
+	color: var(--ink-2);
 }
 
 .work-item__more {
@@ -562,8 +560,13 @@
 	color: var(--ink-3);
 }
 
-.now__label strong {
+.now__label h2 {
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
 	font-weight: 500;
+	line-height: inherit;
+	letter-spacing: inherit;
 	color: var(--ink);
 }
 
@@ -1694,6 +1697,27 @@
 @media (max-width: 720px) {
 	.brand__role {
 		display: none;
+	}
+
+	/* Keep a proof figure inside the first viewport on a phone. */
+	.hero {
+		padding-block: 1.25rem 1.25rem;
+	}
+
+	.hero__lede {
+		margin-top: 0.85rem;
+	}
+
+	.hero__actions {
+		margin-top: 1.1rem;
+	}
+
+	.hero__status {
+		margin-top: 0.9rem;
+	}
+
+	.hero__artifact-cap {
+		margin-top: 0.5rem;
 	}
 
 	.nav-toggle {
