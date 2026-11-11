@@ -35,9 +35,19 @@ jobs:
             src/design3/design \
             src/design3/css \
             src/design3/js \
-            src/design3/img \
             src/design3/fonts \
             "$RUNNER_TEMP/site/"
+          mkdir -p "$RUNNER_TEMP/site/img"
+          rsync -a \
+            src/design3/img/favicon.svg \
+            src/design3/img/og.jpg \
+            src/design3/img/annotator-editor.webp \
+            src/design3/img/annotator-editor-detail.webp \
+            src/design3/img/ml-readiness.webp \
+            src/design3/img/ml-readiness-thumb.webp \
+            src/design3/img/palmist-results.webp \
+            src/design3/img/palmist-upload.webp \
+            "$RUNNER_TEMP/site/img/"
           touch "$RUNNER_TEMP/site/.nojekyll"
 
       - name: Upload Pages artifact

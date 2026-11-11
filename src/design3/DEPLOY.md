@@ -12,12 +12,22 @@ work/
 design/
 css/
 js/
-img/
 fonts/
+img/favicon.svg
+img/og.jpg
+img/annotator-editor.webp
+img/annotator-editor-detail.webp
+img/ml-readiness.webp
+img/ml-readiness-thumb.webp
+img/palmist-results.webp
+img/palmist-upload.webp
 ```
 
 `fonts/LICENSES.md` ships with `fonts/`; it is a licence, not a build note.
 Nothing else ships.
+
+`img/` is a file allowlist, never a directory copy. A new image enters the list by
+name, so an unreferenced export cannot ship by existing.
 
 ## Never publish
 
@@ -25,8 +35,9 @@ Nothing else ships.
   ten PDF reports, and account screenshots. No page links to it.
 - **`docs/`** — `DESIGN.md` and the build notes.
 - **`README.md`, `DEPLOY.md`, `ASSETS.md`** — build notes, not site content.
-- **Unused case screenshots** — the ten result screens were removed from `img/`
-  because they carry patient identifiers the table does not need.
+- **Uncropped product exports** — `assets/source/design3-raw/` holds the full
+  screenshots the WebP derivatives were cropped from. They show staff names,
+  patient folders, patient IDs, and unredacted clinical photographs.
 
 The staging command below copies only the publish list, so private material is
 excluded by construction rather than by an ignore rule.
@@ -45,9 +56,18 @@ rsync -a --delete \
   src/design3/design \
   src/design3/css \
   src/design3/js \
-  src/design3/img \
   src/design3/fonts \
   /tmp/design3-site/
+rsync -a \
+  src/design3/img/favicon.svg \
+  src/design3/img/og.jpg \
+  src/design3/img/annotator-editor.webp \
+  src/design3/img/annotator-editor-detail.webp \
+  src/design3/img/ml-readiness.webp \
+  src/design3/img/ml-readiness-thumb.webp \
+  src/design3/img/palmist-results.webp \
+  src/design3/img/palmist-upload.webp \
+  /tmp/design3-site/img/
 touch /tmp/design3-site/.nojekyll
 python3 -m http.server 4175 --directory /tmp/design3-site
 # http://127.0.0.1:4175/
