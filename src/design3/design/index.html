@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design system — Dimitris Chrysomallis</title>
+  <meta name="description" content="The tokens, type, components, and motion rules behind this site. Light and dark, one accent, WCAG 2.1 AA.">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d10" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <script>
+    (() => {
+      document.documentElement.classList.add("js");
+      let pref = null;
+      try {
+        pref = localStorage.getItem("dc-theme");
+      } catch {}
+      const dark = pref === "dark" || (pref !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="../fonts/fonts.css?v=1">
+  <link rel="stylesheet" href="../css/tokens.css?v=1">
+  <link rel="stylesheet" href="../css/base.css?v=1">
+  <link rel="stylesheet" href="../css/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__name">Dimitris Chrysomallis</span>
+        <span class="brand__role">Fullstack engineer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="../index.html#work">Work</a>
+        <a class="site-nav__link" href="../about.html">About</a>
+        <a class="site-nav__link" href="../index.html#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="wrap design-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Design system</span>
+      </nav>
+      <h1>The system behind the pages.</h1>
+      <p class="lede" style="max-width:44rem;margin-top:1rem">One accent, two themes, no decoration without a job. Every value on this page is read from the same tokens the site ships. Light is the default; dark follows the OS or the toggle.</p>
+    </header>
+
+    <div class="wrap">
+      <section class="design-section" id="colour">
+        <h2>Colour</h2>
+        <p>Neutrals do the reading. The single accent marks the active, the linked, and the measured. Data states carry a word as well as a colour.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--paper)"></div><div class="swatch__meta"><b>--paper</b><span>Page ground</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--paper-2)"></div><div class="swatch__meta"><b>--paper-2</b><span>Raised surface</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--paper-3)"></div><div class="swatch__meta"><b>--paper-3</b><span>Sunken surface</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--ink)"></div><div class="swatch__meta"><b>--ink</b><span>Body</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--ink-2)"></div><div class="swatch__meta"><b>--ink-2</b><span>Secondary</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--ink-3)"></div><div class="swatch__meta"><b>--ink-3</b><span>Metadata</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--rule)"></div><div class="swatch__meta"><b>--rule</b><span>Hairline</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--accent)"></div><div class="swatch__meta"><b>--accent</b><span>Signal</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--good)"></div><div class="swatch__meta"><b>--good</b><span>Correct</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--warn)"></div><div class="swatch__meta"><b>--warn</b><span>Caution</span></div></div>
+          <div class="swatch"><div class="swatch__chip" style="--chip:var(--bad)"></div><div class="swatch__meta"><b>--bad</b><span>Wrong</span></div></div>
+        </div>
+      </section>
+
+      <section class="design-section" id="type">
+        <h2>Type</h2>
+        <p>Archivo for display and UI, Azeret Mono for data and labels, Noto Sans for Greek disease names. All self-hosted; all links share one <span class="mono">?v=</span> value.</p>
+        <div class="specimens">
+          <div class="specimen">
+            <p class="specimen__label">--t-hero · Archivo 600</p>
+            <p style="font-size:var(--t-hero);font-weight:600;line-height:0.94;letter-spacing:-0.048em">Four services.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">--t-h2 · Archivo 600</p>
+            <h2>Measure before you claim.</h2>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">--t-body · Archivo 400</p>
+            <p>Body copy is capped at 68 characters. The metric that matters is whether the claim survives a second look, not how large the type is.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">--t-micro · Azeret Mono 500</p>
+            <p class="eyebrow eyebrow--plain" style="display:block">Selected work · § 03</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">Greek · Noto Sans</p>
+            <p lang="el" style="font-size:1.25rem">ΛΕΥΚΟΠΛΑΚΙΑ · ΟΜΑΛΟΣ ΛΕΙΧΗΝΑΣ · ΒΛΕΝΝΟΚΥΣΤΗ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="design-section" id="space">
+        <h2>Space, grid, shape</h2>
+        <p>A 4 px base, a 1200 px page, a fluid gutter, and a 2 px radius. Corners stay sharp; the system is precise, not soft.</p>
+        <div class="spacing">
+          <div class="spacing__row"><span>--s-2</span><span class="spacing__bar" style="--w:0.5rem"></span></div>
+          <div class="spacing__row"><span>--s-4</span><span class="spacing__bar" style="--w:1rem"></span></div>
+          <div class="spacing__row"><span>--s-5</span><span class="spacing__bar" style="--w:1.5rem"></span></div>
+          <div class="spacing__row"><span>--s-6</span><span class="spacing__bar" style="--w:2rem"></span></div>
+          <div class="spacing__row"><span>--s-7</span><span class="spacing__bar" style="--w:3rem"></span></div>
+          <div class="spacing__row"><span>--s-8</span><span class="spacing__bar" style="--w:4rem"></span></div>
+          <div class="spacing__row"><span>--section</span><span class="spacing__bar" style="--w:8rem"></span></div>
+        </div>
+      </section>
+
+      <section class="design-section" id="components">
+        <h2>Components</h2>
+        <p>Buttons, tags, badges, figures, and tables. Each one is built from the tokens, and each one has a visible focus state.</p>
+        <div class="component-row">
+          <a class="btn btn--primary" href="#components">Primary
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+          <a class="btn" href="#components">Default</a>
+          <a class="btn btn--ghost" href="#components">Ghost</a>
+        </div>
+        <div class="component-row">
+          <span class="tag">Laravel 12</span>
+          <span class="tag">FastAPI</span>
+          <span class="badge badge--good">Correct</span>
+          <span class="badge badge--warn">Medium</span>
+          <span class="badge badge--bad">Wrong</span>
+          <span class="badge">No diagnosis</span>
+        </div>
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table>
+            <caption>Table style</caption>
+            <thead>
+              <tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Box mAP@50</td><td class="num">0.508</td><td>Clean test split</td></tr>
+              <tr><td>Recall</td><td class="num">0.496</td><td>Misses about half the lesions</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="design-section" id="motion">
+        <h2>Motion</h2>
+        <p>GSAP with ScrollTrigger, and Lenis as the single smooth-scroll engine. Motion explains the system or the evidence; it never decorates. Under <span class="mono">prefers-reduced-motion: reduce</span>, Lenis and GSAP do not initialise and every final state renders immediately.</p>
+      </section>
+
+      <section class="design-section" id="access">
+        <h2>Accessibility</h2>
+        <p>WCAG 2.1 A/AA is a hard floor at 390, 768, and 1440 px in both themes, checked with axe-core. Keyboard operability, visible focus, a skip link, semantic landmarks, and correct Greek language tagging are part of the system, not a pass at the end.</p>
+      </section>
+
+      <nav class="pager" aria-label="Design system navigation" style="margin-bottom:4rem">
+        <a href="../index.html#work">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8H2M7 3 2 8l5 5"/></svg>
+          Back to the site
+        </a>
+        <a href="../about.html">
+          About
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomallis</p>
+      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <div class="site-footer__links">
+        <a href="../index.html">Home</a>
+        <a href="mailto:dchrysomallis@bookscanner.gr">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/vendor/gsap.min.js?v=1" defer></script>
+  <script src="../js/vendor/ScrollTrigger.min.js?v=1" defer></script>
+  <script src="../js/vendor/lenis.min.js?v=1" defer></script>
+  <script src="../js/site.js?v=1" defer></script>
+</body>
+</html>

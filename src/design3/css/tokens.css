@@ -1,0 +1,121 @@
+/* design3 tokens — light is the default, dark mirrors it.
+   Every value here is mirrored in docs/DESIGN.md and .impeccable/design.json. */
+
+:root {
+	color-scheme: light;
+
+	/* Ground and ink */
+	--paper: #fafaf7;
+	--paper-2: #f1f1ec;
+	--paper-3: #e7e7e0;
+	--ink: #16181d;
+	--ink-2: #4f545c;
+	--ink-3: #676d76;
+	--rule: #dedfd8;
+	--rule-2: #c5c7bf;
+
+	/* One signal */
+	--accent: #1d46d6;
+	--accent-ink: #ffffff;
+	--accent-soft: #e7ecff;
+	--accent-line: #b9c6ff;
+
+	/* Data states. Never the only signal: every badge carries a word. */
+	--good: #0f6b43;
+	--good-soft: #e2f1e8;
+	--warn: #85560f;
+	--warn-soft: #f7eeda;
+	--bad: #9f211c;
+	--bad-soft: #fae5e3;
+	--neutral-soft: #ecece6;
+
+	--focus: #1d46d6;
+
+	/* Type */
+	--sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--mono: "Azeret Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+	--greek: "Noto Sans", var(--sans);
+
+	--t-hero: clamp(2.85rem, 5.9vw, 5.2rem);
+	--t-h1: clamp(2.55rem, 5.6vw, 4.5rem);
+	--t-h2: clamp(1.85rem, 3.5vw, 2.75rem);
+	--t-h3: clamp(1.25rem, 1.9vw, 1.5rem);
+	--t-lead: clamp(1.1rem, 1.5vw, 1.3rem);
+	--t-body: 1.0625rem;
+	--t-small: 0.8125rem;
+	--t-micro: 0.6875rem;
+
+	/* Space and shape */
+	--s-1: 0.25rem;
+	--s-2: 0.5rem;
+	--s-3: 0.75rem;
+	--s-4: 1rem;
+	--s-5: 1.5rem;
+	--s-6: 2rem;
+	--s-7: 3rem;
+	--s-8: 4rem;
+	--s-9: 6rem;
+	--s-10: 8rem;
+	--section: clamp(4rem, 9vw, 8rem);
+	--gutter: clamp(1.25rem, 5vw, 3rem);
+	--max: 1200px;
+	--nav-h: 4rem;
+	--radius: 2px;
+
+	--ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-theme="dark"] {
+	color-scheme: dark;
+
+	--paper: #0c0d10;
+	--paper-2: #14161b;
+	--paper-3: #1b1e24;
+	--ink: #f0efe9;
+	--ink-2: #b7bac1;
+	--ink-3: #969ba4;
+	--rule: #282b32;
+	--rule-2: #3b3f48;
+
+	--accent: #93a8ff;
+	--accent-ink: #0c0d10;
+	--accent-soft: #191f3d;
+	--accent-line: #3b4b8f;
+
+	--good: #62d7a1;
+	--good-soft: #0f241a;
+	--warn: #f0b45f;
+	--warn-soft: #2a1f0d;
+	--bad: #ff9086;
+	--bad-soft: #2b1412;
+	--neutral-soft: #1d2027;
+
+	--focus: #93a8ff;
+}
+
+/* No-JS fallback: follow the OS when the inline script did not run. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		color-scheme: dark;
+		--paper: #0c0d10;
+		--paper-2: #14161b;
+		--paper-3: #1b1e24;
+		--ink: #f0efe9;
+		--ink-2: #b7bac1;
+		--ink-3: #969ba4;
+		--rule: #282b32;
+		--rule-2: #3b3f48;
+		--accent: #93a8ff;
+		--accent-ink: #0c0d10;
+		--accent-soft: #191f3d;
+		--accent-line: #3b4b8f;
+		--good: #62d7a1;
+		--good-soft: #0f241a;
+		--warn: #f0b45f;
+		--warn-soft: #2a1f0d;
+		--bad: #ff9086;
+		--bad-soft: #2b1412;
+		--neutral-soft: #1d2027;
+		--focus: #93a8ff;
+	}
+}

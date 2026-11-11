@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dimitris Chrysomallis — Fullstack engineer</title>
+  <meta name="description" content="Fullstack engineer. Sole developer of Diagoradisa, a four-service clinical AI platform: annotation tool, dataset pipeline, model server, and clinician app.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dimitris Chrysomallis — Fullstack engineer">
+  <meta property="og:description" content="Four services. One developer. The Diagoradisa case study, with the measured numbers and the documented failures.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d10" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-latin.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/azeret-latin.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <script>
+    (() => {
+      document.documentElement.classList.add("js");
+      let pref = null;
+      try {
+        pref = localStorage.getItem("dc-theme");
+      } catch {}
+      const dark = pref === "dark" || (pref !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="fonts/fonts.css?v=1">
+  <link rel="stylesheet" href="css/tokens.css?v=1">
+  <link rel="stylesheet" href="css/base.css?v=1">
+  <link rel="stylesheet" href="css/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Dimitris Chrysomallis</span>
+        <span class="brand__role">Fullstack engineer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="#work">Work</a>
+        <a class="site-nav__link" href="about.html">About</a>
+        <a class="site-nav__link" href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <h1 class="hero__title"><span>Four services.</span><span>One developer.</span></h1>
+          <p class="lede hero__lede">Fullstack engineer. I built Diagoradisa — an annotation tool, a dataset pipeline, a model server, and a clinician app — as one system. Then I measured what it actually does.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="work/diagoradisa.html">
+              Read the case study
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="about.html">About</a>
+          </div>
+          <p class="hero__status">Open to fullstack roles · Updated 10 November 2026</p>
+        </div>
+
+        <div class="hero__artifact">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="browser__url">diagoradisa · annotator / batch 8 of 15</span>
+            </div>
+            <div class="browser__body">
+              <img src="img/annotator-editor.webp" width="1338" height="819" alt="Diagoradisa annotation editor: a dental photograph with a polygon drawn around a lesion, tool panel, and batch progress.">
+            </div>
+          </div>
+          <p class="hero__artifact-cap"><span>Fig. 01</span><span>The annotation editor, in production. Deep zoom, polygon tool, ICD-10 lookup, and batch progress.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" aria-label="Diagoradisa at a glance">
+      <div class="wrap proof__grid">
+        <div class="proof__item">
+          <span class="proof__value">1,629</span>
+          <span class="proof__label">commits, all four services</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__value">2025 — 2026</span>
+          <span class="proof__label">in production since Aug 2025</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__value">18</span>
+          <span class="proof__label">classes in the production model</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__value">0.508</span>
+          <span class="proof__label">box mAP@50, clean test set</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="eyebrow">Selected work</p>
+            <h2>Two projects that carry the argument.</h2>
+          </div>
+          <p class="section-head__note">One is a four-service clinical platform built solo. The other is nine years of content, web, and marketing inside a Big Four firm. Both are here for the evidence, not the volume.</p>
+        </div>
+
+        <div class="work-list">
+          <article class="work-item">
+            <div class="work-item__meta">
+              <strong>2025 — 2026</strong>
+              <span>Sole developer</span>
+              <span>Clinical AI</span>
+            </div>
+            <div>
+              <h3 class="work-item__title"><a href="work/diagoradisa.html">Diagoradisa</a></h3>
+              <p class="work-item__line">An annotation tool, a dataset pipeline, a model server, and a clinician app — built as one system.</p>
+              <div class="work-item__tags">
+                <span class="tag">Laravel 12</span>
+                <span class="tag">Livewire 4</span>
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">YOLO26l-seg</span>
+                <span class="tag">MariaDB</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+            <div class="work-item__side">
+              <div class="work-item__thumb">
+                <img src="img/annotator-editor.webp" width="1338" height="819" alt="The Diagoradisa annotation editor, with a polygon drawn on a dental photograph." loading="lazy">
+              </div>
+              <div class="work-item__more">
+                <span>Case study</span>
+                <a class="link-arrow" href="work/diagoradisa.html">Read
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-item">
+            <div class="work-item__meta">
+              <strong>2010 — 2018</strong>
+              <span>Content Manager</span>
+              <span>Web &amp; marketing</span>
+            </div>
+            <div>
+              <h3 class="work-item__title"><a href="about.html#kpmg">KPMG Greece</a></h3>
+              <p class="work-item__line">Nine years as content and web lead inside a Big Four firm — I wrote the content, built the pages, and measured them.</p>
+              <div class="work-item__tags">
+                <span class="tag">Umbraco</span>
+                <span class="tag">SharePoint 2013</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SEO</span>
+                <span class="tag">Email marketing</span>
+              </div>
+            </div>
+            <div class="work-item__side">
+              <div class="work-item__stats">
+                <div class="work-item__stat"><b>9</b><span>selected projects</span></div>
+                <div class="work-item__stat"><b>2010–18</b><span>KPMG Greece</span></div>
+                <div class="work-item__stat"><b>EN/GR</b><span>content &amp; web</span></div>
+                <div class="work-item__stat"><b>4</b><span>campaign families</span></div>
+              </div>
+              <div class="work-item__more">
+                <span>About · KPMG</span>
+                <a class="link-arrow" href="about.html#kpmg">Open
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-head__copy">
+            <p class="eyebrow">Method</p>
+            <h2>Measure before you claim.</h2>
+          </div>
+          <p class="section-head__note">Three habits from the Diagoradisa work. Each one changed a decision, and each one is visible in the case study.</p>
+        </div>
+
+        <div class="method">
+          <div class="method__item">
+            <h3>Measure before you claim.</h3>
+            <p>A metric is only useful when it can be traced to a run, a date, and a dataset. The ten-case product test is a product test, not a validation study: four correct, three wrong, three abstentions.</p>
+            <p class="method__proof">Box mAP@50 0.460 → 0.508 after the EXIF fix</p>
+          </div>
+          <div class="method__item">
+            <h3>Own the seams.</h3>
+            <p>The expensive bugs live between services. The dataset export and the prediction schema are written down, mirrored, and tested on both sides, so a change on one side cannot silently break the other.</p>
+            <p class="method__proof">Annotator → ML → Palmist, two contracts</p>
+          </div>
+          <div class="method__item">
+            <h3>Delete what doesn't earn its place.</h3>
+            <p>A clinical safety layer shipped, was A/B tested on 210 cases, touched about 0.6% of detections, and showed no net benefit. I removed the engine, the flag, the API fields, and the loader.</p>
+            <p class="method__proof">210 cases · ~0.6% of detections · removed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="now">
+      <div class="wrap">
+        <div class="now">
+          <div class="now__label">
+            <strong>Now</strong>
+            <span>10 Nov 2026</span>
+          </div>
+          <div class="now__body">
+            <p><strong>Between roles.</strong> I am working through TypeScript, React, and Next.js. The first public app will be linked here when it ships.</p>
+            <p class="small">Most recent: Diagoradisa, Jul 2025 – Oct 2026, as sole developer. No claim above what is built.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="wrap contact__grid">
+        <h2>Tell me what you're building.</h2>
+        <div class="contact__right">
+          <p>I answer every message from a real person. A short description of the problem is more useful than a job title.</p>
+          <a class="contact__email" href="mailto:dchrysomallis@bookscanner.gr">dchrysomallis@bookscanner.gr</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <p>© <span id="year">2026</span> Dimitris Chrysomallis</p>
+      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <div class="site-footer__links">
+        <a href="design/index.html">Design system</a>
+        <a href="mailto:dchrysomallis@bookscanner.gr">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js?v=1" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js?v=1" defer></script>
+  <script src="js/vendor/lenis.min.js?v=1" defer></script>
+  <script src="js/site.js?v=1" defer></script>
+</body>
+</html>
