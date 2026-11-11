@@ -14,7 +14,7 @@ energy decision belongs to `shape` → `new-work` (the concept roll), not `init`
 - [x] `impeccable init` → `PRODUCT.md` at the repo root, from the ADRs and `GLOSSARY.md`
 - [x] `impeccable shape` → conventional developer portfolio, chosen via the standing exit
 - [x] `build-awwwards-quality-sites` → build `src/design3/`: home,
-  `work/diagoradisa.html`, `about.html`
+  `work/oral-pathology-platform.html`, `about.html`
 - [x] Write `src/design3/docs/DESIGN.md` and `src/design3/DEPLOY.md`
 - [x] Add the dated "Now" block on home and about
 - [ ] Stage `src/design3/` with `rsync` and publish via GitHub Pages

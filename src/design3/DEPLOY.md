@@ -99,14 +99,14 @@ A partial bump is the failure mode.
 
 ## Before launch
 
-| Where                                               | What                                                                                                              |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `index.html`, `about.html`, `work/diagoradisa.html` | Confirm the public email `dchrysomallis@bookscanner.gr`.                                                          |
-| all pages                                           | Set the absolute `og:image` URL once the domain is known. It is relative today (`img/og.jpg` or `../img/og.jpg`). |
-| all pages                                           | Add the canonical URL once the domain is known.                                                                   |
-| `index.html`                                        | The “Now” block is dated 10 Nov 2026. Update the date and the sentence when the TypeScript/React work ships.      |
-| `about.html`                                        | The confidential role statement names no client. Keep the name off until the client clears it.                    |
-| `index.html`                                        | The KPMG card links to `about.html#kpmg`; when `/work/kpmg.html` ships, point the card there.                     |
+| Where                                                           | What                                                                                                              |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `index.html`, `about.html`, `work/oral-pathology-platform.html` | Confirm the public email `dchrysomallis@bookscanner.gr`.                                                          |
+| all pages                                                       | Set the absolute `og:image` URL once the domain is known. It is relative today (`img/og.jpg` or `../img/og.jpg`). |
+| all pages                                                       | Add the canonical URL once the domain is known.                                                                   |
+| `index.html`                                                    | The “Now” block is dated 10 Nov 2026. Update the date and the sentence when the TypeScript/React work ships.      |
+| `about.html`                                                    | The confidential role statement names no client. Keep the name off until the client clears it.                    |
+| `index.html`                                                    | The KPMG card links to `about.html#kpmg`; when `/work/kpmg.html` ships, point the card there.                     |
 
 ## Facts
 
