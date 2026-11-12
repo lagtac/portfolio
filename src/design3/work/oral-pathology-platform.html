@@ -27,9 +27,9 @@
     })();
   </script>
   <link rel="stylesheet" href="../fonts/fonts.css?v=2">
-  <link rel="stylesheet" href="../css/tokens.css?v=4">
-  <link rel="stylesheet" href="../css/base.css?v=3">
-  <link rel="stylesheet" href="../css/site.css?v=12">
+  <link rel="stylesheet" href="../css/tokens.css?v=5">
+  <link rel="stylesheet" href="../css/base.css?v=4">
+  <link rel="stylesheet" href="../css/site.css?v=13">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -78,7 +78,7 @@
             </div>
             <div>
               <dt>Period</dt>
-              <dd>Jul 2025 — Oct 2026</dd>
+              <dd>Jul 2025–Oct 2026</dd>
             </div>
             <div>
               <dt>Stack</dt>
@@ -133,22 +133,22 @@
 
             <div class="timeline">
               <div class="timeline__phase">
-                <p class="timeline__date">Jul — Oct 2025</p>
+                <p class="timeline__date">Jul–Oct 2025</p>
                 <h3>Annotation tool</h3>
                 <p>Core models, deep zoom, first production deploy, patient management.</p>
               </div>
               <div class="timeline__phase">
-                <p class="timeline__date">Oct 2025 — Feb 2026</p>
+                <p class="timeline__date">Oct 2025–Feb 2026</p>
                 <h3>Dataset work</h3>
                 <p>Batches, uploads, YOLO export, a code review, and a quality pass.</p>
               </div>
               <div class="timeline__phase">
-                <p class="timeline__date">Feb — Jun 2026</p>
+                <p class="timeline__date">Feb–Jun 2026</p>
                 <h3>Model server</h3>
                 <p>Training and evaluation CLI, FastAPI, the EXIF fix, the recall ceiling.</p>
               </div>
               <div class="timeline__phase">
-                <p class="timeline__date">Mar — Oct 2026</p>
+                <p class="timeline__date">Mar–Oct 2026</p>
                 <h3>Clinician app</h3>
                 <p>The clinician app, the design system, the mobile capture flow, exports.</p>
               </div>
@@ -421,7 +421,8 @@
             <h3 id="cases" style="margin-top:2.5rem">The ten-case product test</h3>
             <p class="prose small muted">Ten patient folders were uploaded through the production UI on 3 November 2026. Ground truth comes from the clinic; predictions come from the model the app was serving that day.</p>
 
-            <div class="table-wrap case-table">
+            <!-- biome-ignore lint/a11y/noNoninteractiveTabindex: the seven-column table scrolls horizontally between 960 and 1200px, so keyboard users need a focus stop to reach it (WCAG 2.1.1). -->
+            <section class="table-wrap case-table" aria-labelledby="cases" tabindex="0">
               <table>
                 <caption>Ten-case product test · 3 November 2026</caption>
                 <thead>
@@ -528,7 +529,7 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
+            </section>
 
             <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes (a confident wrong class, a refusal to choose, a missed lesion), not the error rate. Four correct, three wrong, three abstentions.</p>
           </section>
@@ -565,7 +566,7 @@
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
       <p>© <span id="year">2026</span> Dimitris Chrysomallis</p>
-      <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
+      <p>No framework: plain HTML, CSS, and a little JavaScript.</p>
       <div class="site-footer__links">
         <a href="../cv.html">CV</a>
         <a href="https://github.com/lagtac">GitHub</a>
