@@ -160,7 +160,7 @@ description: Oral Disease Diagnosis using Artificial Intelligence
 
 ### 3.2 KPMG Greece
 
-#### 3.2.1 Project
+#### 3.2.1 Tenure
 
 ```yaml
 id: kpmg
@@ -272,7 +272,7 @@ Role statement only until the client clears the name:
 ```
 /                       Home
 /work/oral-pathology-platform.html   Case study (oral pathology platform)
-/work/kpmg.html         Case study (KPMG Greece)
+/work/kpmg.html         Work (KPMG Greece, 2010–2018)
 /about.html             About + stack + contact
 /design/                Design system reference
 ```
