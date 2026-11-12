@@ -238,7 +238,7 @@
 		".metrics",
 		".strip",
 		".next-list li",
-		".kpmg__row",
+		".ledger__row",
 	].join(",");
 
 	const revealItems = gsap.utils.toArray(revealSelector);

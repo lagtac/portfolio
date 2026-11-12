@@ -589,7 +589,7 @@ html.lenis body {
 	.metrics,
 	.arch,
 	.surface,
-	.kpmg__row {
+	.ledger__row {
 		break-inside: avoid;
 	}
 }

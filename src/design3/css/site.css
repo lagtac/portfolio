@@ -1600,15 +1600,15 @@
 	margin-top: 0.3rem;
 }
 
-/* KPMG timeline: the date owns the gutter, the outcome owns the reading
-   column. The row spans the full case body, so the evidence gets the measure. */
+/* Dated ledger: the date or audience owns the gutter, the outcome owns the
+   reading column. Shared by the KPMG projects and the Faltso programmes. */
 
-.kpmg {
+.ledger {
 	margin-top: 1.6rem;
 	border-top: 1px solid var(--ink);
 }
 
-.kpmg__row {
+.ledger__row {
 	display: grid;
 	grid-template-columns: 13rem minmax(0, 1fr);
 	column-gap: 2.5rem;
@@ -1617,7 +1617,7 @@
 	border-bottom: 1px solid var(--rule);
 }
 
-.kpmg__years {
+.ledger__years {
 	font-family: var(--mono);
 	font-size: var(--t-small);
 	letter-spacing: 0.04em;
@@ -1625,19 +1625,19 @@
 	padding-top: 0.12rem;
 }
 
-.kpmg__title {
+.ledger__title {
 	font-weight: 600;
 	font-size: var(--t-body);
 	line-height: 1.35;
 }
 
-.kpmg__role {
+.ledger__role {
 	margin-top: 0.15rem;
 	font-size: var(--t-small);
 	color: var(--ink-3);
 }
 
-.kpmg__outcome {
+.ledger__outcome {
 	grid-column: 2;
 	grid-row: 2;
 	font-size: var(--t-body);
@@ -1811,7 +1811,7 @@
 		scroll-padding-top: calc(var(--nav-h) + 5.5rem);
 	}
 
-	.kpmg__row {
+	.ledger__row {
 		grid-template-columns: 12rem minmax(0, 1fr);
 		column-gap: 1.5rem;
 	}
@@ -2033,17 +2033,17 @@
 		grid-template-columns: 1fr;
 	}
 
-	.kpmg__row {
+	.ledger__row {
 		grid-template-columns: 1fr;
 		gap: 0.35rem;
 	}
 
-	.kpmg__outcome {
+	.ledger__outcome {
 		grid-column: 1;
 		grid-row: auto;
 	}
 
-	.kpmg__years {
+	.ledger__years {
 		padding-top: 0;
 	}
 
