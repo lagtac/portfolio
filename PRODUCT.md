@@ -28,15 +28,15 @@ because the page is pretty.
 ## Positioning
 
 "One layer above the plumbing." The differentiator is a generalist who owns a
-whole system — the product calls, the architecture, and the contracts between
-services — rather than one tool or one layer. The arc behind it is long and
+whole system — the product calls, the architecture and the visual language
+— rather than one tool or one layer. The arc behind it is long and
 consistent: philosophy, then cognitive science, then software since 2004 — ASP
 and SQL Server at EPIS, nine years of KPMG's web estate, a music company he
 founded and ran, and a four-service clinical AI platform built alone with agentic
 tooling. He documents the failures alongside the wins, and moves down a layer
-when the detail matters, but plumbing is not his main trait. A neighbouring
-portfolio could not truthfully copy the measured numbers, the four-service
-architecture, the documented dead ends, or the span of the four jobs.
+when the detail matters, but plumbing is not his main trait. On the contrary,
+he is empathetic, curious, wants to understand the product, not just the
+architecture.
 
 ## Operating Context
 
@@ -51,10 +51,8 @@ The canonical CV lives at `~/src/cv/cv-en.html`; a copy is published as
 - Four pages at launch: home, `work/oral-pathology-platform.html`,
   `work/kpmg.html`, `about.html`. The `docs/CONTENT.md` IA also lists `/design/`;
   it is not in the launch scope.
-- Two project cards at launch: the oral pathology platform and KPMG, each linking
-  to its own case study. `about.html#kpmg` stays as an anchor to the KPMG pointer.
-  Waypoint is incoming when deployed; zitamu is a confidential project shown by
-  role statement only.
+- Two cards at launch: the oral pathology platform and the Content Management position,
+  each linking to its own case study.
 - One dated "Now" block for the TypeScript/React transition on home and about. No
   claim beyond what is built.
 - Diagoradisa numbers, dates, and names come only from `docs/CONTENT.md`. The
@@ -62,11 +60,6 @@ The canonical CV lives at `~/src/cv/cv-en.html`; a copy is published as
   labelled as such wherever the numbers appear.
 - KPMG: no metric not backed by the inventory; no KPMG or client brand,
   screenshot, credential, or PII.
-- zitamu: name, screenshots, and client details stay off the site until the
-  client clears them.
-- Public contact email: `dchrysomallis@outlook.com`, confirmed 2026-11-11. It
-  replaced `dchrysomallis@bookscanner.gr` in every published page, the CV, and
-  `src/design1/DEPLOY.md` on 2026-11-12.
 - Location line: "Athens, Greece", decided 2026-11-11.
 - Go-to-market: public this month on GitHub Pages; custom domain versus
   `github.io` is undecided.
