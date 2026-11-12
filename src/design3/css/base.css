@@ -76,7 +76,7 @@ h2 {
 }
 
 h3 {
-	font-size: var(--t-h3);
+	font-size: var(--t-title);
 	line-height: 1.18;
 	letter-spacing: -0.02em;
 }
@@ -136,7 +136,7 @@ a:hover {
 	align-items: center;
 	gap: 0.6rem;
 	font-family: var(--mono);
-	font-size: var(--t-micro);
+	font-size: var(--t-label);
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: 0.13em;
@@ -246,7 +246,7 @@ a:hover {
 	border-radius: var(--radius);
 	background: transparent;
 	color: var(--ink);
-	font: 500 0.95rem / 1 var(--sans);
+	font: 500 var(--t-body) / 1 var(--sans);
 	text-decoration: none;
 	cursor: pointer;
 	transition:
@@ -292,7 +292,7 @@ a:hover {
 	border: 1px solid var(--rule-2);
 	border-radius: var(--radius);
 	font-family: var(--mono);
-	font-size: 0.75rem;
+	font-size: var(--t-label);
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: 0.06em;
@@ -310,7 +310,7 @@ a:hover {
 	background: var(--neutral-soft);
 	color: var(--ink);
 	font-family: var(--mono);
-	font-size: 0.6875rem;
+	font-size: var(--t-label);
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: 0.05em;
@@ -363,7 +363,7 @@ a:hover {
 .figure__num {
 	flex: none;
 	font-family: var(--mono);
-	font-size: 0.6875rem;
+	font-size: var(--t-label);
 	font-weight: 500;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
@@ -383,14 +383,14 @@ a:hover {
 table {
 	width: 100%;
 	border-collapse: collapse;
-	font-size: 0.95rem;
+	font-size: var(--t-small);
 }
 
 caption {
 	text-align: left;
 	padding: 0.9rem 1rem;
 	font-family: var(--mono);
-	font-size: var(--t-micro);
+	font-size: var(--t-label);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--ink-3);
@@ -407,7 +407,7 @@ td {
 
 thead th {
 	font-family: var(--mono);
-	font-size: 0.6875rem;
+	font-size: var(--t-label);
 	font-weight: 500;
 	letter-spacing: 0.07em;
 	text-transform: uppercase;
@@ -426,7 +426,7 @@ tbody tr:hover {
 
 .num {
 	font-family: var(--mono);
-	font-size: 0.85rem;
+	font-size: inherit;
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 }
