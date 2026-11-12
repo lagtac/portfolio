@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="fonts/fonts.css?v=2">
   <link rel="stylesheet" href="css/tokens.css?v=3">
   <link rel="stylesheet" href="css/base.css?v=2">
-  <link rel="stylesheet" href="css/site.css?v=3">
+  <link rel="stylesheet" href="css/site.css?v=9">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -68,15 +68,45 @@
           <span class="breadcrumb__sep" aria-hidden="true">/</span>
           <span aria-current="page">About</span>
         </nav>
-        <h1>Dimitris Chrysomallis</h1>
-        <p class="case-head__lead lede">Fullstack engineer. I have built software since 2004, from ASP against SQL Server to a four-service platform built alone with agentic coding. The constant is owning the whole job, not one layer of it.</p>
+        <h1>One developer, the whole job.</h1>
+        <p class="case-head__lead lede">I have built software since 2004, from ASP against SQL Server to a four-service platform built alone with agentic coding. The constant is owning the whole job, not one layer of it.</p>
+        <p class="about-actions">
+          <a class="about-actions__email" href="mailto:dchrysomallis@outlook.com">dchrysomallis@outlook.com</a>
+          <button class="about-actions__copy" type="button" data-copy="dchrysomallis@outlook.com" hidden>
+            <span class="about-actions__copy-label">Copy email</span>
+          </button>
+          <span class="sr-only" role="status" data-copy-status></span>
+          <a class="about-actions__link" href="cv.html">CV</a>
+          <a class="about-actions__link" href="https://github.com/lagtac">GitHub</a>
+          <a class="about-actions__link" href="https://www.linkedin.com/in/dimitris-chrysomallis/">LinkedIn</a>
+        </p>
+        <ul class="about-work">
+          <li>
+            <a href="work/oral-pathology-platform.html">
+              <span class="about-work__when num">2025–2026</span>
+              <span class="about-work__name">Oral pathology imaging platform</span>
+              <span class="about-work__fact">1,629 commits, four services</span>
+              <span class="sr-only">case study</span>
+              <svg class="about-work__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="work/kpmg.html">
+              <span class="about-work__when num">2010–2018</span>
+              <span class="about-work__name">KPMG Greece</span>
+              <span class="about-work__fact">9 projects, 4,913 SEO violations triaged</span>
+              <span class="sr-only">case study</span>
+              <svg class="about-work__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </header>
 
-    <section class="wrap section section--tight" style="padding-top:0">
+    <section class="wrap section section--tight" style="padding-top:0" aria-label="Background">
       <div class="about-grid">
-        <aside class="record" aria-label="Record">
-          <p class="record__label">Record</p>
+        <aside class="record" aria-labelledby="record-label">
+          <p class="record__label" id="record-label">Record</p>
           <dl>
             <div>
               <dt>Focus</dt>
@@ -88,11 +118,11 @@
             </div>
             <div>
               <dt>Founded</dt>
-              <dd>Faltso, 2019 — 2024</dd>
+              <dd>Faltso, <span class="num">2019–2024</span></dd>
             </div>
             <div>
               <dt>Most recent</dt>
-              <dd>Oral pathology imaging platform, Jul 2025 — Oct 2026</dd>
+              <dd>Oral pathology imaging platform, <span class="num">Jul 2025–Oct 2026</span></dd>
             </div>
             <div>
               <dt>Status</dt>
@@ -102,12 +132,12 @@
         </aside>
 
         <div class="about-body prose">
-          <p>I have built software since 2004. The work has always had the same shape: decide what the system should say, then build every part of it — the schema, the server, the interface, and the deploy that puts it in front of someone.</p>
+          <p>The work has always had the same shape: decide what the system should say, then build every part of it — the schema, the server, the interface, and the deploy that puts it in front of someone.</p>
 
           <h2 class="about-subhead" id="how">How I got here</h2>
           <p>I studied philosophy in Thessaloniki, then a cross-discipline master's in cognitive science in Athens. The thesis was on methods in cognitive musicology: how you study the way people make sense of music, and what a method can show. The habit survived: a claim is only as good as the method behind it.</p>
           <p>My first job was EPIS, in 2004: ASP and PHP against SQL Server 2000, including the digital archive of the Greek National Opera. Five years, every layer of the delivery.</p>
-          <p>Then nine years at KPMG Greece. The title said Content Manager. The job was the firm's web estate — the intranet migration, the client sites, the email suite, and the pages inside them. What a page said and how it worked were one job there.</p>
+          <p id="kpmg">Then nine years at KPMG Greece, <span class="num">2010–2018</span>. The title said Content Manager. The job was the firm's web estate — the intranet migration, the client sites, the email suite, and the pages inside them. What a page said and how it worked were one job there. <a href="work/kpmg.html">The KPMG case study</a> collects the nine projects and what each one shows.</p>
           <p>In 2019 I founded Faltso, a music and theatre group for children, and ran it until 2024: the programmes, the collaborators, the schools and parents' associations, and the site. A small organisation is also a system, and most of its failures are communication failures. The site survives as <a href="https://github.com/lagtac/faltso.org">its repository</a>, 76 commits of it.</p>
           <p>Since 2025 I have been the only developer on a four-service clinical imaging platform: annotation tool, dataset pipeline, model server, clinician app. I built it with agentic coding — Claude Code, parallel agents across the repositories, vendor and custom skills — and with the discipline that makes that safe: one contract per boundary, a test for every claim, and a diff I read myself. <a href="work/oral-pathology-platform.html">The case study</a> has the numbers and the three things that did not work.</p>
           <p>All four jobs put the value in the same place: between the parts. The annotation tool and the training set; the page and what it does. Systems that can be inspected — run IDs, dated reports, explicit contracts — keep that boundary honest after the context is gone.</p>
@@ -145,31 +175,27 @@
             </div>
           </div>
 
-          <h2 class="about-subhead" id="kpmg">KPMG Greece, 2010 — 2018</h2>
-          <p>Nine years as Content Manager on the marketing and digital team, across the firm's intranet, client and campaign sites, email suite, and SEO. The nine projects are collected in <a href="work/kpmg.html">the KPMG case study</a>, with what each one shows.</p>
-
           <h2 class="about-subhead" id="now">Now</h2>
           <div class="now">
             <div class="now__label">
-              <strong>Now</strong>
               <span>10 Nov 2026</span>
             </div>
             <div class="now__body">
               <p><strong>Between roles.</strong> I am working through TypeScript, React, and Next.js. The first public app will be linked here when it ships.</p>
-              <p class="small">Current client work: a Greek real-estate marketplace, Laravel 13 + Nuxt 3. Name and details withheld until cleared.</p>
-              <p class="small">Most recent: the oral pathology platform, Jul 2025 – Oct 2026.</p>
+              <p class="small">Most recent: the oral pathology platform, Jul 2025–Oct 2026, as sole developer.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact__grid">
-        <h2>Tell me what you're building.</h2>
+        <h2 id="contact-title">Tell me what you're building.</h2>
         <div class="contact__right">
           <p>I answer every message from a real person. A short description of the problem is more useful than a job title.</p>
-          <a class="contact__email" href="mailto:dchrysomallis@bookscanner.gr">dchrysomallis@bookscanner.gr</a>
+          <a class="contact__email" href="mailto:dchrysomallis@outlook.com">dchrysomallis@outlook.com</a>
+          <p class="contact__links"><a href="cv.html">CV</a><a href="https://github.com/lagtac">GitHub</a><a href="https://www.linkedin.com/in/dimitris-chrysomallis/">LinkedIn</a></p>
         </div>
       </div>
     </section>
@@ -180,8 +206,10 @@
       <p>© <span id="year">2026</span> Dimitris Chrysomallis</p>
       <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
       <div class="site-footer__links">
-        <a href="design/index.html">Design system</a>
-        <a href="mailto:dchrysomallis@bookscanner.gr">Email</a>
+        <a href="cv.html">CV</a>
+        <a href="https://github.com/lagtac">GitHub</a>
+        <a href="https://www.linkedin.com/in/dimitris-chrysomallis/">LinkedIn</a>
+        <a href="mailto:dchrysomallis@outlook.com">Email</a>
       </div>
     </div>
   </footer>
@@ -189,6 +217,6 @@
   <script src="js/vendor/gsap.min.js?v=2" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js?v=2" defer></script>
   <script src="js/vendor/lenis.min.js?v=2" defer></script>
-  <script src="js/site.js?v=2" defer></script>
+  <script src="js/site.js?v=4" defer></script>
 </body>
 </html>

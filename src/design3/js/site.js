@@ -57,6 +57,7 @@
 	function closeNav() {
 		if (!nav || !navToggle) return;
 		nav.classList.remove("is-open");
+		document.body.classList.remove("nav-open");
 		navToggle.setAttribute("aria-expanded", "false");
 		navToggle.setAttribute("aria-label", "Open menu");
 	}
@@ -64,6 +65,7 @@
 	if (nav && navToggle) {
 		navToggle.addEventListener("click", () => {
 			const open = nav.classList.toggle("is-open");
+			document.body.classList.toggle("nav-open", open);
 			navToggle.setAttribute("aria-expanded", String(open));
 			navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
 		});
@@ -85,6 +87,37 @@
 
 	const year = document.getElementById("year");
 	if (year) year.textContent = String(new Date().getFullYear());
+
+	/* ----------------------------------------------------- copy email */
+	/* The address stays visible as text without JS; a client that blocks the
+	   clipboard simply keeps the button out of the way. */
+
+	document.querySelectorAll("[data-copy]").forEach((button) => {
+		const value = button.getAttribute("data-copy");
+		if (!value || !navigator.clipboard?.writeText) return;
+
+		const label = button.querySelector(".about-actions__copy-label") || button;
+		const status = document.querySelector("[data-copy-status]");
+		const initial = label.textContent;
+		let timer = 0;
+
+		button.hidden = false;
+
+		button.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText(value);
+			} catch {
+				return;
+			}
+			label.textContent = "Copied";
+			if (status) status.textContent = "Email address copied";
+			window.clearTimeout(timer);
+			timer = window.setTimeout(() => {
+				label.textContent = initial;
+				if (status) status.textContent = "";
+			}, 1600);
+		});
+	});
 
 	/* ----------------------------------------------------- case rail */
 
@@ -145,6 +178,11 @@
 		});
 		gsap.ticker.lagSmoothing(0);
 
+		// The case rail is sticky below the header on small screens, so an
+		// anchor jump needs more clearance there than on desktop.
+		const anchorOffset = () =>
+			window.matchMedia("(max-width: 960px)").matches ? -168 : -72;
+
 		document.querySelectorAll('a[href^="#"]').forEach((link) => {
 			link.addEventListener("click", (event) => {
 				const target = document.getElementById(
@@ -152,7 +190,7 @@
 				);
 				if (!target) return;
 				event.preventDefault();
-				lenis.scrollTo(target, { offset: -72, duration: 1.1 });
+				lenis.scrollTo(target, { offset: anchorOffset(), duration: 1.1 });
 				history.pushState(null, "", link.getAttribute("href"));
 			});
 		});
@@ -160,7 +198,10 @@
 		if (window.location.hash.length > 1) {
 			const hashTarget = document.getElementById(window.location.hash.slice(1));
 			if (hashTarget) {
-				lenis.scrollTo(hashTarget, { immediate: true, offset: -72 });
+				lenis.scrollTo(hashTarget, {
+					immediate: true,
+					offset: anchorOffset(),
+				});
 				ScrollTrigger.refresh();
 			}
 		}
@@ -198,7 +239,6 @@
 		".strip",
 		".next-list li",
 		".kpmg__row",
-		".now",
 	].join(",");
 
 	const revealItems = gsap.utils.toArray(revealSelector);

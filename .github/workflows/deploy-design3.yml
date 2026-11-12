@@ -29,10 +29,13 @@ jobs:
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/site"
           rsync -a --delete \
+            src/design3/404.html \
+            src/design3/cv.html \
+            src/design3/cv.css \
+            src/design3/ddc.jpg \
             src/design3/index.html \
             src/design3/about.html \
             src/design3/work \
-            src/design3/design \
             src/design3/css \
             src/design3/js \
             src/design3/fonts \
@@ -41,10 +44,10 @@ jobs:
           rsync -a \
             src/design3/img/favicon.svg \
             src/design3/img/og.jpg \
-            src/design3/img/annotator-editor.webp \
+            src/design3/img/annotator-tools.webp \
+            src/design3/img/annotator-canvas.webp \
             src/design3/img/annotator-editor-detail.webp \
             src/design3/img/ml-readiness.webp \
-            src/design3/img/ml-readiness-thumb.webp \
             src/design3/img/palmist-results.webp \
             src/design3/img/palmist-upload.webp \
             "$RUNNER_TEMP/site/img/"

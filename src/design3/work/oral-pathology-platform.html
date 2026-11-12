@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../fonts/fonts.css?v=2">
   <link rel="stylesheet" href="../css/tokens.css?v=3">
   <link rel="stylesheet" href="../css/base.css?v=2">
-  <link rel="stylesheet" href="../css/site.css?v=3">
+  <link rel="stylesheet" href="../css/site.css?v=9">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -44,7 +44,7 @@
         <span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a class="site-nav__link" href="../index.html#work">Work</a>
+        <a class="site-nav__link" href="../index.html#work" aria-current="location">Work</a>
         <a class="site-nav__link" href="../about.html">About</a>
         <a class="site-nav__link" href="../index.html#contact">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
@@ -91,7 +91,7 @@
           </dl>
           <figure class="figure case-hero">
             <span class="figure__frame">
-              <img src="../img/annotator-editor.webp" width="1338" height="819" alt="The annotation editor: a dental photograph with a polygon drawn around a lesion, with the tool panel and batch progress.">
+              <img src="../img/annotator-tools.webp" width="1580" height="820" alt="The annotation editor: the type and shape tool panel beside a polygon drawn around a lesion on a clinical photograph.">
             </span>
             <figcaption class="figure__cap"><span class="figure__num">Fig. 01</span><span>The annotation editor is where the dataset comes from: deep zoom, polygon tool, ICD-10 lookup, and batch progress.</span></figcaption>
           </figure>
@@ -126,9 +126,9 @@
 
             <figure class="figure case-figure">
               <span class="figure__frame">
-                <img src="../img/ml-readiness.webp" width="1400" height="2375" alt="The ML-readiness screen: the export cascade from annotated images to the export set, a class-size histogram, and the list of surviving and dropped classes." loading="lazy">
+                <img src="../img/ml-readiness.webp" width="1247" height="621" alt="The ML-readiness charts: the export cascade from annotated images to the export set, a class-size histogram against the 150-image threshold, and the train/validation/test split." loading="lazy">
               </span>
-              <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>The ML-readiness screen, before a training run. The class-size histogram and the drop list make imbalance visible before anyone trains.</span></figcaption>
+              <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>The ML-readiness screen on 3 November 2026, before the EXIF fix. It shows the 10,975-image and 8,012-image split. The current split is 8,774 images (6,143 train / 1,755 val / 876 test); the histogram makes the imbalance visible before anyone trains.</span></figcaption>
             </figure>
 
             <div class="timeline">
@@ -177,7 +177,7 @@
               <h2>Three services take requests. A fourth runs the deploy.</h2>
             </header>
             <div class="prose">
-              <p>The annotation tool owns the data. The model server owns the weights. The clinician app owns the session and nothing else — no domain database, only a user table and a proxy. The deployment layer owns the machine they run on.</p>
+              <p>The annotation tool owns the data. The model server owns the weights. The clinician app owns the session and nothing else: no domain database, only a user table and a proxy. The deployment layer owns the machine they run on.</p>
             </div>
 
             <div class="arch" data-diagram>
@@ -233,7 +233,7 @@
               </div>
               <figure class="surface__media figure">
                 <span class="figure__frame">
-                  <img src="../img/annotator-editor.webp" width="1338" height="819" alt="The annotation editor with a polygon drawn on a dental photograph and the tool panel." loading="lazy">
+                  <img src="../img/annotator-canvas.webp" width="1260" height="820" alt="A polygon drawn around a lesion on a close-up clinical photograph in the annotation editor." loading="lazy">
                 </span>
                 <figcaption class="figure__cap"><span class="figure__num">Fig. 03</span><span>Annotation editor: deep zoom, polygon tool, ICD-10 disease lookup, batch progress.</span></figcaption>
               </figure>
@@ -246,7 +246,7 @@
                 <p>The <code>stoma</code> package runs the lifecycle: check the dataset, train, evaluate, compare predictions to ground truth, assess a run, export weights, and serve. Every model is a run with an ID, so a metric can always be traced back to the weights that produced it.</p>
                 <ul>
                   <li>Experiment and run model with lineage.</li>
-                  <li>Compare reports with IoU matching and error images.</li>
+                  <li>Compare reports with IoU matching (an overlap score) and error images.</li>
                   <li>29 API endpoints, model hot-swap without a restart.</li>
                   <li>Greek and English labels resolved at the wire boundary.</li>
                 </ul>
@@ -319,14 +319,13 @@
             </div>
 
             <article class="failure">
-              <div class="failure__num">01</div>
               <div>
                 <h3>7.1% of the dataset had rotated labels.</h3>
                 <dl>
                   <dt>Symptom</dt>
                   <dd>Masks landed beside the lesion on portrait photographs. The model was learning from noise.</dd>
                   <dt>Cause</dt>
-                  <dd>The annotation tool exported label coordinates against the raw image size. The browser draws annotations in the EXIF-applied frame. On iPhone portrait shots, the two frames are 90° apart.</dd>
+                  <dd>The annotation tool exported label coordinates against the raw image size. The browser draws annotations in the EXIF-applied frame (EXIF is the photograph's embedded orientation data). On iPhone portrait shots, the two frames are 90° apart.</dd>
                   <dt>Fix</dt>
                   <dd>Export against the transposed size, rebuild the dataset, re-run the baseline. Box mAP@50 went from <strong>0.460 to 0.508</strong>; recall from <strong>0.423 to 0.496</strong>.</dd>
                 </dl>
@@ -335,7 +334,6 @@
             </article>
 
             <article class="failure">
-              <div class="failure__num">02</div>
               <div>
                 <h3>Recall stopped at 0.49.</h3>
                 <dl>
@@ -351,7 +349,6 @@
             </article>
 
             <article class="failure">
-              <div class="failure__num">03</div>
               <div>
                 <h3>The safety layer did nothing.</h3>
                 <dl>
@@ -373,7 +370,7 @@
               <h2>What the model does</h2>
             </header>
             <div class="prose">
-              <p>The current production model is a YOLO26l segmentation model at 640 px, trained for 250 epochs on 8,774 images across 18 classes. The numbers below are from the clean test split, after the EXIF fix.</p>
+              <p>The current production model is a YOLO26l segmentation model at 640 px, trained for 250 epochs on 8,774 images across 18 classes. The numbers below are from the clean test split, after the EXIF fix. Box mAP@50 scores how closely a predicted box overlaps the true lesion, from 0 to 1.</p>
             </div>
 
             <div class="metrics">
@@ -514,7 +511,7 @@
                   <tr>
                     <td data-label="Case">09 <span class="case-table__id">PAT-85QDRL</span></td>
                     <td data-label="Ground truth" class="gt"><span class="cell-value">Leukoplakia <span lang="el">ΛΕΥΚΟΠΛΑΚΙΑ</span></span></td>
-                    <td data-label="Model output">No detections</td>
+                    <td data-label="Model output">None above threshold</td>
                     <td data-label="Best" class="num">0.0%</td>
                     <td data-label="Views" class="num">0/2</td>
                     <td data-label="Tier"><span class="badge">Low</span></td>
@@ -533,7 +530,7 @@
               </table>
             </div>
 
-            <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes — a confident wrong class, a refusal to choose, a missed lesion — not the error rate. Four correct, three wrong, three abstentions.</p>
+            <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes (a confident wrong class, a refusal to choose, a missed lesion), not the error rate. Four correct, three wrong, three abstentions.</p>
           </section>
 
           <section class="case-section" id="next">
@@ -544,9 +541,11 @@
             <ol class="next-list">
               <li><span><strong>Get more annotated data.</strong> The recall ceiling is a data problem. More images for the weak classes, and a class-set drift guard so the taxonomy cannot grow silently.</span></li>
               <li><span><strong>Make annotation cheaper.</strong> SAM 2 already segments from a click. Feeding model proposals back into the annotation tool would close the loop between prediction and dataset growth.</span></li>
-              <li><span><strong>Turn the ten-case test into a habit.</strong> A dated, repeatable product test per model version — the same ten folders, the same UI, the same table — so regressions are visible before a clinician finds them.</span></li>
+              <li><span><strong>Turn the ten-case test into a habit.</strong> A dated, repeatable product test per model version: the same ten folders, the same UI, the same table, so regressions are visible before a clinician finds them.</span></li>
             </ol>
           </section>
+
+          <p class="case-top"><a href="#main">Back to top</a></p>
 
           <nav class="pager" aria-label="Case study navigation">
             <a href="../index.html#work">
@@ -568,8 +567,10 @@
       <p>© <span id="year">2026</span> Dimitris Chrysomallis</p>
       <p>Built by hand: HTML, CSS, and a little JavaScript.</p>
       <div class="site-footer__links">
-        <a href="../design/index.html">Design system</a>
-        <a href="mailto:dchrysomallis@bookscanner.gr">Email</a>
+        <a href="../cv.html">CV</a>
+        <a href="https://github.com/lagtac">GitHub</a>
+        <a href="https://www.linkedin.com/in/dimitris-chrysomallis/">LinkedIn</a>
+        <a href="mailto:dchrysomallis@outlook.com">Email</a>
       </div>
     </div>
   </footer>
@@ -577,6 +578,6 @@
   <script src="../js/vendor/gsap.min.js?v=2" defer></script>
   <script src="../js/vendor/ScrollTrigger.min.js?v=2" defer></script>
   <script src="../js/vendor/lenis.min.js?v=2" defer></script>
-  <script src="../js/site.js?v=2" defer></script>
+  <script src="../js/site.js?v=4" defer></script>
 </body>
 </html>

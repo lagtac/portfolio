@@ -43,7 +43,7 @@ python3 -m http.server 4173
 | Where                      | What                                                                                                                                |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | all four pages             | Name renders as "Chrysomalis" (one l) in titles, `og:title`, the brand, and the `about.html` h1. Correct to the published spelling. |
-| `index.html`, `about.html` | Email `dchrysomallis@bookscanner.gr`. Use the address you want public.                                                              |
+| `index.html`, `about.html` | Email `dchrysomallis@outlook.com`. Use the address you want public.                                                              |
 | `about.html`               | "Open to fullstack roles" and the closing line about looking for a role.                                                            |
 | `index.html`, `about.html` | "Greece · remote". Adjust if the location line should be more specific.                                                             |
 | all pages                  | `og:image` is relative (`img/og.jpg`). Set the absolute URL once the domain is known.                                               |

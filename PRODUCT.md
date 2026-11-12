@@ -43,8 +43,8 @@ architecture, the documented dead ends, or the span of the four jobs.
 Dimitris is between roles and learning TypeScript, React, and Next.js. The site
 is his primary job-search surface: English only, public, deployed to GitHub
 Pages. Work is judged on shipped features and the diversity of tasks.
-The CV lives outside the repo at `~/src/cv/cv-en.html`; it still lists Faltso as
-`01/2019 - present`, and the correct period is 2019–2024.
+The canonical CV lives at `~/src/cv/cv-en.html`; a copy is published as
+`src/design3/cv.html` with Faltso at 2019–2024. Keep the two in step.
 
 ## Capabilities and Constraints
 
@@ -64,9 +64,10 @@ The CV lives outside the repo at `~/src/cv/cv-en.html`; it still lists Faltso as
   screenshot, credential, or PII.
 - zitamu: name, screenshots, and client details stay off the site until the
   client clears them.
-- Public contact email: `dchrysomallis@bookscanner.gr` (already exposed in
-  `src/design1/DEPLOY.md`); confirm before launch. Location line: omitted until
-  decided.
+- Public contact email: `dchrysomallis@outlook.com`, confirmed 2026-11-11. It
+  replaced `dchrysomallis@bookscanner.gr` in every published page, the CV, and
+  `src/design1/DEPLOY.md` on 2026-11-12.
+- Location line: "Athens, Greece", decided 2026-11-11.
 - Go-to-market: public this month on GitHub Pages; custom domain versus
   `github.io` is undecided.
 

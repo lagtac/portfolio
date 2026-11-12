@@ -6,19 +6,22 @@ this directory only, staged before upload.
 ## Publish these paths only
 
 ```
+404.html
+cv.html
+cv.css
+ddc.jpg
 index.html
 about.html
 work/
-design/
 css/
 js/
 fonts/
 img/favicon.svg
 img/og.jpg
-img/annotator-editor.webp
+img/annotator-tools.webp
+img/annotator-canvas.webp
 img/annotator-editor-detail.webp
 img/ml-readiness.webp
-img/ml-readiness-thumb.webp
 img/palmist-results.webp
 img/palmist-upload.webp
 ```
@@ -50,10 +53,13 @@ From the repository root:
 rm -rf /tmp/design3-site
 mkdir -p /tmp/design3-site
 rsync -a --delete \
+  src/design3/404.html \
+  src/design3/cv.html \
+  src/design3/cv.css \
+  src/design3/ddc.jpg \
   src/design3/index.html \
   src/design3/about.html \
   src/design3/work \
-  src/design3/design \
   src/design3/css \
   src/design3/js \
   src/design3/fonts \
@@ -61,10 +67,10 @@ rsync -a --delete \
 rsync -a \
   src/design3/img/favicon.svg \
   src/design3/img/og.jpg \
-  src/design3/img/annotator-editor.webp \
+  src/design3/img/annotator-tools.webp \
+  src/design3/img/annotator-canvas.webp \
   src/design3/img/annotator-editor-detail.webp \
   src/design3/img/ml-readiness.webp \
-  src/design3/img/ml-readiness-thumb.webp \
   src/design3/img/palmist-results.webp \
   src/design3/img/palmist-upload.webp \
   /tmp/design3-site/img/
@@ -101,11 +107,11 @@ A partial bump is the failure mode.
 
 | Where                                                           | What                                                                                                              |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `index.html`, `about.html`, `work/oral-pathology-platform.html` | Confirm the public email `dchrysomallis@bookscanner.gr`.                                                          |
+| `index.html`, `about.html`, `work/oral-pathology-platform.html` | Confirm the public email `dchrysomallis@outlook.com`.                                                             |
 | all pages                                                       | Set the absolute `og:image` URL once the domain is known. It is relative today (`img/og.jpg` or `../img/og.jpg`). |
 | all pages                                                       | Add the canonical URL once the domain is known.                                                                   |
 | `index.html`                                                    | The “Now” block is dated 10 Nov 2026. Update the date and the sentence when the TypeScript/React work ships.      |
-| `about.html`                                                    | The confidential role statement names no client. Keep the name off until the client clears it.                    |
+| `about.html`                                                    | No current client is named. Add one only after the client clears it.                                              |
 | `work/kpmg.html`                                                | Text-only by design. No KPMG brand, screenshot, credential, or metric may be added; the inventory stays private.  |
 
 ## Facts

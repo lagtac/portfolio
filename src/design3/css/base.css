@@ -292,7 +292,7 @@ a:hover {
 	border: 1px solid var(--rule-2);
 	border-radius: var(--radius);
 	font-family: var(--mono);
-	font-size: 0.6875rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: 0.06em;
@@ -501,11 +501,6 @@ pre code {
 	transform: translateY(14px);
 }
 
-.motion-ready [data-reveal].is-in {
-	opacity: 1;
-	transform: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
@@ -520,8 +515,7 @@ pre code {
 		scroll-behavior: auto !important;
 	}
 
-	.motion-ready [data-reveal],
-	.motion-ready [data-reveal].is-in {
+	.motion-ready [data-reveal] {
 		opacity: 1 !important;
 		transform: none !important;
 	}
@@ -548,4 +542,53 @@ html.lenis body {
 
 .lenis.lenis-smooth iframe {
 	pointer-events: none;
+}
+
+/* Print: the record should read on paper, with the reveals resolved. */
+
+@page {
+	margin: 16mm;
+}
+
+@media print {
+	body {
+		background: #fff;
+		color: #000;
+	}
+
+	.site-header,
+	.site-footer,
+	.case-rail,
+	.skip,
+	.theme-toggle,
+	.nav-toggle,
+	.pager,
+	.case-top,
+	.contact__links,
+	.hero__links {
+		display: none !important;
+	}
+
+	.motion-ready [data-reveal] {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	.case-layout {
+		display: block;
+	}
+
+	a {
+		color: #000;
+		text-decoration: underline;
+	}
+
+	.figure,
+	.failure,
+	.metrics,
+	.arch,
+	.surface,
+	.kpmg__row {
+		break-inside: avoid;
+	}
 }
