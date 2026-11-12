@@ -36,14 +36,15 @@
 	--mono: "Azeret Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 	--greek: "Noto Sans", var(--sans);
 
-	/* One ladder: three text steps, two heading steps, three display steps.
-	   Labels are 12px mono uppercase only; nothing read as a sentence goes
-	   below 14px. Ratios stay between 1.14 and 1.6, so no two steps fight. */
-	--t-label: 0.75rem; /* 12 — uppercase mono labels */
-	--t-small: 0.875rem; /* 14 — captions, notes, meta, table text */
-	--t-body: 1rem; /* 16 — prose and controls */
-	--t-lead: 1.25rem; /* 20 — standfirst */
-	--t-title: 1.5rem; /* 24 — h3 and block headings */
+	/* One ladder: two text steps (16, 18) and four steps above them. Below
+	   body, weight, family, and tracking separate instead of size; the hero is
+	   reserved for the home page. */
+	--t-base: 1.125rem;
+	--t-label: 1rem;
+	--t-small: 1rem;
+	--t-body: 1.125rem;
+	--t-lead: 1.125rem;
+	--t-title: 1.5rem;
 	--t-h2: clamp(1.9rem, 3vw, 2.25rem);
 	--t-h1: clamp(2.5rem, 4vw, 3.5rem);
 	--t-hero: clamp(2.75rem, 5vw, 4rem);

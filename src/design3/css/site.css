@@ -426,7 +426,7 @@
 }
 
 .work-item__line {
-	max-width: 38rem;
+	max-width: 62ch;
 	margin-top: 0.55rem;
 	color: var(--ink-2);
 }
@@ -533,16 +533,42 @@
 	font-size: var(--t-body);
 }
 
-.method__proof {
-	margin-top: 1.2rem;
-	padding-top: 0.8rem;
+.method__item .method__proof {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.25rem 1rem;
+	margin: 1.2rem 0 0;
+	padding: 0.8rem 0 0;
 	border-top: 1px solid var(--rule);
 	font-family: var(--mono);
-	font-size: 0.6875rem;
-	line-height: 1.6;
-	letter-spacing: 0.04em;
+	font-size: var(--t-small);
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: var(--ink-3);
+}
+
+.method__item .method__proof__years {
+	color: var(--ink-2);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.06em;
+	white-space: nowrap;
+}
+
+.method__item .method__proof__item {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.4rem;
+}
+
+.method__item .method__proof b {
+	font-weight: 500;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.08em;
+	color: var(--ink);
 }
 
 /* ----------------------------------------------------------------- now */
@@ -568,6 +594,8 @@
 	color: var(--ink-3);
 }
 
+/* The block is a dated note, not a section: its title is a label, so the
+   panel does not shout a heading next to its date. */
 .now__label h2 {
 	font-size: var(--t-label);
 	line-height: 1.2;
@@ -576,7 +604,7 @@
 }
 
 .now__body {
-	max-width: 52rem;
+	max-width: 64ch;
 }
 
 .now__body p + p {
@@ -674,7 +702,7 @@
 }
 
 .case-head__lead {
-	max-width: 46rem;
+	max-width: 62ch;
 	margin-top: 1.1rem;
 }
 
@@ -1265,7 +1293,14 @@
 
 .case-table th,
 .case-table td {
-	padding: 0.6rem 0.7rem;
+	padding: 0.45rem 0.5rem;
+}
+
+/* Headers wrap: at 16px mono, "Ground truth" and "Model output" alone would
+   force a 51px scroll at 1440. The table fits from 1200 up; below that the
+   focusable wrapper scrolls. */
+.case-table th {
+	white-space: normal;
 }
 
 .case-table__id {

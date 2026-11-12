@@ -39,49 +39,49 @@ colors:
 typography:
   display:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(2.85rem, 5.9vw, 4.2rem)
+    fontSize: clamp(2.75rem, 5vw, 4rem)
     fontWeight: 600
     lineHeight: 0.94
-    letterSpacing: -0.048em
+    letterSpacing: -0.04em
   page-title:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(2.55rem, 5.6vw, 4.5rem)
+    fontSize: clamp(2.5rem, 4vw, 3.5rem)
     fontWeight: 600
     lineHeight: 1.06
-    letterSpacing: -0.05em
+    letterSpacing: -0.04em
   headline:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(1.85rem, 3.5vw, 2.75rem)
+    fontSize: clamp(1.9rem, 3vw, 2.25rem)
     fontWeight: 600
     lineHeight: 1.06
     letterSpacing: -0.03em
   title:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(1.25rem, 1.9vw, 1.5rem)
+    fontSize: 1.5rem
     fontWeight: 600
     lineHeight: 1.18
     letterSpacing: -0.02em
   lead:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: clamp(1.1rem, 1.5vw, 1.3rem)
+    fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: -0.01em
   body:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: 1.0625rem
+    fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: 0em
   caption:
     fontFamily: Archivo, system-ui, -apple-system, Segoe UI, sans-serif
-    fontSize: 0.8125rem
+    fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: 0em
   label:
     fontFamily: Azeret Mono, ui-monospace, SFMono-Regular, Menlo, monospace
-    fontSize: 0.6875rem
+    fontSize: 1rem
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.13em
@@ -91,7 +91,7 @@ typography:
     fontWeight: 400
   tag:
     fontFamily: Azeret Mono, ui-monospace, SFMono-Regular, Menlo, monospace
-    fontSize: 0.75rem
+    fontSize: 1rem
     fontWeight: 500
     lineHeight: 1.2
     letterSpacing: 0.06em
@@ -254,26 +254,38 @@ accessible-name afterthought.
 **Character:** A working grotesque carries the argument; a slightly wide mono
 carries the evidence. Archivo is set tight at display sizes and plain at body
 sizes. Azeret Mono is used for numbers, dates, run IDs, labels, tags, and table
-heads, not for prose. Tags sit one step above the 11px label, at 12px, because
-stack names are scanned rather than read. Greek disease names are data and switch to Noto Sans under
+heads, not for prose. Tags take the label step, because stack names are scanned
+rather than read; the bordered chip, the uppercase, and weight 500 do the
+separating. Greek disease names are data and switch to Noto Sans under
 `lang="el"`.
 
 ### Hierarchy
 
-- **Display** (600, clamp(2.85rem, 5.9vw, 4.2rem), 0.94): The home hero only.
-- **Page Title** (600, clamp(2.55rem, 5.6vw, 4.5rem), 1.06): Case-study, About,
-  and Design system page titles.
-- **Headline** (600, clamp(1.85rem, 3.5vw, 2.75rem), 1.06): Section titles,
+Two text steps do all the running work: 1rem and 1.125rem. Size stops separating
+at the bottom of the scale, so weight, family, tracking, and colour carry the
+difference there. The title, headline, and page-title steps are spaced 1.25 or
+wider at every clamp stop; the hero sits only slightly above the page title and
+is reserved for the home page.
+
+- **Display** (600, clamp(2.75rem, 5vw, 4rem), 0.94): The home hero only.
+- **Page Title** (600, clamp(2.5rem, 4vw, 3.5rem), 1.06): Case-study, About,
+  and Design system page titles, and the contact heading.
+- **Headline** (600, clamp(1.9rem, 3vw, 2.25rem), 1.06): Section titles,
   case-study sections.
-- **Title** (600, clamp(1.25rem, 1.9vw, 1.5rem), 1.18): Work items, card titles,
-  service names.
-- **Lead** (400, clamp(1.1rem, 1.5vw, 1.3rem), 1.5): The standfirst under a page
-  title.
-- **Body** (400, 1.0625rem, 1.65, max 68ch): Prose. The measure is capped.
-- **Caption** (400, 0.8125rem, 1.5): Figure captions, work-item meta, table and
-  footer notes.
-- **Label** (500, 0.6875rem, 1.2, +0.13em, uppercase): Mono labels, table heads,
-  figure numbers, tags.
+- **Title** (600, 1.5rem, 1.18): Work items, card and block titles, subheads,
+  service names, proof values, the contact email.
+- **Lead** (400, 1.125rem, 1.5): The standfirst under a page title. It shares
+  body's size; the looser leading and the shorter measure separate it.
+- **Body** (400, 1.125rem, 1.65, max 64ch): Prose, controls, table text, and
+  every value not set in mono. The measure is capped.
+- **Caption** (400, 1rem, 1.5): Figure captions, notes, work-item meta, table
+  cells, the rail, and footer lines.
+- **Label** (500, 1rem, 1.2, +0.13em, uppercase, mono only): Eyebrows, table
+  heads, figure numbers, badges, tags, and definition labels. Never prose. It is
+  the only step where uppercase, tracking, and mono do the work instead of size.
+
+A mono number inside a sans line keeps the size it inherits; only the face and
+the tabular figures change.
 
 ### Named Rules
 
@@ -288,13 +300,16 @@ Noto Sans face. It is not a stylistic accent, and it never falls back silently.
 
 A 1200px page inside a fluid gutter (`clamp(1.25rem, 5vw, 3rem)`), a 4px spacing
 base, and a section rhythm of `clamp(4rem, 9vw, 8rem)`. The prose measure is
-68ch on the home bands, 62ch inside a case-study section, and 64ch on About and
-the design-system page. The home page is a single
+64ch on the home bands, About, and the design-system page, and 62ch inside a
+case-study section. In Archivo that lands every line between 70 and 74
+characters, which is the number to check; `ch` measures the zero, not the
+average letter. The home page is a single
 column of bands: hero, proof strip, work list, method, Now, contact. The case
 study is a 10.5rem sticky rail plus a reading column; the rail collapses to a
 horizontal scroller below 960px. Work items are a three-column row at desktop and
-a single column below 720px. The case table becomes a card list below 960px, so
-there is never a horizontal scroll.
+a single column below 720px. The case table becomes a card list below 960px. From
+960 to 1200px it scrolls horizontally inside a named, focusable region; above
+1200px it fits without scrolling.
 
 The hero is a two-column split at desktop (copy and a real screenshot in a browser
 frame) and a single column below 960px. The first viewport is claim, evidence, and
@@ -404,7 +419,7 @@ clipped corners, no decorative geometry.
   wherever the numbers appear.
 - **Do** check both themes at 390, 768, and 1440px with axe-core.
 - **Do** use real product screenshots and crop them to remove identifiers.
-- **Do** keep the prose measure at or below 68 characters.
+- **Do** keep prose lines between 65 and 75 characters.
 
 ### Don't:
 

@@ -164,7 +164,7 @@ a:hover {
 }
 
 .prose {
-	max-width: 68ch;
+	max-width: 64ch;
 }
 
 .prose > * + * {
@@ -193,6 +193,7 @@ a:hover {
 	font-family: var(--mono);
 	font-size: 0.95em;
 	letter-spacing: -0.01em;
+	overflow-wrap: anywhere;
 }
 
 .small {

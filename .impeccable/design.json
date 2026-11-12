@@ -712,7 +712,7 @@
 			"Do label the ten-case test as a product test, not a validation study, wherever the numbers appear.",
 			"Do check both themes at 390, 768, and 1440px with axe-core.",
 			"Do use real product screenshots and crop them to remove identifiers.",
-			"Do keep the prose measure at or below 68 characters."
+			"Do keep prose lines between 65 and 75 characters."
 		],
 		"donts": [
 			"Don't add a shadow, blur, glass panel, or decorative gradient.",
