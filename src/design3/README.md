@@ -42,4 +42,4 @@ menu, and case-rail behavior.
 - `ASSETS.md` records the provenance of every published image.
 - `fonts/LICENSES.md` records the font licences.
 - `DEPLOY.md` holds the GitHub Pages staging and pre-launch checklist.
-- `docs/DESIGN.md` is the carbonised design system.
+- `../../DESIGN.md` is the carbonised design system; `docs/DESIGN.md` points to it.

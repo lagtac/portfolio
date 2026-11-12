@@ -15,7 +15,9 @@ energy decision belongs to `shape` → `new-work` (the concept roll), not `init`
 - [x] `impeccable shape` → conventional developer portfolio, chosen via the standing exit
 - [x] `build-awwwards-quality-sites` → build `src/design3/`: home,
   `work/oral-pathology-platform.html`, `about.html`
-- [x] Write `src/design3/docs/DESIGN.md` and `src/design3/DEPLOY.md`
+- [x] Write the design system record and `src/design3/DEPLOY.md`
+- [x] `impeccable document` → move the record to the repo-root `DESIGN.md` and
+  refresh `.impeccable/design.json`
 - [x] Add the dated "Now" block on home and about
 - [ ] Stage `src/design3/` with `rsync` and publish via GitHub Pages
   (workflow and staging command prepared; no git remote in this checkout)

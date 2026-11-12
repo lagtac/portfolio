@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 2,
-	"generatedAt": "2026-11-10T17:42:25.012193Z",
+	"generatedAt": "2026-11-11T17:44:28.023012Z",
 	"title": "Design System: Dimitris Chrysomallis — portfolio",
 	"extensions": {
 		"colorMeta": {
@@ -547,6 +547,10 @@
 			"page-title": {
 				"displayName": "Page Title",
 				"purpose": "Case-study, About, and Design system page titles. Archivo 600, tighter than a section head."
+			},
+			"caption": {
+				"displayName": "Caption",
+				"purpose": "Figure captions, work-item meta, table and footer notes."
 			}
 		},
 		"shadows": [],
@@ -631,6 +635,14 @@
 			"description": "Correct verdict or high tier. Soft green ground, field-green ink, always with a word.",
 			"html": "<span class=\"ds-badge ds-badge-good\">Correct</span>",
 			"css": ".ds-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.2rem 0.45rem;border-radius:2px;font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;}.ds-badge-good{background:#e2f1e8;color:#0f6b43;}"
+		},
+		{
+			"name": "Warn Badge",
+			"kind": "chip",
+			"refersTo": "badge-warn",
+			"description": "Medium confidence or partial result. Soft ochre ground, ochre ink, always with a word.",
+			"html": "<span class=\"ds-badge ds-badge-warn\">Medium</span>",
+			"css": ".ds-badge{display:inline-flex;align-items:center;gap:0.35rem;padding:0.2rem 0.45rem;border-radius:2px;font:500 0.6875rem/1.2 \"Azeret Mono\",ui-monospace,monospace;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;}.ds-badge-warn{background:#f7eeda;color:#85560f;}"
 		},
 		{
 			"name": "Fault Badge",

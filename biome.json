@@ -13,7 +13,8 @@
 			"!src/design1",
 			"!src/design2",
 			"!src/experiments",
-			"!src/design3/docs"
+			"!src/design3/docs",
+			"!DESIGN.md"
 		]
 	},
 	"formatter": {
