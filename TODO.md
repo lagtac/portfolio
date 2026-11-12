@@ -23,6 +23,8 @@ energy decision belongs to `shape` → `new-work` (the concept roll), not `init`
   (workflow and staging command prepared; no git remote in this checkout)
 - [x] Run `pnpm test` (axe, 390/768/1440) and drive the pages with Playwright
 - [x] Re-run axe and Playwright after any colour or layout change
+- [x] Add Faltso Art (2019–2024): `work/faltso.html`, home card, About,
+  CV, `CONTENT.md`, and `PRODUCT.md`; images converted to WebP (ADR 0002)
 
 ## Deferred
 

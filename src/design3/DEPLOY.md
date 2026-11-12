@@ -24,6 +24,9 @@ img/annotator-editor-detail.webp
 img/ml-readiness.webp
 img/palmist-results.webp
 img/palmist-upload.webp
+img/faltso-band.webp
+img/faltso-community.webp
+img/faltso-rock-hotel.webp
 ```
 
 `fonts/LICENSES.md` ships with `fonts/`; it is a licence, not a build note.
@@ -73,6 +76,9 @@ rsync -a \
   src/design3/img/ml-readiness.webp \
   src/design3/img/palmist-results.webp \
   src/design3/img/palmist-upload.webp \
+  src/design3/img/faltso-band.webp \
+  src/design3/img/faltso-community.webp \
+  src/design3/img/faltso-rock-hotel.webp \
   /tmp/design3-site/img/
 touch /tmp/design3-site/.nojekyll
 python3 -m http.server 4175 --directory /tmp/design3-site
@@ -113,6 +119,7 @@ A partial bump is the failure mode.
 | `index.html`                                                    | The “Now” block is dated 10 Nov 2026. Update the date and the sentence when the TypeScript/React work ships.      |
 | `about.html`                                                    | No current client is named. Add one only after the client clears it.                                              |
 | `work/kpmg.html`                                                | Text-only by design. No KPMG brand, screenshot, credential, or metric may be added; the inventory stays private.  |
+| `work/faltso.html`                                              | Images come from the group's own site, with the families' consent. No school name, enrolment, or revenue figure.  |
 
 ## Facts
 

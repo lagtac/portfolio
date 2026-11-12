@@ -177,7 +177,7 @@ components below. Every rule here describes `src/design3/`.
 
 The portfolio is a working record, read in under a minute by someone filling a
 fullstack role. It is type-led, evidence-forward, and deliberately unremarkable
-in its genre: a name, a claim, two projects, the numbers, the failures, and a way
+in its genre: a name, a claim, three projects, the numbers, the failures, and a way
 to make contact. The craft is in the hierarchy and the facts, not in a governing
 metaphor.
 

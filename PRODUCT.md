@@ -48,11 +48,11 @@ The canonical CV lives at `~/src/cv/cv-en.html`; a copy is published as
 
 ## Capabilities and Constraints
 
-- Four pages at launch: home, `work/oral-pathology-platform.html`,
-  `work/kpmg.html`, `about.html`. The `docs/CONTENT.md` IA also lists `/design/`;
-  it is not in the launch scope.
-- Two cards at launch: the oral pathology platform and the Content Management position,
-  each linking to its own case study.
+- Five pages at launch: home, `work/oral-pathology-platform.html`,
+  `work/faltso.html`, `work/kpmg.html`, `about.html`. The `docs/CONTENT.md` IA
+  also lists `/design/`; it is not in the launch scope.
+- Three cards at launch: the oral pathology platform, Faltso Art, and the Content
+  Management position, each linking to its own page.
 - One dated "Now" block for the TypeScript/React transition on home and about. No
   claim beyond what is built.
 - Diagoradisa numbers, dates, and names come only from `docs/CONTENT.md`. The
@@ -91,11 +91,14 @@ Chosen 2026-11-10 when the concept roll's standing exit was taken.
   is never published; cropped derivatives only.
 - KPMG Greece 2010–2018: nine selected projects with qualitative outcomes,
   inventory at `docs/kpmg-2010-2018-inventory.md`.
-- Faltso 2019–2024: a music and theatre group for children aged 7–15 that he
-  founded and ran, with schools and parents' associations. Site at
-  `github.com/lagtac/faltso.org` (public, 76 commits, Jekyll 3.8.6, Tailwind).
-  The `faltso.org` domain no longer resolves. No enrolment or revenue figures
-  exist; do not invent them.
+- Faltso Art 2019–2024: a music and theatre group for children that he
+  co-founded with Daphne Kammenou and ran, with schools and parents'
+  associations. Four programmes, an original musical, and the site at
+  `https://lagtac.github.io/faltso.org/about.html` (public, 76 commits,
+  Jekyll 3.8.6, Tailwind). Photographs from the group's own site may publish,
+  with the families' consent, copied into `src/design3/img/` as WebP (ADR 0002).
+  The `faltso.gr` domain is a third-party for-sale page; never link it. No
+  enrolment or revenue figures exist; do not invent them.
 - Delivery method: the platform was built solo with Claude Code — parallel
   agents across the four repositories, plus vendor and custom skills. The
   1,629 commits are authored by Dimitris. No percentage of agent-written code

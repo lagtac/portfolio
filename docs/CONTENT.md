@@ -208,29 +208,34 @@ Each entry uses the schema `Project · Years · Role · What I did · Skills · 
 
 ```yaml
 id: faltso
-title: Faltso Art Group
-public_title: Faltso
-url: https://github.com/lagtac/faltso.org
-kind: Music and theatre education, founded and run
+title: Faltso Art
+public_title: Faltso Art
+url: https://lagtac.github.io/faltso.org/about.html
+kind: Music and theatre education for children, co-founded and run
 period: 2019 — 2024
-role: Founder and music educator
-status: Closed 2024
+role: Co-founder and music educator
+co_founder: Daphne Kammenou
+status: Ran 2019–2024; site still live
 stack: [Jekyll 3.8, Tailwind, PostCSS, Ruby, Bash]
-one_line: A music and theatre group for children that I founded and ran, site included.
+one_line: A music and theatre group for children that I co-founded and ran, site included.
 ```
 
 #### 3.3.2 Verified facts
 
-- **Founded 2019, ran to 2024.** Founder and music educator, Faltso Art Group.
-- **Scope:** music and theatre activities for children aged 7–15, with schools and parents' associations; centred on inclusion, democratic communication, and self-expression through performance.
-- **Site:** `github.com/lagtac/faltso.org`, public, 76 commits. Jekyll 3.8.6 with a Tailwind and PostCSS build; Greek-language.
+- **Co-founded 2019, ran to 2024.** Co-founder with Daphne Kammenou; music educator. The group's own site says it was created by Daphne Kammenou and Dimitris.
+- **Scope:** music and theatre activities for children, with schools and parents' associations; centred on pedagogy, inclusion, democratic communication, and self-expression through performance.
+- **Four programmes:** Rock Band (children, teens, adults), Group Singing / choir, Music-movement Play (preschool), and Music & Programming (children make music by writing code in Sonic Pi: sequences, loops, control flow, data structures, synchronisation).
+- **Music:** wrote the scores and arrangements for the students and shaped the repertoire with them.
+- **Performances:** an original musical, "Rock Hotel" (2021–2022); two summer concerts by a school rock band in Kitsiki Square (2021). During the pandemic the sessions moved to parks and public squares.
+- **Site:** `https://lagtac.github.io/faltso.org/about.html`, public, 76 commits. Jekyll 3.8.6 with a Tailwind and PostCSS build; Greek-language.
 
 #### 3.3.3 Faltso do not use
 
-- The `faltso.org` domain. It no longer resolves.
+- The `faltso.gr` domain. It is a third-party for-sale page, not the group's site. Link the GitHub Pages site instead.
 - Any enrolment, participant, revenue, or school count. None is recorded.
-- "Present" as tenure. The CV says `01/2019 - present` and is being corrected to 2019–2024.
-- Any photograph from `assets/faltso/`. `assets/` never publishes.
+- A named school. Say "a school rock band"; do not print a school name.
+- "Present" as tenure. The group ran 2019–2024.
+- Photographs from `assets/`. The group's own site photographs may publish, copied into `src/design3/img/` as WebP with EXIF stripped, and only with the families' consent (see ADR 0002).
 
 ### 3.4 Confidential project (zitamu)
 
@@ -255,11 +260,11 @@ Role statement only until the client clears the name:
 - **Learn the missing layer:** ASP at EPIS, Umbraco, SharePoint and C# at KPMG, Laravel and FastAPI at Bookscanner, React now.
 - **Build with agents:** volume from Claude Code and parallel agents; judgement and review stay with the developer.
 
-**Faltso**
+**Faltso Art**
 
-- **Positioning:** A music and theatre group for children that I founded and ran for five years, site included.
-- **Project line:** Founder and music educator, 2019–2024.
-- **Method:** Programmes, collaborators, schools, parents, and the site — one job.
+- **Positioning:** A music and theatre group for children that I co-founded and ran for five years, site included.
+- **Project line:** Co-founder and music educator, 2019–2024.
+- **Method:** Programmes, collaborators, schools, parents, scores, and the site — one job.
 
 **KPMG Greece**
 
@@ -272,18 +277,19 @@ Role statement only until the client clears the name:
 ```
 /                       Home
 /work/oral-pathology-platform.html   Case study (oral pathology platform)
+/work/faltso.html       Work (Faltso Art, 2019–2024)
 /work/kpmg.html         Work (KPMG Greece, 2010–2018)
 /about.html             About + stack + contact
 /design/                Design system reference
 ```
 
 **Global nav:** Work · About · Contact · theme toggle.
-**Home order:** hero → selected work (oral pathology platform, KPMG) → method → contact.
+**Home order:** hero → selected work (oral pathology platform, Faltso Art, KPMG) → method → contact.
 **Case study order:** header → context → constraints → architecture → four surfaces → three failures → evidence → next → footer.
 **KPMG order:** header → context → nine projects → what it proves → current direction → footer.
 **About order:** intro → how I got here (education, EPIS, KPMG, Faltso, the platform) → tools → KPMG pointer → now → contact.
 
-**Future work:** the work index is a list of two. Adding a third project means adding a card to `#work` and a page under `/work/`; no template changes.
+**Future work:** the work index is a list of three. Adding a project means adding a card to `#work` and a page under `/work/`; no template changes.
 
 ## 5. Copy rules
 
@@ -297,7 +303,7 @@ The voice is plain, specific and dry. A heading states a fact; it does not perfo
 - Aphorism headings: three parallel imperatives read as a slogan set. Write what was done.
 - The `X. Not Y.` antithesis, at most once per page and never as a heading.
 - Rule-of-three slogans repeated across pages ("Write it, build it, measure it").
-- "Senior" or "junior" as a self-label. The site says "Fullstack engineer"; dates, scope, and shipped work carry the level.
+- "Senior" or "junior" as a self-label. The site says "Fullstack developer"; dates, scope, and shipped work carry the level.
 
 **Naming**
 
