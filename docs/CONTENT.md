@@ -252,7 +252,7 @@ Role statement only until the client clears the name:
 
 - **Write the words and the code:** Content manager and developer were one job at KPMG.
 - **Take the whole path:** Annotation tool, pipeline, model server, and clinician app, all built.
-- **Learn the missing layer:** ASP at EPIS, Umbraco and C# at KPMG, Laravel and FastAPI at Bookscanner, React now.
+- **Learn the missing layer:** ASP at EPIS, Umbraco, SharePoint and C# at KPMG, Laravel and FastAPI at Bookscanner, React now.
 - **Build with agents:** volume from Claude Code and parallel agents; judgement and review stay with the developer.
 
 **Faltso**
