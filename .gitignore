@@ -6,3 +6,5 @@ playwright-report
 
 # Private CV copies; the canonical CV lives outside the repo at ~/src/cv/.
 docs/cv-*.html
+
+.impeccable/live
