@@ -97,7 +97,9 @@
 		if (!value || !navigator.clipboard?.writeText) return;
 
 		const label = button.querySelector(".about-actions__copy-label") || button;
-		const status = document.querySelector("[data-copy-status]");
+		const status =
+			button.parentElement?.querySelector("[data-copy-status]") ||
+			document.querySelector("[data-copy-status]");
 		const initial = label.textContent;
 		let timer = 0;
 
@@ -164,6 +166,11 @@
 
 	root.classList.add("motion-ready");
 
+	// The case rail is sticky below the header on small screens, so an
+	// anchor jump needs more clearance there than on desktop.
+	const anchorOffset = () =>
+		window.matchMedia("(max-width: 960px)").matches ? -168 : -72;
+
 	/* Smooth scroll: Lenis is the only engine on the page. */
 	let lenis = null;
 	if (typeof window.Lenis !== "undefined") {
@@ -178,11 +185,9 @@
 		});
 		gsap.ticker.lagSmoothing(0);
 
-		// The case rail is sticky below the header on small screens, so an
-		// anchor jump needs more clearance there than on desktop.
-		const anchorOffset = () =>
-			window.matchMedia("(max-width: 960px)").matches ? -168 : -72;
-
+		// Lenis measures its scroll limit when it is constructed, before the
+		// case images and fonts have settled. Re-measure before every jump or
+		// the first rail click is clamped short of its section.
 		document.querySelectorAll('a[href^="#"]').forEach((link) => {
 			link.addEventListener("click", (event) => {
 				const target = document.getElementById(
@@ -190,6 +195,7 @@
 				);
 				if (!target) return;
 				event.preventDefault();
+				lenis.resize();
 				lenis.scrollTo(target, { offset: anchorOffset(), duration: 1.1 });
 				history.pushState(null, "", link.getAttribute("href"));
 			});
@@ -198,6 +204,7 @@
 		if (window.location.hash.length > 1) {
 			const hashTarget = document.getElementById(window.location.hash.slice(1));
 			if (hashTarget) {
+				lenis.resize();
 				lenis.scrollTo(hashTarget, {
 					immediate: true,
 					offset: anchorOffset(),
@@ -263,13 +270,28 @@
 		});
 	}
 
-	// Measurement can shift after fonts and the case images land.
-	if (document.fonts?.ready) {
-		document.fonts.ready.then(() => {
-			ScrollTrigger.refresh();
-		});
-	}
-	window.addEventListener("load", () => {
+	// Measurement can shift after fonts and the case images land. Refresh the
+	// Lenis limit too, and re-place a deep link once the page has its full height.
+	const initialHash = window.location.hash;
+	const settleScroll = () => {
+		if (lenis) lenis.resize();
 		ScrollTrigger.refresh();
-	});
+		if (
+			lenis &&
+			initialHash.length > 1 &&
+			window.location.hash === initialHash
+		) {
+			const hashTarget = document.getElementById(initialHash.slice(1));
+			if (hashTarget) {
+				lenis.scrollTo(hashTarget, {
+					immediate: true,
+					offset: anchorOffset(),
+				});
+			}
+		}
+	};
+	if (document.fonts?.ready) {
+		document.fonts.ready.then(settleScroll);
+	}
+	window.addEventListener("load", settleScroll);
 })();

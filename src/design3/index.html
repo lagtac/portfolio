@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="fonts/fonts.css?v=2">
   <link rel="stylesheet" href="css/tokens.css?v=5">
   <link rel="stylesheet" href="css/base.css?v=5">
-  <link rel="stylesheet" href="css/site.css?v=15">
+  <link rel="stylesheet" href="css/site.css?v=16">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -65,7 +65,7 @@
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <h1 class="hero__title"><span>Oral pathology imaging platform,</span><span>built end to end.</span></h1>
-          <p class="lede hero__lede">Sole developer of all four services: annotation tool, dataset pipeline, model server, clinician app. Two years, 1,629 commits, and a ten-case test with the failures left in.</p>
+          <p class="lede hero__lede">Sole developer of all four services: annotation tool, dataset pipeline, model server, clinician app. Sixteen months, 1,629 commits, and a ten-case test with the failures left in.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="work/oral-pathology-platform.html">
               Read the case study
@@ -109,8 +109,9 @@
           </div>
           <div class="proof__item">
             <span class="proof__value">0.508</span>
-            <span class="proof__label">box mAP@50, how closely boxes overlap the lesion</span>
+            <span class="proof__label">box mAP@50, clean test split</span>
           </div>
+          <div class="proof__note">Box mAP@50 scores overlap from 0 (none) to 1 (perfect). The score comes from the clean 876-image test split, run 14 Jun 2026. The ten-case test is a product test, not a validation study.</div>
         </div>
       </div>
     </section>
@@ -245,7 +246,7 @@
           <div class="method__item">
             <h3>I learn what is missing.</h3>
             <p>Each job needed something I did not know yet: ASP at EPIS; Umbraco, SharePoint, and C# at KPMG; Laravel and FastAPI on the platform. I learn it to the depth the delivery needs, then keep it.</p>
-            <p class="method__proof">VBScript → C# → PHP → Typescript, in progress</p>
+            <p class="method__proof">VBScript → C# → PHP → TypeScript, in progress</p>
           </div>
           <div class="method__item">
             <h3>I build with agents.</h3>
@@ -273,10 +274,16 @@
 
     <section class="section contact" id="contact">
       <div class="wrap contact__grid">
-        <h2>Tell me what you're building.</h2>
+        <h2>Hiring for a fullstack role?</h2>
         <div class="contact__right">
-          <p>I answer every message from a real person. A short description of the problem is more useful than a job title.</p>
-          <a class="contact__email" href="mailto:dchrysomallis@outlook.com">dchrysomallis@outlook.com</a>
+          <p>I'm in Athens, Greece (EET), and open to fullstack roles. I answer every message myself. Tell me what the team is building and what the role owns; that is more useful than a job title.</p>
+          <div class="contact__actions">
+            <a class="contact__email" href="mailto:dchrysomallis@outlook.com">dchrysomallis@outlook.com</a>
+            <button class="about-actions__copy" type="button" data-copy="dchrysomallis@outlook.com" hidden>
+              <span class="about-actions__copy-label">Copy email</span>
+            </button>
+            <span class="sr-only" role="status" data-copy-status></span>
+          </div>
           <p class="contact__links"><a href="cv.html">CV</a><a href="https://github.com/lagtac">GitHub</a><a href="https://www.linkedin.com/in/dimitris-chrysomallis/">LinkedIn</a></p>
         </div>
       </div>
@@ -299,6 +306,6 @@
   <script src="js/vendor/gsap.min.js?v=2" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js?v=2" defer></script>
   <script src="js/vendor/lenis.min.js?v=2" defer></script>
-  <script src="js/site.js?v=5" defer></script>
+  <script src="js/site.js?v=6" defer></script>
 </body>
 </html>

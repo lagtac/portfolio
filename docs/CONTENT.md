@@ -287,7 +287,7 @@ Role statement only until the client clears the name:
 **Home order:** hero → selected work (oral pathology platform, Faltso Art, KPMG) → method → contact.
 **Case study order:** header → context → constraints → architecture → four surfaces → three failures → evidence → next → footer.
 **KPMG order:** header → context → nine projects → what it proves → current direction → footer.
-**About order:** intro → how I got here (education, EPIS, KPMG, Faltso, the platform) → tools → KPMG pointer → now → contact.
+**About order:** intro → now → how I got here (education, EPIS, KPMG, Faltso, the platform) → the four services and their stacks → contact.
 
 **Future work:** the work index is a list of three. Adding a project means adding a card to `#work` and a page under `/work/`; no template changes.
 

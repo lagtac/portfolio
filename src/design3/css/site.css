@@ -233,7 +233,6 @@
 	font-family: var(--mono);
 	font-size: var(--t-label);
 	letter-spacing: 0.08em;
-	text-transform: capitalize;
 	color: var(--ink-3);
 }
 
@@ -355,6 +354,15 @@
 	margin-top: 0.25rem;
 	font-size: var(--t-small);
 	color: var(--ink-2);
+}
+
+.proof__note {
+	grid-column: 1 / -1;
+	padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
+	background: var(--paper-2);
+	font-size: var(--t-small);
+	line-height: 1.5;
+	color: var(--ink-3);
 }
 
 /* ------------------------------------------------------------ section head */
@@ -634,9 +642,16 @@
 	color: var(--ink-2);
 }
 
+.contact__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 1rem;
+	margin-top: 1.3rem;
+}
+
 .contact__email {
 	display: inline-block;
-	margin-top: 1.3rem;
 	padding-block: 0.5rem;
 	margin-bottom: -0.5rem;
 	font-family: var(--mono);
@@ -1395,6 +1410,54 @@
 	align-items: start;
 }
 
+/* The DOM reads story first, record second, so mobile and screen readers get
+   that order; the desktop grid puts the record back on the left. */
+.record {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.about-body {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.about-figure {
+	display: none;
+}
+
+/* Fill the leftover column on wide screens: the essay column stays at 64ch,
+   and the fourth service (the clinician app) is the artifact beside it. */
+@media (min-width: 1200px) {
+	.about-grid {
+		grid-template-columns: 11rem minmax(0, 1fr) 12.75rem;
+		column-gap: 2rem;
+		row-gap: 0;
+	}
+
+	.about-figure {
+		display: block;
+		grid-column: 3;
+		grid-row: 1;
+		position: sticky;
+		top: calc(var(--nav-h) + 1.5rem);
+		margin: 0;
+	}
+
+	/* The art column is narrow; stack the figure number so the caption keeps
+	   the full column width. */
+	.about-figure .figure__cap {
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	/* Two of the four service labels wrap in a 12.75rem column; hold the list
+	   baselines level instead of letting the headings stagger. */
+	.tool-group h3 {
+		min-height: 2.4em;
+	}
+}
+
 .record {
 	position: sticky;
 	top: calc(var(--nav-h) + 1.5rem);
@@ -1435,6 +1498,18 @@
 
 .record dd .num {
 	letter-spacing: 0;
+}
+
+.record a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: var(--rule-2);
+	text-underline-offset: 2px;
+}
+
+.record a:hover {
+	color: var(--accent);
+	text-decoration-color: var(--accent);
 }
 
 /* Contact affordance under the lead: the email is reachable before the fold
@@ -1559,6 +1634,10 @@
 	max-width: 64ch;
 }
 
+.about-body .now {
+	margin-top: 1.8rem;
+}
+
 .about-body > p {
 	font-size: var(--t-body);
 }
@@ -1576,7 +1655,7 @@
 
 .tools {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1.25rem;
 	margin-top: 1.4rem;
 }
@@ -1586,7 +1665,13 @@
 	font-size: var(--t-label);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--accent);
+	color: var(--ink-3);
+}
+
+.tools__note {
+	margin-top: 1rem;
+	font-size: var(--t-small);
+	color: var(--ink-3);
 }
 
 .tool-group ul {
@@ -1842,6 +1927,12 @@
 		grid-template-columns: 1fr;
 	}
 
+	.record,
+	.about-body {
+		grid-column: auto;
+		grid-row: auto;
+	}
+
 	.record {
 		position: static;
 		max-width: 34rem;
@@ -1851,6 +1942,10 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 0 1.5rem;
+	}
+
+	.tools {
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.about-work a {
