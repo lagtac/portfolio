@@ -48,6 +48,9 @@ jobs:
             src/design3/img/ml-readiness.webp \
             src/design3/img/palmist-results.webp \
             src/design3/img/palmist-upload.webp \
+            src/design3/img/faltso-band.webp \
+            src/design3/img/faltso-community.webp \
+            src/design3/img/faltso-rock-hotel.webp \
             "$RUNNER_TEMP/site/img/"
           touch "$RUNNER_TEMP/site/.nojekyll"
 
