@@ -23,10 +23,13 @@ ships with the local install. `-auto-orient` applies the EXIF rotation before
 `-strip` removes all metadata, including EXIF and GPS, as ADR 0002 requires.
 Never publish a derivative that skipped `-strip`.
 
-Run from the repository root. Crop, then strip, then encode at the target size:
+Run from the repository root. The steps are wrapped in `scripts/webp.sh`; it
+requires one of `--crop` or `--resize` and always strips metadata. Crop, then
+strip, then encode at the target size:
 
 ```bash
-convert source.png -auto-orient -crop 1580x820+0+80 +repage \
+convert "assets/Screenshot 2026-11-03 at 16-24-38 Annotator - Diagoradisa Annotation System.png" \
+  -auto-orient -crop 1580x820+0+80 +repage \
   -strip -quality 82 -define webp:method=6 \
   src/design3/img/annotator-tools.webp
 ```
@@ -34,10 +37,12 @@ convert source.png -auto-orient -crop 1580x820+0+80 +repage \
 For a photograph that is resized rather than cropped:
 
 ```bash
-convert source.jpg -auto-orient -resize 1600x \
+convert "assets/faltso/images/<photo>.jpg" -auto-orient -resize 1600x \
   -strip -quality 82 -define webp:method=6 \
   src/design3/img/faltso-band.webp
 ```
+
+Pick the photo from `assets/faltso/images/`; publishing it needs the consent recorded in ADR 0002.
 
 Crop values come from the table above. Confirm the output carries no EXIF:
 
