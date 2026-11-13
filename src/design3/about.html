@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="fonts/fonts.css?v=2">
   <link rel="stylesheet" href="css/tokens.css?v=5">
   <link rel="stylesheet" href="css/base.css?v=5">
-  <link rel="stylesheet" href="css/site.css?v=16">
+  <link rel="stylesheet" href="css/site.css?v=18">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -136,43 +136,6 @@
           <p>Since 2025 I have been the only developer on a four-service clinical imaging platform: annotation tool, dataset pipeline, model server, clinician app. I built it with agentic coding — Claude Code, parallel agents across the repositories, vendor and custom skills — and with the discipline that makes that safe: one contract per boundary, a test for every claim, and a diff I read myself. <a href="work/oral-pathology-platform.html">The case study</a> has the numbers and the three things that did not work.</p>
           <p>All four jobs put the value in the same place: between the parts. The annotation tool and the training set; the page and what it does. Systems that can be inspected — run IDs, dated reports, explicit contracts — keep that boundary honest after the context is gone.</p>
           <p>I live in Greece with my wife and son. I am looking for a fullstack role where the problem spans more than one layer and the evidence is expected to be real.</p>
-
-          <h2 class="about-subhead" id="tools">What each service is built with</h2>
-          <div class="tools">
-            <div class="tool-group">
-              <h3>Annotation tool</h3>
-              <ul>
-                <li>Laravel 12, OpenSeadragon, Annotorious</li>
-                <li>MariaDB, batches, roles</li>
-                <li>ICD-10 lookup, ML-readiness dashboard</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h3>Model server</h3>
-              <ul>
-                <li>Python, FastAPI, Ultralytics YOLO</li>
-                <li>Run and experiment lineage</li>
-                <li>29 endpoints, model hot-swap</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h3>Clinician app</h3>
-              <ul>
-                <li>Laravel 12, Livewire 4</li>
-                <li>Tailwind 4, DaisyUI 5</li>
-                <li>Case aggregation, PDF and Excel, mobile capture</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h3>Deployment</h3>
-              <ul>
-                <li>Docker, Apache, Bash</li>
-                <li>Reverse proxy, security headers</li>
-                <li>Backups, opt-in migrations</li>
-              </ul>
-            </div>
-          </div>
-          <p class="tools__note">The current study is TypeScript, React, and Next.js; it is not shipped work yet.</p>
         </div>
 
         <aside class="record" aria-labelledby="record-label">
@@ -200,13 +163,6 @@
             </div>
           </dl>
         </aside>
-
-        <figure class="about-figure">
-          <span class="figure__frame">
-            <img src="img/palmist-upload.webp" width="442" height="720" alt="The clinician app's mobile capture screen: Take Photo, Files, drag-and-drop, and an Analyze Images action." loading="lazy">
-          </span>
-          <figcaption class="figure__cap"><span class="figure__num">Fig. 01</span><span>The clinician app's capture flow, one of four services built alone.</span></figcaption>
-        </figure>
       </div>
     </section>
 

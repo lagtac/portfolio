@@ -629,7 +629,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	gap: clamp(2rem, 5vw, 5rem);
-	align-items: end;
+	align-items: start;
 }
 
 .contact h2 {
@@ -1403,10 +1403,12 @@
 
 /* ----------------------------------------------------------------- about */
 
+/* About shares the case-study grid: the same rail track, the same gap, so the
+   record and the reading column start on the same edge as every work page. */
 .about-grid {
 	display: grid;
-	grid-template-columns: 11rem minmax(0, 1fr);
-	gap: clamp(2rem, 5vw, 4rem);
+	grid-template-columns: 10.5rem minmax(0, 1fr);
+	gap: clamp(2rem, 5vw, 4.5rem);
 	align-items: start;
 }
 
@@ -1420,42 +1422,6 @@
 .about-body {
 	grid-column: 2;
 	grid-row: 1;
-}
-
-.about-figure {
-	display: none;
-}
-
-/* Fill the leftover column on wide screens: the essay column stays at 64ch,
-   and the fourth service (the clinician app) is the artifact beside it. */
-@media (min-width: 1200px) {
-	.about-grid {
-		grid-template-columns: 11rem minmax(0, 1fr) 12.75rem;
-		column-gap: 2rem;
-		row-gap: 0;
-	}
-
-	.about-figure {
-		display: block;
-		grid-column: 3;
-		grid-row: 1;
-		position: sticky;
-		top: calc(var(--nav-h) + 1.5rem);
-		margin: 0;
-	}
-
-	/* The art column is narrow; stack the figure number so the caption keeps
-	   the full column width. */
-	.about-figure .figure__cap {
-		flex-direction: column;
-		gap: 0.3rem;
-	}
-
-	/* Two of the four service labels wrap in a 12.75rem column; hold the list
-	   baselines level instead of letting the headings stagger. */
-	.tool-group h3 {
-		min-height: 2.4em;
-	}
 }
 
 .record {
@@ -1630,8 +1596,11 @@
 	color: var(--accent);
 }
 
+/* The body owns the column; the prose inside it holds the measure. The Now
+   panel spans the column the way a case-study figure does, so the band has a
+   right edge instead of trailing off at the end of a paragraph. */
 .about-body {
-	max-width: 64ch;
+	max-width: none;
 }
 
 .about-body .now {
@@ -1639,6 +1608,7 @@
 }
 
 .about-body > p {
+	max-width: 64ch;
 	font-size: var(--t-body);
 }
 
@@ -1651,38 +1621,6 @@
 	padding-top: 1.2rem;
 	border-top: 1px solid var(--rule);
 	font-size: var(--t-title);
-}
-
-.tools {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1.25rem;
-	margin-top: 1.4rem;
-}
-
-.tool-group h3 {
-	font-family: var(--mono);
-	font-size: var(--t-label);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--ink-3);
-}
-
-.tools__note {
-	margin-top: 1rem;
-	font-size: var(--t-small);
-	color: var(--ink-3);
-}
-
-.tool-group ul {
-	margin-top: 0.6rem;
-	list-style: none;
-	font-size: var(--t-small);
-	color: var(--ink-2);
-}
-
-.tool-group li + li {
-	margin-top: 0.3rem;
 }
 
 /* Dated ledger: the date or audience owns the gutter, the outcome owns the
@@ -1944,10 +1882,6 @@
 		gap: 0 1.5rem;
 	}
 
-	.tools {
-		grid-template-columns: 1fr 1fr;
-	}
-
 	.about-work a {
 		grid-template-columns: 6.5rem minmax(0, 1fr) 1rem;
 		grid-template-areas:
@@ -2122,10 +2056,6 @@
 
 	.failure dt {
 		padding-top: 0.5rem;
-	}
-
-	.tools {
-		grid-template-columns: 1fr;
 	}
 
 	.ledger__row {

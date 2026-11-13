@@ -306,9 +306,10 @@ characters, which is the number to check; `ch` measures the zero, not the
 average letter. The home page is a single
 column of bands: hero, proof strip, work list, method, Now, contact. The case
 study is a 10.5rem sticky rail plus a reading column; the rail collapses to a
-horizontal scroller below 960px. About is an 11rem sticky record column plus a
-64ch reading column, with a 12.75rem sticky artifact column from 1200px up;
-below 1200px the story leads and the record follows. Work items are a three-column row at desktop and
+horizontal scroller below 960px. About sits on the same grid as the case
+study: a 10.5rem sticky record column and a 64ch reading column, with the Now
+panel spanning the full reading column; below 960px the story leads and the
+record follows. Work items are a three-column row at desktop and
 a single column below 720px. The case table becomes a card list below 960px. From
 960 to 1200px it scrolls horizontally inside a named, focusable region; above
 1200px it fits without scrolling.
