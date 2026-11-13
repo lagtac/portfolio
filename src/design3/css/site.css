@@ -646,21 +646,76 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 0.5rem 1rem;
+	gap: 0.5rem 0;
 	margin-top: 1.3rem;
 }
 
 .contact__email {
-	display: inline-block;
+	display: inline-flex;
+	align-items: flex-start;
 	padding-block: 0.5rem;
 	margin-bottom: -0.5rem;
 	font-family: var(--mono);
-	font-size: clamp(1.25rem, 2.1vw, 1.5rem);
+	font-size: var(--t-body);
 	letter-spacing: -0.03em;
 	color: var(--ink);
 	text-decoration-color: var(--accent);
 	text-decoration-thickness: 2px;
 	overflow-wrap: anywhere;
+}
+
+.contact__icon {
+	width: 1.3em;
+	height: 1.3em;
+	flex: none;
+	margin-right: 0.55rem;
+	transform: translateY(0.2em);
+}
+
+.contact__copy {
+	display: inline-grid;
+	place-items: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius);
+	background: transparent;
+	color: var(--ink-2);
+	cursor: pointer;
+	transition: color 140ms var(--ease);
+}
+
+.contact__copy[hidden] {
+	display: none;
+}
+
+.contact__copy:hover {
+	color: var(--ink);
+}
+
+.contact__copy svg {
+	grid-area: 1 / 1;
+	width: 1.3em;
+	height: 1.3em;
+	transform: translateY(0.15em);
+}
+
+.contact__copy-done,
+.contact__copy[data-copied="true"] .contact__copy-icon {
+	display: none;
+}
+
+.contact__copy[data-copied="true"] .contact__copy-done {
+	display: block;
+}
+
+/* Below this width the address fills the line and the copy icon wraps under
+   it; hold it to the right edge so it reads as a trailing action. */
+@media (max-width: 26rem) {
+	.contact__copy {
+		margin-left: auto;
+	}
 }
 
 .contact__email:hover {
@@ -1507,34 +1562,6 @@
 	color: var(--accent);
 }
 
-.about-actions__copy {
-	display: inline-flex;
-	align-items: center;
-	min-height: 2.75rem;
-	padding: 0.5rem 0.9rem;
-	border: 1px solid var(--rule-2);
-	border-radius: var(--radius);
-	background: transparent;
-	color: var(--ink-2);
-	font: 500 var(--t-label) / 1 var(--mono);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	cursor: pointer;
-	transition:
-		border-color 140ms var(--ease),
-		color 140ms var(--ease);
-}
-
-.about-actions__copy[hidden] {
-	display: none;
-}
-
-.about-actions__copy:hover,
-.about-actions__copy:focus-visible {
-	border-color: var(--ink);
-	color: var(--ink);
-}
-
 /* The two case studies, inside the first viewport. The facts are the same
    verified numbers the home page's proof strip carries. */
 .about-work {
@@ -2231,6 +2258,20 @@ html:not(.js) .theme-toggle {
 .hero__links a:hover,
 .contact__links a:hover {
 	color: var(--accent);
+}
+
+.hero__links a,
+.contact__links a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+}
+
+.link-icon {
+	width: 1.1em;
+	height: 1.1em;
+	flex: none;
+	transform: translateY(-0.05em);
 }
 
 .about-actions__link {

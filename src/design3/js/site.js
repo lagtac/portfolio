@@ -96,11 +96,10 @@
 		const value = button.getAttribute("data-copy");
 		if (!value || !navigator.clipboard?.writeText) return;
 
-		const label = button.querySelector(".about-actions__copy-label") || button;
 		const status =
 			button.parentElement?.querySelector("[data-copy-status]") ||
 			document.querySelector("[data-copy-status]");
-		const initial = label.textContent;
+		const initial = button.getAttribute("aria-label") || "";
 		let timer = 0;
 
 		button.hidden = false;
@@ -111,11 +110,13 @@
 			} catch {
 				return;
 			}
-			label.textContent = "Copied";
+			button.dataset.copied = "true";
+			button.setAttribute("aria-label", "Email address copied");
 			if (status) status.textContent = "Email address copied";
 			window.clearTimeout(timer);
 			timer = window.setTimeout(() => {
-				label.textContent = initial;
+				delete button.dataset.copied;
+				button.setAttribute("aria-label", initial);
 				if (status) status.textContent = "";
 			}, 1600);
 		});
