@@ -44,7 +44,7 @@ Dimitris is between roles and learning TypeScript, React, and Next.js. The site
 is his primary job-search surface: English only, public, deployed to GitHub
 Pages. Work is judged on shipped features and the diversity of tasks.
 The canonical CV lives at `~/src/cv/cv-en.html`; a copy is published as
-`src/design3/cv.html` with Faltso at 2019–2024. Keep the two in step.
+`src/design3/cv/cv.html` with Faltso at 2019–2024. Keep the two in step.
 
 ## Capabilities and Constraints
 

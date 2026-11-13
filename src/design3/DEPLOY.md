@@ -7,9 +7,7 @@ this directory only, staged before upload.
 
 ```
 404.html
-cv.html
-cv.css
-ddc.jpg
+cv/
 index.html
 about.html
 work/
@@ -57,9 +55,7 @@ rm -rf /tmp/design3-site
 mkdir -p /tmp/design3-site
 rsync -a --delete \
   src/design3/404.html \
-  src/design3/cv.html \
-  src/design3/cv.css \
-  src/design3/ddc.jpg \
+  src/design3/cv \
   src/design3/index.html \
   src/design3/about.html \
   src/design3/work \
