@@ -9,6 +9,7 @@
 		"format": "biome format --write .",
 		"lint": "biome lint .",
 		"check": "biome check .",
+		"sync:cv": "./scripts/sync-cv.sh",
 		"prepare": "husky"
 	},
 	"keywords": [],
