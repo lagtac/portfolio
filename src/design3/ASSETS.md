@@ -67,6 +67,14 @@ No output means the metadata is gone.
 - Any KPMG or client brand, screenshot, credential, or PII.
 - `docs/`, `README.md`, `DEPLOY.md`, and this file.
 
+## Icons
+
+The contact and hero-link icons are inlined from [Iconoir](https://iconoir.com/),
+regular style, 24px viewBox at 1.5 stroke: `mail`, `page`, `github`, and
+`linkedin`. Iconoir is MIT licensed, copyright (c) 2021 Luca Burgio. The paths
+live in `about.html` and `index.html`, share the `link-icon` class, and no icon
+font or sprite is loaded at runtime.
+
 ## Fonts
 
 Self-hosted from `fonts/`; see `fonts/LICENSES.md`. No hosted font stylesheet is
