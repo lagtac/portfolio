@@ -91,13 +91,28 @@ uploads the result with `actions/upload-pages-artifact`. In the repository
 settings, set **Pages → Source** to **GitHub Actions**. The workflow deploys on a
 push to `main` that touches `src/design3/`, or by manual dispatch.
 
-No git remote is configured in this checkout, so this is prepared, not pushed.
+Published at <https://lagtac.github.io/portfolio/> (`lagtac/portfolio`, branch
+`main`, Pages source **GitHub Actions**).
+
+## The CV
+
+`cv/` is a copy. Its source is the separate repository at `~/src/cv`, which also
+holds the Greek CV and the PDF. Edit the CV there, never in `cv/`, then:
+
+```bash
+./scripts/sync-cv.sh
+```
+
+The script copies `cv-en.html`, `cv.css`, and `ddc.jpg`, and applies the two
+site-only adaptations: the footer link to `../index.html` and the cache-buster.
+It stamps `?v=` with the first eight hex digits of the CV's SHA-256, so the
+stylesheet URL changes exactly when the CV content changes.
 
 ## Cache busting
 
-Every CSS, JS, and font link carries `?v=`, and all of them share one value. Bump
-every link together after editing `css/`, `js/`, or `fonts/fonts.css`. Count them
-before and after:
+Every CSS, JS, and font link carries `?v=`. Bump every link together after
+editing `css/`, `js/`, or `fonts/fonts.css`. The CV stylesheet is the exception:
+`scripts/sync-cv.sh` maintains its content hash. Count them before and after:
 
 ```bash
 grep -rhoE '\?v=[0-9]+' src/design3 --include='*.html' --include='*.css' | sort | uniq -c
