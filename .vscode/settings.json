@@ -6,6 +6,7 @@
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll.oxc": "explicit",
+			"source.fixAll.biome": "explicit",
 			"source.organizeImports.oxc": "explicit"
 		}
 	},
@@ -14,6 +15,7 @@
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll.oxc": "explicit",
+			"source.fixAll.biome": "explicit",
 			"source.organizeImports.oxc": "explicit"
 		}
 	},
@@ -22,6 +24,7 @@
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll.oxc": "explicit",
+			"source.fixAll.biome": "explicit",
 			"source.organizeImports.oxc": "explicit"
 		}
 	},
@@ -30,6 +33,11 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[css]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.oxc": "explicit",
+			"source.fixAll.biome": "explicit",
+			"source.organizeImports.oxc": "explicit"
+		}
 	}
 }
