@@ -15,6 +15,38 @@ site.
 | `img/og.jpg`                       | Rendered from a temporary 1200 × 630 HTML card in this directory                                             | Authored social card. The product screenshot inside it is the cropped derivative above.                                                                                                               |
 | `img/favicon.svg`                  | Authored                                                                                                     | Monogram. No third-party mark.                                                                                                                                                                        |
 
+## Re-encoding
+
+Published derivatives are made with ImageMagick 6 (`convert`; `magick` is the
+ImageMagick 7 name and is not installed here). WebP is encoded by libwebp, which
+ships with the local install. `-auto-orient` applies the EXIF rotation before
+`-strip` removes all metadata, including EXIF and GPS, as ADR 0002 requires.
+Never publish a derivative that skipped `-strip`.
+
+Run from the repository root. Crop, then strip, then encode at the target size:
+
+```bash
+convert source.png -auto-orient -crop 1580x820+0+80 +repage \
+  -strip -quality 82 -define webp:method=6 \
+  src/design3/img/annotator-tools.webp
+```
+
+For a photograph that is resized rather than cropped:
+
+```bash
+convert source.jpg -auto-orient -resize 1600x \
+  -strip -quality 82 -define webp:method=6 \
+  src/design3/img/faltso-band.webp
+```
+
+Crop values come from the table above. Confirm the output carries no EXIF:
+
+```bash
+identify -verbose src/design3/img/annotator-tools.webp | grep -i exif
+```
+
+No output means the metadata is gone.
+
 ## Not published
 
 - `assets/` in any form, including `assets/source/` and the ten clinical PDFs.
