@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Design system — Dimitris Chrysomalis</title>
   <meta name="description" content="Case Record: the tokens, type, and components behind this site.">
@@ -18,7 +20,7 @@
         var dark = pref === "dark" || (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
         document.documentElement.dataset.theme = dark ? "dark" : "light";
         document.documentElement.dataset.themePref = pref;
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
   <link rel="stylesheet" href="../fonts/fonts.css?v=1">
@@ -26,6 +28,7 @@
   <link rel="stylesheet" href="../css/base.css?v=1">
   <link rel="stylesheet" href="../css/site.css?v=1">
 </head>
+
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
@@ -44,11 +47,15 @@
         <a class="nav__link" href="../about.html">About</a>
         <a class="nav__link" href="../index.html#contact">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Switch theme">
-          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
             <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            <path
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4">
+            </path>
           </svg>
-          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
             <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z"></path>
           </svg>
         </button>
@@ -60,30 +67,71 @@
     <header class="design-head wrap">
       <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>Design system · v1</p>
       <h1>Case Record</h1>
-      <p class="lede">A portfolio as a case file: paper, rules, measured claims, and one vermilion mark. This page is the reference for the tokens and components the site uses.</p>
+      <p class="lede">A portfolio as a case file: paper, rules, measured claims, and one vermilion mark. This page is
+        the reference for the tokens and components the site uses.</p>
     </header>
 
     <section class="section wrap">
       <header class="section-head">
         <p class="eyebrow">§ 01 — Colour</p>
         <h2>Surfaces and marks.</h2>
-        <p class="section-head__note">Semantic tokens, not hex values in components. Switch the theme to see both sets.</p>
+        <p class="section-head__note">Semantic tokens, not hex values in components. Switch the theme to see both sets.
+        </p>
       </header>
 
       <div class="swatches">
-        <div class="swatch"><div class="swatch__chip" style="background: var(--paper)"></div><span class="swatch__name">--paper</span><span class="swatch__value">page</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--paper-2)"></div><span class="swatch__name">--paper-2</span><span class="swatch__value">raised</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--paper-3)"></div><span class="swatch__name">--paper-3</span><span class="swatch__value">sunken</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--ink)"></div><span class="swatch__name">--ink</span><span class="swatch__value">body</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--ink-2)"></div><span class="swatch__name">--ink-2</span><span class="swatch__value">secondary</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--ink-3)"></div><span class="swatch__name">--ink-3</span><span class="swatch__value">metadata</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--rule)"></div><span class="swatch__name">--rule</span><span class="swatch__value">hairline</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--rule-2)"></div><span class="swatch__name">--rule-2</span><span class="swatch__value">strong rule</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--mark)"></div><span class="swatch__name">--mark</span><span class="swatch__value">accent</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--good)"></div><span class="swatch__name">--good</span><span class="swatch__value">correct</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--warn)"></div><span class="swatch__name">--warn</span><span class="swatch__value">caution</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--bad)"></div><span class="swatch__name">--bad</span><span class="swatch__value">wrong</span></div>
-        <div class="swatch"><div class="swatch__chip" style="background: var(--info)"></div><span class="swatch__name">--info</span><span class="swatch__value">neutral data</span></div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--paper)"></div><span
+            class="swatch__name">--paper</span><span class="swatch__value">page</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--paper-2)"></div><span
+            class="swatch__name">--paper-2</span><span class="swatch__value">raised</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--paper-3)"></div><span
+            class="swatch__name">--paper-3</span><span class="swatch__value">sunken</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--ink)"></div><span class="swatch__name">--ink</span><span
+            class="swatch__value">body</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--ink-2)"></div><span
+            class="swatch__name">--ink-2</span><span class="swatch__value">secondary</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--ink-3)"></div><span
+            class="swatch__name">--ink-3</span><span class="swatch__value">metadata</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--rule)"></div><span class="swatch__name">--rule</span><span
+            class="swatch__value">hairline</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--rule-2)"></div><span
+            class="swatch__name">--rule-2</span><span class="swatch__value">strong rule</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--mark)"></div><span class="swatch__name">--mark</span><span
+            class="swatch__value">accent</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--good)"></div><span class="swatch__name">--good</span><span
+            class="swatch__value">correct</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--warn)"></div><span class="swatch__name">--warn</span><span
+            class="swatch__value">caution</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--bad)"></div><span class="swatch__name">--bad</span><span
+            class="swatch__value">wrong</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__chip" style="background: var(--info)"></div><span class="swatch__name">--info</span><span
+            class="swatch__value">neutral data</span>
+        </div>
       </div>
     </section>
 
@@ -91,7 +139,8 @@
       <header class="section-head">
         <p class="eyebrow">§ 02 — Type</p>
         <h2>Three faces, three jobs.</h2>
-        <p class="section-head__note">Display serif for claims, sans for reading, mono for evidence. Both text faces carry Greek.</p>
+        <p class="section-head__note">Display serif for claims, sans for reading, mono for evidence. Both text faces
+          carry Greek.</p>
       </header>
 
       <div class="specimen">
@@ -104,12 +153,14 @@
       </div>
       <div class="specimen">
         <p class="specimen__label">Body · Plex Sans 400 · 17 / 1.65</p>
-        <p class="prose">The model must be allowed to say nothing. A confident wrong answer is worse than no answer. That requirement shaped the aggregation rules and the UI.</p>
+        <p class="prose">The model must be allowed to say nothing. A confident wrong answer is worse than no answer.
+          That requirement shaped the aggregation rules and the UI.</p>
       </div>
       <div class="specimen">
         <p class="specimen__label">Data · Plex Mono 400</p>
         <p class="mono">box mAP@50 0.508 · recall 0.496 · run 20260614_181629</p>
-        <p class="small" lang="el">ΛΕΥΚΟΠΛΑΚΙΑ · ΟΜΑΛΟΣ ΛΕΙΧΗΝΑΣ · ΒΛΕΝΝΟΚΥΣΤΗ <span class="subtle">— Greek labels render in Plex Sans</span></p>
+        <p class="small" lang="el">ΛΕΥΚΟΠΛΑΚΙΑ · ΟΜΑΛΟΣ ΛΕΙΧΗΝΑΣ · ΒΛΕΝΝΟΚΥΣΤΗ <span class="subtle">— Greek labels
+            render in Plex Sans</span></p>
       </div>
     </section>
 
@@ -121,7 +172,8 @@
       </header>
 
       <div class="component-row">
-        <a class="btn" href="../work/diagoradisa.html">Read the case study <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="../work/diagoradisa.html">Read the case study <span class="btn__arrow"
+            aria-hidden="true">→</span></a>
         <a class="btn btn--ghost" href="../index.html">Ghost button</a>
       </div>
 
@@ -138,7 +190,8 @@
         <span class="badge">No diagnosis</span>
       </div>
 
-      <p class="note"><strong>Notes carry the honest caveat.</strong> Ten cases is a product test, not a validation study. The left rule is the only decoration the system allows itself.</p>
+      <p class="note"><strong>Notes carry the honest caveat.</strong> Ten cases is a product test, not a validation
+        study. The left rule is the only decoration the system allows itself.</p>
 
       <div class="table-wrap" style="margin-top: 2rem">
         <table class="case-table">
@@ -161,7 +214,8 @@
             </tr>
             <tr>
               <td data-label="Case"><span class="mono">04</span></td>
-              <td data-label="Ground truth" class="gt">Stevens–Johnson syndrome <span lang="el">ΣΥΝΔΡΟΜΟ STEVENS–JOHNSON</span></td>
+              <td data-label="Ground truth" class="gt">Stevens–Johnson syndrome <span lang="el">ΣΥΝΔΡΟΜΟ
+                  STEVENS–JOHNSON</span></td>
               <td data-label="Model output">Oral lichen planus</td>
               <td data-label="Best" class="num conf">89.1%</td>
               <td data-label="Verdict"><span class="badge badge--bad">Wrong</span></td>
@@ -198,4 +252,5 @@
 
   <script src="../js/site.js?v=2" defer></script>
 </body>
+
 </html>
