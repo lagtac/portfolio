@@ -8,3 +8,6 @@ playwright-report
 docs/cv-*.html
 
 .impeccable/live
+.agents
+.scratch
+skills-lock.json
