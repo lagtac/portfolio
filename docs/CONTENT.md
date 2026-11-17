@@ -198,7 +198,7 @@ Each entry uses the schema `Project · Years · Role · What I did · Skills · 
 | 4   | cpalaw.gr law firm site                 | 2018             | Content Manager; web content & build      | Delivered the 2018 content and template update across five practice areas.                                              |
 | 5   | Alumni portal                           | 2016–2018        | Content Manager; content & web lead       | Wrote the page-by-page content plan and site structure from the global Alumni toolkit.                                  |
 | 6   | Fortune "Most Admired Companies" survey | 2015, 2016, 2018 | Content Manager; web build                | Delivered three annual cycles of EN/GR survey pages, phase A/B variants, and campaign email.                            |
-| 7   | Email and newsletter suite              | 2014–2018        | Content Manager; email marketing          | Built reusable responsive templates across four campaign families; documented the tool evaluation.                      |
+| 7   | Email and newsletter suite              | 2014–2018        | Content Manager; email marketing          | Templated four programmes (e-newsletters, tax, GDPR consent, business development); documented the tool evaluation.     |
 | 8   | Family Business Dynamics microsite      | 2017             | Content Manager; web content              | Shipped the Greek microsite from the global family-business campaign.                                                   |
 | 9   | "Content is King" landing page          | 2017             | Designer and builder (personal)           | Built a self-contained interactive content-marketing piece with image-map hotspots.                                     |
 
