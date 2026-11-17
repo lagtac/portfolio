@@ -134,7 +134,7 @@ a:hover {
 .eyebrow {
 	display: flex;
 	align-items: center;
-	gap: 0.6rem;
+	gap: var(--s-2);
 	font-family: var(--mono);
 	font-size: var(--t-label);
 	font-weight: 500;
@@ -220,7 +220,7 @@ a:hover {
 .link-arrow {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: var(--s-2);
 	font-weight: 500;
 	text-decoration: none;
 }
@@ -240,9 +240,9 @@ a:hover {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 0.55rem;
+	gap: var(--s-2);
 	min-height: 2.75rem;
-	padding: 0.7rem 1.1rem;
+	padding: var(--s-3) var(--s-4);
 	border: 1px solid var(--ink);
 	border-radius: var(--radius);
 	background: transparent;
@@ -288,8 +288,8 @@ a:hover {
 .tag {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.35rem;
-	padding: 0.25rem 0.45rem;
+	gap: var(--s-1);
+	padding: var(--s-1) var(--s-2);
 	border: 1px solid var(--rule-2);
 	border-radius: var(--radius);
 	font-family: var(--mono);
@@ -305,8 +305,8 @@ a:hover {
 .badge {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.35rem;
-	padding: 0.2rem 0.45rem;
+	gap: var(--s-1);
+	padding: var(--s-1) var(--s-2);
 	border-radius: var(--radius);
 	background: var(--neutral-soft);
 	color: var(--ink);
@@ -354,8 +354,8 @@ a:hover {
 
 .figure__cap {
 	display: flex;
-	gap: 0.75rem;
-	margin-top: 0.7rem;
+	gap: var(--s-3);
+	margin-top: var(--s-3);
 	font-size: var(--t-small);
 	line-height: 1.5;
 	color: var(--ink-2);
@@ -389,7 +389,7 @@ table {
 
 caption {
 	text-align: left;
-	padding: 0.9rem 1rem;
+	padding: var(--s-4) var(--s-4);
 	font-family: var(--mono);
 	font-size: var(--t-label);
 	letter-spacing: 0.08em;
@@ -400,7 +400,7 @@ caption {
 
 th,
 td {
-	padding: 0.75rem 0.9rem;
+	padding: var(--s-3) var(--s-4);
 	text-align: left;
 	vertical-align: top;
 	border-bottom: 1px solid var(--rule);
@@ -449,7 +449,7 @@ code {
 
 pre {
 	margin: 0;
-	padding: 1rem 1.1rem;
+	padding: var(--s-4) var(--s-4);
 	overflow-x: auto;
 	border: 1px solid var(--rule-2);
 	border-radius: var(--radius);
@@ -481,7 +481,7 @@ pre code {
 	left: var(--gutter);
 	top: 0.75rem;
 	z-index: 100;
-	padding: 0.6rem 0.9rem;
+	padding: var(--s-2) var(--s-4);
 	background: var(--ink);
 	color: var(--paper);
 	font-weight: 500;
