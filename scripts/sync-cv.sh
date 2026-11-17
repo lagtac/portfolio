@@ -16,7 +16,7 @@ repo=$(cd "$(dirname "$0")/.." && pwd)
 src="${CV_SOURCE:-$HOME/src/cv}"
 dst="$repo/src/design3/cv"
 
-for file in cv-en.html cv.css ddc.jpg; do
+for file in cv-en.html cv.css ddc2.jpeg; do
 	[[ -f "$src/$file" ]] || {
 		echo "CV source not found: $src/$file" >&2
 		exit 1
@@ -25,7 +25,7 @@ done
 
 cp "$src/cv-en.html" "$dst/cv.html"
 cp "$src/cv.css" "$dst/cv.css"
-cp "$src/ddc.jpg" "$dst/ddc.jpg"
+cp "$src/ddc2.jpeg" "$dst/ddc2.jpeg"
 
 # Content hash: the cache-buster changes exactly when the CV content changes.
 version=$(sha256sum "$src/cv-en.html" | cut -c1-8)

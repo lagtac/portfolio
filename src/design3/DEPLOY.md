@@ -103,7 +103,7 @@ holds the Greek CV and the PDF. Edit the CV there, never in `cv/`, then:
 ./scripts/sync-cv.sh
 ```
 
-The script copies `cv-en.html`, `cv.css`, and `ddc.jpg`, and applies the two
+The script copies `cv-en.html`, `cv.css`, and `ddc2.jpeg`, and applies the two
 site-only adaptations: the footer link to `../index.html` and the cache-buster.
 It stamps `?v=` with the first eight hex digits of the CV's SHA-256, so the
 stylesheet URL changes exactly when the CV content changes.
