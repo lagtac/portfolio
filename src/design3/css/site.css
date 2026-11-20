@@ -35,12 +35,24 @@
 }
 
 .brand__role {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0 0.5em;
 	font-family: var(--mono);
 	font-size: var(--t-label);
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: var(--ink-3);
-	white-space: nowrap;
+}
+
+/* The separator belongs to the one-line desktop lockup. Narrower widths drop
+   the scope to the next line, where a leading dot would read as a bullet. */
+@media (min-width: 1200px) {
+	.brand__role-scope::before {
+		content: "·";
+		margin-right: 0.5em;
+	}
 }
 
 .site-nav {
@@ -101,6 +113,7 @@
 
 .nav-toggle {
 	display: none;
+	flex: none;
 	width: 2.3rem;
 	height: 2.3rem;
 	border: 1px solid var(--rule-2);
@@ -1940,11 +1953,31 @@
 	}
 }
 
-@media (max-width: 720px) {
-	.brand__role {
-		display: none;
+/* The full title needs about 760px beside the name, so the brand stacks until
+   the header row has that room. Stretching the children lets the role wrap
+   inside its column instead of running under the nav. */
+@media (max-width: 1199px) {
+	.brand {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
 	}
 
+	.brand__role {
+		letter-spacing: 0.06em;
+	}
+}
+
+/* On the narrowest phones the scope would otherwise break into two lines.
+   One step down keeps the title at three lines in the header. */
+@media (max-width: 400px) {
+	.brand__role {
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
+	}
+}
+
+@media (max-width: 720px) {
 	/* Keep a proof figure inside the first viewport on a phone. */
 	.hero {
 		padding-block: var(--s-5) var(--s-5);

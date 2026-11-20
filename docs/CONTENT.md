@@ -303,7 +303,7 @@ The voice is plain, specific and dry. A heading states a fact; it does not perfo
 - Aphorism headings: three parallel imperatives read as a slogan set. Write what was done.
 - The `X. Not Y.` antithesis, at most once per page and never as a heading.
 - Rule-of-three slogans repeated across pages ("Write it, build it, measure it").
-- "Senior" or "junior" as a self-label. The site says "Fullstack developer"; dates, scope, and shipped work carry the level.
+- "Senior" or "junior" as a self-label. The site says "Full-Stack Developer · Web, Content & AI Products"; dates, scope, and shipped work carry the level.
 
 **Naming**
 
