@@ -11,3 +11,6 @@ docs/cv-*.html
 .agents
 .scratch
 skills-lock.json
+.claude
+.codex
+
