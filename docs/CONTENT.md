@@ -34,7 +34,7 @@ Working document. Source of truth for copy and numbers used on the site.
 **KPMG (2010–2018)**
 
 - **Period:** 2010–2018, KPMG Greece, Content Manager on the marketing/digital team.
-- **Scope:** web build (Umbraco, SharePoint 2013), email marketing, SEO and analytics, social and brand content.
+- **Scope:** web build (Adobe Experience Manager, Umbraco, SharePoint 2013), email marketing, SEO and analytics, social and brand content.
 - **Selection:** nine projects chosen for evidence, not volume.
 - **Outcomes:** qualitative. The backfill numbers in the inventory are unfilled — do not invent metrics.
 

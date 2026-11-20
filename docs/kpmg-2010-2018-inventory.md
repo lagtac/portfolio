@@ -17,8 +17,8 @@ foundation.
 ## Summary
 
 - **Period:** 2010–2018, KPMG Greece, Content Manager (marketing/digital team).
-- **Scope:** web build (Umbraco, SharePoint 2013), email marketing, SEO and
-  analytics, social and brand content.
+- **Scope:** web build (Adobe Experience Manager, Umbraco, SharePoint 2013),
+  email marketing, SEO and analytics, social and brand content.
 - **Selection:** nine projects chosen for evidence, not volume.
 
 ## Projects
