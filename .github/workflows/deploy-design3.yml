@@ -51,6 +51,8 @@ jobs:
             src/design3/img/faltso-band.webp \
             src/design3/img/faltso-community.webp \
             src/design3/img/faltso-rock-hotel.webp \
+            src/design3/img/slider-6-editor.webp \
+            src/design3/img/diago-system-diagram.webp \
             "$RUNNER_TEMP/site/img/"
           touch "$RUNNER_TEMP/site/.nojekyll"
 
