@@ -371,11 +371,17 @@
 
 .proof__note {
 	grid-column: 1 / -1;
+	/* Two tracks keep the note painting the full band while the text stops at
+	   a readable measure. A max-width on the note itself would expose the
+	   grid's hairline colour on the empty side. */
+	display: grid;
+	grid-template-columns: minmax(0, 57ch) minmax(0, 1fr);
 	padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
 	background: var(--paper-2);
 	font-size: var(--t-small);
 	line-height: 1.5;
-	color: var(--ink-3);
+	color: var(--ink-2);
+	text-wrap: pretty;
 }
 
 /* ------------------------------------------------------------ section head */

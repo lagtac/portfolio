@@ -120,7 +120,7 @@
             </header>
             <div class="prose">
               <p class="lede">Stomatologists photograph lesions in the mouth and label them from memory. That label is slow to produce, inconsistent between clinicians, and hard to audit.</p>
-              <p>The platform was built to make that process measurable: a tool to annotate images against a controlled disease taxonomy, a pipeline that turns those annotations into a training set, a model that segments lesions, and an app that returns a case-level result.</p>
+              <p>The platform makes that process measurable. A case arrives as photographs and comes back as a diagnosis with a confidence score, a view count, and the images behind it. Each step keeps its own record, so a result can be traced to the model run that produced it.</p>
               <p>The taxonomy started at 95 ICD-10 classes. The production model uses 18. A class with too few examples teaches a model to be confidently wrong, so the 18 that survived are the ones with enough evidence to support a claim.</p>
             </div>
 
@@ -128,7 +128,7 @@
               <span class="figure__frame">
                 <img src="../img/ml-readiness.webp" width="1247" height="621" alt="The ML-readiness charts: the export cascade from annotated images to the export set, a class-size histogram against the 150-image threshold, and the train/validation/test split." loading="lazy">
               </span>
-              <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>The ML-readiness screen on 3 November 2026, before the EXIF fix. It shows the 10,975-image and 8,012-image split. The current split is 8,774 images (6,143 train / 1,755 val / 876 test); the histogram makes the imbalance visible before anyone trains.</span></figcaption>
+              <figcaption class="figure__cap"><span class="figure__num">Fig. 02</span><span>The ML-readiness screen on 3 November 2026, before the EXIF fix. It shows the export cascade from 10,975 annotated images to 8,012 after the minimum-sample filter. The current split is 8,774 images (6,143 train / 1,755 val / 876 test); the histogram makes the imbalance visible before anyone trains.</span></figcaption>
             </figure>
 
             <div class="timeline">
@@ -164,7 +164,7 @@
               <ul>
                 <li><strong>One developer, four services.</strong> No handoff to an ML engineer, a designer, or an ops team. Nobody else owned the boundaries between them.</li>
                 <li><strong>Clinical data.</strong> Real patient photographs, authentication on every surface, and no identifiers in the exported dataset.</li>
-                <li><strong>One GPU.</strong> A training run is an appointment, not a loop. Experiments had to be chosen carefully.</li>
+                <li><strong>One GPU.</strong> A training run held the card until it finished, so experiments had to be chosen carefully.</li>
                 <li><strong>Variable capture.</strong> Different cameras, lighting, and EXIF orientations. The data is not a benchmark set.</li>
                 <li><strong>The model must be allowed to say nothing.</strong> A confident wrong answer is worse than no answer. That requirement shaped the aggregation rules and the UI.</li>
               </ul>
@@ -210,7 +210,7 @@
             </div>
 
             <p class="note"><strong>Two contracts connect the services.</strong> The dataset export (annotation tool → model server) is logged under a versioned dataset contract. The prediction schema (model server → clinician app) is mirrored between Pydantic models and PHP DTOs, with tests on both sides. Most of the expensive bugs were in the data those contracts pass.</p>
-            <p class="note"><strong>How it was built.</strong> One developer and a lot of agentic tooling: Claude Code, parallel agents across the four repositories, vendor and custom skills. 1,629 commits. The number measures volume; the contracts and the tests are what show whether the agents helped, and <a href="#failures">§05</a> keeps the three things that did not work.</p>
+            <p class="note"><strong>How it was built.</strong> One developer and a lot of agentic tooling: Claude Code, parallel agents across the four repositories, vendor and custom skills. 1,629 commits. The number measures volume; the contracts and the tests show whether the agents helped. <a href="#failures">§05</a> keeps the three things that did not work.</p>
           </section>
 
           <section class="case-section" id="surfaces">
@@ -265,7 +265,7 @@
               <div class="surface__body">
                 <h3>Clinician app</h3>
                 <p class="surface__role">Case upload, aggregation, exports</p>
-                <p>Upload up to ten images as one case. The app forwards them to the ML service, aggregates detections across views, and only calls a condition present when it appears in two or more views. Results export to PDF and Excel.</p>
+                <p>Upload up to ten images as one case. The app forwards them to the ML service, aggregates detections across views, and only marks a condition present when it appears in two or more views. Results export to PDF and Excel.</p>
                 <ul>
                   <li>Case-level aggregation instead of per-image noise.</li>
                   <li>Camera capture and quality checks on mobile.</li>
@@ -531,7 +531,7 @@
               </table>
             </section>
 
-            <p class="note"><strong>Ten cases is a product test, not a validation study.</strong> It shows the failure modes (a confident wrong class, a refusal to choose, a missed lesion), not the error rate. Four correct, three wrong, three abstentions.</p>
+            <p class="note"><strong>Ten cases cannot give an error rate.</strong> What they show is the three failure modes: a confident wrong class, a refusal to choose, and a missed lesion. Four correct, three wrong, three abstentions.</p>
           </section>
 
           <section class="case-section" id="next">
